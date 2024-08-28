@@ -1,165 +1,193 @@
-local default = loadstring(game:HttpGet("https://gist.githubusercontent.com/raw/6f3d37a9f5068a0fc2203ac77077ce06/", true))()
-local old = loadstring(game:HttpGet("https://pastebin.com/raw/kTSEH2sZ", true))()
-local long = loadstring(game:HttpGet("https://gist.githubusercontent.com/raw/71101a9a7e1513e9b603339f6530b615/", true))()
-local autoenter = true
-local autodelay = 0.1
-local delay = 0.1
-local autotype = false
-local Library = loadstring(game:HttpGet("https://gist.github.com/DeveloperMikey/a63d9da80c571a64a4b4ecc04a73b82a/raw/Twinklibfork.lua"))()
-local Main = Library.Load("word bomb fucker v1.4")
-local Screen = Main.GetUI()
-local Home = Main.AddPage("home", false)
-local Config = Main.AddPage("config", false)
-local typing = false
-local used = {}
-local utf8 = {
-	["A"] = 0x41,
-	["B"] = 0x42,
-	["C"] = 0x43,
-	["D"] = 0x44,
-	["E"] = 0x45,
-	["F"] = 0x46,
-	["G"] = 0x47,
-	["H"] = 0x48,
-	["I"] = 0x49,
-	["J"] = 0x4A,
-	["K"] = 0x4B,
-	["L"] = 0x4C,
-	["M"] = 0x4D,
-	["N"] = 0x4E,
-	["O"] = 0x4F,
-	["P"] = 0x50,
-	["Q"] = 0x51,
-	["R"] = 0x52,
-	["S"] = 0x53,
-	["T"] = 0x54,
-	["U"] = 0x55,
-	["V"] = 0x56,
-	["W"] = 0x57,
-	["X"] = 0x58,
-	["Y"] = 0x59,
-	["Z"] = 0x5A,
+if not game:IsLoaded() then
+   game.Loaded:Wait()
+end
+
+getgenv().SilentAimSettings = {
+   Enabled = true,
+
+   VisibleCheck = true,
+   TargetPart = "Head",
+
+   FOVRadius = 130,
+   FOVVisible = true,
 }
 
+local Camera = workspace.CurrentCamera
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local GuiService = game:GetService("GuiService")
+local UserInputService = game:GetService("UserInputService")
+local HttpService = game:GetService("HttpService")
 
-local ENGLISH_WORDS = loadstring(game:HttpGet("https://gist.githubusercontent.com/raw/6f3d37a9f5068a0fc2203ac77077ce06/", true))()
-local ContextActionService = game:GetService("ContextActionService")
-local function checker(val)
-    for i,v in pairs(used) do
-        if v == val then return true end
-    end
-    return false
+local LocalPlayer = Players.LocalPlayer
+local Mouse = LocalPlayer:GetMouse()
+
+local GetChildren = game.GetChildren
+local GetPlayers = Players.GetPlayers
+local WorldToScreen = Camera.WorldToScreenPoint
+local WorldToViewportPoint = Camera.WorldToViewportPoint
+local GetPartsObscuringTarget = Camera.GetPartsObscuringTarget
+local FindFirstChild = game.FindFirstChild
+local RenderStepped = RunService.RenderStepped
+local GuiInset = GuiService.GetGuiInset
+local GetMouseLocation = UserInputService.GetMouseLocation
+
+local resume = coroutine.resume
+local create = coroutine.create
+
+local ValidTargetParts = {"Head", "HumanoidRootPart"}
+local PredictionAmount = 0.165
+local Aiming = false
+
+local fov_circle = Drawing.new("Circle")
+fov_circle.Thickness = 1
+fov_circle.NumSides = 100
+fov_circle.Radius = 180
+fov_circle.Filled = false
+fov_circle.Visible = false
+fov_circle.ZIndex = 999
+fov_circle.Transparency = 1
+fov_circle.Color = Color3.fromRGB(54, 57, 241)
+
+local ExpectedArguments = {
+   FindPartOnRayWithIgnoreList = {
+       ArgCountRequired = 3,
+       Args = {
+           "Instance", "Ray", "table", "boolean", "boolean"
+       }
+   },
+   FindPartOnRayWithWhitelist = {
+       ArgCountRequired = 3,
+       Args = {
+           "Instance", "Ray", "table", "boolean"
+       }
+   },
+   FindPartOnRay = {
+       ArgCountRequired = 2,
+       Args = {
+           "Instance", "Ray", "Instance", "boolean", "boolean"
+       }
+   },
+   Raycast = {
+       ArgCountRequired = 3,
+       Args = {
+           "Instance", "Vector3", "Vector3", "RaycastParams"
+       }
+   }
+}
+
+local function getPositionOnScreen(Vector)
+   local Vec3, OnScreen = WorldToScreen(Camera, Vector)
+   return Vector2.new(Vec3.X, Vec3.Y), OnScreen
 end
-local function getWord()
-    local word = ""
-    for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.GameUI.Container.GameSpace.DefaultUI.GameContainer.DesktopContainer.InfoFrameContainer.InfoFrame.TextFrame:GetChildren()) do
-        if v.Name == "LetterFrame" then
-            word = word .. v.Letter.TextLabel.Text
-        end
-    end
-    return word
-end
-local function findword(letters)
-    local word
-    local lenght = math.huge
-    for i,v in pairs(ENGLISH_WORDS) do
-        if string.find(v, string.lower(letters)) and not checker(string.upper(v)) then
-            word = string.upper(v)
-            lenght = string.len(v)
-        end
-    end
-    return word
-end
-local function answer()
-    if typing == false then
-        typing = true
-        local letters = getWord()
-        if letters then
-            local word = findword(letters)
-            if word then
-                for c in string.gmatch(findword(letters), ".") do
-                    keypress(utf8[c])
-                    wait(delay)
-                end
-                table.insert(used, word)
-                if autoenter then
-                    wait(delay)
-                    keypress(0x0D)
-                end
-                typing = false
-            end
-        end
-    end
+
+local function ValidateArguments(Args, RayMethod)
+   local Matches = 0
+   if #Args < RayMethod.ArgCountRequired then
+       return false
+   end
+   for Pos, Argument in next, Args do
+       if typeof(Argument) == RayMethod.Args[Pos] then
+           Matches = Matches + 1
+       end
+   end
+   return Matches >= RayMethod.ArgCountRequired
 end
 
---ui lib
-local AnswerButton = Home.AddButton("type answer", function()
-    answer()
- end)
-
-local AutoTypeToggle = Home.AddToggle("automatically type", false, function(s)
-    autotype = s
-end)
-local ClearButton = Home.AddButton("clear used words", function()
-	used = {}
-end)
-
-local DelaySlider = Home.AddSlider("delay (ms)", {Min = 0, Max = 1000, Def = 100}, function(s)
-    delay = s/1000
-end)
-
-local AutoSlider = Home.AddSlider("autotype delay (ms)", {Min = 0, Max = 1000, Def = 100}, function(s)
-    autodelay = s/1000
-end)
-
-local WordsDropdown = Config.AddDropdown("word list", {'default', 'old', 'long'}, function(list)
-    if list == 'default' then
-        ENGLISH_WORDS = loadstring(game:HttpGet("https://gist.githubusercontent.com/raw/6f3d37a9f5068a0fc2203ac77077ce06/", true))()
-    elseif list == 'old' then
-        ENGLISH_WORDS = loadstring(game:HttpGet("https://pastebin.com/raw/kTSEH2sZ", true))()
-    elseif list == 'long' then
-        ENGLISH_WORDS = loadstring(game:HttpGet("https://gist.githubusercontent.com/raw/71101a9a7e1513e9b603339f6530b615/", true))()
-    end
-end)
-
-
-local AutosubToggle = Config.AddToggle("automatically submit", true, function(s)
-    autoenter = s
-end)
-
-local DestroyButton = Config.AddButton("destroy ui", function()
-    Screen:Destroy()
-    autotype = false
-    autoenter = false
-end)
-
-local DiscordButton = Config.AddButton("copy discord invite", function()
-	setclipboard("https://discord.gg/8mxdVNnf5W")
-end)
-
-local Credit1 = Config.AddLabel("made by jss and mikeymikey")
-local CreditUi = Config.AddLabel("ui lib - modified twinklib")
-local Credit2 = Config.AddLabel("v3rmillion.net")
-
-if game:GetService("Players").LocalPlayer.PlayerGui.GameUI.Container.GameSpace.DefaultUI:FindFirstChild("GameContainer") and game:GetService("Players").LocalPlayer.PlayerGui.GameUI.Container.GameSpace.DefaultUI.GameContainer.DesktopContainer.Typebar.Typebox then
-    game:GetService("Players").LocalPlayer.PlayerGui.GameUI.Container.GameSpace.DefaultUI.GameContainer.DesktopContainer.Typebar.Typebox:GetPropertyChangedSignal("Visible"):Connect(function()
-        repeat
-            wait(0.1)
-            if game:GetService("Players").LocalPlayer.PlayerGui.GameUI.Container.GameSpace.DefaultUI.GameContainer.DesktopContainer.Typebar.Typebox.Visible == true and autotype == true then local a = answer() end
-            wait(1)
-        until game:GetService("Players").LocalPlayer.PlayerGui.GameUI.Container.GameSpace.DefaultUI.GameContainer.DesktopContainer.Typebar.Typebox.Visible == false
-    end)
+local function getDirection(Origin, Position)
+   return (Position - Origin).Unit * 1000
 end
-game:GetService("Players").LocalPlayer.PlayerGui.GameUI.DescendantAdded:Connect(function(yes)
-    if yes.Name == "Typebox" then
-        game:GetService("Players").LocalPlayer.PlayerGui.GameUI.Container.GameSpace.DefaultUI.GameContainer.DesktopContainer.Typebar.Typebox:GetPropertyChangedSignal("Visible"):Connect(function()
-            wait(autodelay)
-            if game:GetService("Players").LocalPlayer.PlayerGui.GameUI.Container.GameSpace.DefaultUI.GameContainer.DesktopContainer.Typebar.Typebox.Visible == true and autotype == true then
-                repeat
-                answer()
-                wait(1)
-                until game:GetService("Players").LocalPlayer.PlayerGui.GameUI.Container.GameSpace.DefaultUI.GameContainer.DesktopContainer.Typebar.Typebox.Visible == false
-            end
-        end)
-    end
+
+local function getMousePosition()
+   return GetMouseLocation(UserInputService)
+end
+
+local function IsPlayerVisible(Player)
+   local PlayerCharacter = Player.Character
+   local LocalPlayerCharacter = LocalPlayer.Character
+
+   if not (PlayerCharacter or LocalPlayerCharacter) then return end
+
+   local PlayerRoot = FindFirstChild(PlayerCharacter, SilentAimSettings.TargetPart) or FindFirstChild(PlayerCharacter, "HumanoidRootPart")
+
+   if not PlayerRoot then return end
+
+   local CastPoints, IgnoreList = {PlayerRoot.Position, LocalPlayerCharacter, PlayerCharacter}, {LocalPlayerCharacter, PlayerCharacter}
+   local ObscuringObjects = #GetPartsObscuringTarget(Camera, CastPoints, IgnoreList)
+
+   return ((ObscuringObjects == 0 and true) or (ObscuringObjects > 0 and false))
+end
+
+local function getClosestPlayer()
+   local Closest
+   local DistanceToMouse
+   for _, Player in next, GetPlayers(Players) do
+       if Player == LocalPlayer then continue end
+
+       local Character = Player.Character
+       if not Character then continue end
+
+       if SilentAimSettings.VisibleCheck and not IsPlayerVisible(Player) then continue end
+
+       local HumanoidRootPart = FindFirstChild(Character, "HumanoidRootPart")
+       local Humanoid = FindFirstChild(Character, "Humanoid")
+       if not HumanoidRootPart or not Humanoid or Humanoid and Humanoid.Health <= 0 then continue end
+
+       local ScreenPosition, OnScreen = getPositionOnScreen(HumanoidRootPart.Position)
+       if not OnScreen then continue end
+
+       local Distance = (getMousePosition() - ScreenPosition).Magnitude
+       if Distance <= (DistanceToMouse or SilentAimSettings.FOVRadius or 2000) then
+           Closest = (Character[SilentAimSettings.TargetPart])
+           DistanceToMouse = Distance
+       end
+   end
+   return Closest
+end
+
+resume(create(function()
+   RenderStepped:Connect(function()
+       fov_circle.Visible = SilentAimSettings.FOVVisible
+       fov_circle.Color = Color3.fromRGB(255, 255, 255)
+       fov_circle.Radius = SilentAimSettings.FOVRadius
+       fov_circle.Position = getMousePosition()
+   end)
+end))
+
+local aim_c_1
+aim_c_1 = UserInputService.InputBegan:Connect(function(input)
+   if input.UserInputType == Enum.UserInputType.MouseButton1 then
+       Aiming = true
+   end
 end)
+
+local aim_c_2
+aim_c_2 = UserInputService.InputEnded:Connect(function(input)
+   if input.UserInputType == Enum.UserInputType.MouseButton1 then
+       Aiming = false
+   end
+end)
+
+local oldNamecall
+oldNamecall = hookmetamethod(game, "__namecall", newcclosure(function(...)
+   local Method = getnamecallmethod()
+   local Arguments = {...}
+   local self = Arguments[1]
+   if Aiming and self == workspace and not checkcaller() then
+       if Method == "FindPartOnRayWithIgnoreList" then
+           if ValidateArguments(Arguments, ExpectedArguments.FindPartOnRayWithIgnoreList) then
+               local A_Ray = Arguments[2]
+
+               local HitPart = getClosestPlayer()
+               if HitPart then
+                   local Origin = A_Ray.Origin
+                   local Direction = getDirection(Origin, HitPart.Position)
+                   Arguments[2] = Ray.new(Origin, Direction)
+
+                   return oldNamecall(unpack(Arguments))
+               end
+           end
+       end
+   end
+   return oldNamecall(...)
+end))
