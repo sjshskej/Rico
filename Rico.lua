@@ -1,193 +1,147 @@
-if not game:IsLoaded() then
-   game.Loaded:Wait()
-end
+local weaponSystem = require(game:service'ReplicatedStorage'.WeaponsSystem.Libraries.BaseWeapon)
+local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/MaterialLua/master/Module.lua"))()
 
-getgenv().SilentAimSettings = {
-   Enabled = true,
+local client = game:GetService('Players').LocalPlayer;
 
-   VisibleCheck = true,
-   TargetPart = "Head",
-
-   FOVRadius = 130,
-   FOVVisible = true,
-}
-
-local Camera = workspace.CurrentCamera
-local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
-local GuiService = game:GetService("GuiService")
-local UserInputService = game:GetService("UserInputService")
-local HttpService = game:GetService("HttpService")
-
-local LocalPlayer = Players.LocalPlayer
-local Mouse = LocalPlayer:GetMouse()
-
-local GetChildren = game.GetChildren
-local GetPlayers = Players.GetPlayers
-local WorldToScreen = Camera.WorldToScreenPoint
-local WorldToViewportPoint = Camera.WorldToViewportPoint
-local GetPartsObscuringTarget = Camera.GetPartsObscuringTarget
-local FindFirstChild = game.FindFirstChild
-local RenderStepped = RunService.RenderStepped
-local GuiInset = GuiService.GetGuiInset
-local GetMouseLocation = UserInputService.GetMouseLocation
-
-local resume = coroutine.resume
-local create = coroutine.create
-
-local ValidTargetParts = {"Head", "HumanoidRootPart"}
-local PredictionAmount = 0.165
-local Aiming = false
-
-local fov_circle = Drawing.new("Circle")
-fov_circle.Thickness = 1
-fov_circle.NumSides = 100
-fov_circle.Radius = 180
-fov_circle.Filled = false
-fov_circle.Visible = false
-fov_circle.ZIndex = 999
-fov_circle.Transparency = 1
-fov_circle.Color = Color3.fromRGB(54, 57, 241)
-
-local ExpectedArguments = {
-   FindPartOnRayWithIgnoreList = {
-       ArgCountRequired = 3,
-       Args = {
-           "Instance", "Ray", "table", "boolean", "boolean"
-       }
-   },
-   FindPartOnRayWithWhitelist = {
-       ArgCountRequired = 3,
-       Args = {
-           "Instance", "Ray", "table", "boolean"
-       }
-   },
-   FindPartOnRay = {
-       ArgCountRequired = 2,
-       Args = {
-           "Instance", "Ray", "Instance", "boolean", "boolean"
-       }
-   },
-   Raycast = {
-       ArgCountRequired = 3,
-       Args = {
-           "Instance", "Vector3", "Vector3", "RaycastParams"
-       }
-   }
-}
-
-local function getPositionOnScreen(Vector)
-   local Vec3, OnScreen = WorldToScreen(Camera, Vector)
-   return Vector2.new(Vec3.X, Vec3.Y), OnScreen
-end
-
-local function ValidateArguments(Args, RayMethod)
-   local Matches = 0
-   if #Args < RayMethod.ArgCountRequired then
-       return false
-   end
-   for Pos, Argument in next, Args do
-       if typeof(Argument) == RayMethod.Args[Pos] then
-           Matches = Matches + 1
-       end
-   end
-   return Matches >= RayMethod.ArgCountRequired
-end
-
-local function getDirection(Origin, Position)
-   return (Position - Origin).Unit * 1000
-end
-
-local function getMousePosition()
-   return GetMouseLocation(UserInputService)
-end
-
-local function IsPlayerVisible(Player)
-   local PlayerCharacter = Player.Character
-   local LocalPlayerCharacter = LocalPlayer.Character
-
-   if not (PlayerCharacter or LocalPlayerCharacter) then return end
-
-   local PlayerRoot = FindFirstChild(PlayerCharacter, SilentAimSettings.TargetPart) or FindFirstChild(PlayerCharacter, "HumanoidRootPart")
-
-   if not PlayerRoot then return end
-
-   local CastPoints, IgnoreList = {PlayerRoot.Position, LocalPlayerCharacter, PlayerCharacter}, {LocalPlayerCharacter, PlayerCharacter}
-   local ObscuringObjects = #GetPartsObscuringTarget(Camera, CastPoints, IgnoreList)
-
-   return ((ObscuringObjects == 0 and true) or (ObscuringObjects > 0 and false))
-end
+local oldFire = weaponSystem.fire;
+local oldGetConfigValue = weaponSystem.getConfigValue
+local oldUseAmmo = weaponSystem.useAmmo;
+local oldGetAmmo = weaponSystem.getAmmoInWeapon
 
 local function getClosestPlayer()
-   local Closest
-   local DistanceToMouse
-   for _, Player in next, GetPlayers(Players) do
-       if Player == LocalPlayer then continue end
+    local final = nil
+    local maxRange = math.huge;
 
-       local Character = Player.Character
-       if not Character then continue end
+    for i, player in next, game:GetService('Players'):GetPlayers() do
+        if player == client then continue end
+        if (not player.Character) then continue end
 
-       if SilentAimSettings.VisibleCheck and not IsPlayerVisible(Player) then continue end
+        local humanoid = player.Character:FindFirstChild('Humanoid');
+        local head = player.Character:FindFirstChild('Head');
 
-       local HumanoidRootPart = FindFirstChild(Character, "HumanoidRootPart")
-       local Humanoid = FindFirstChild(Character, "Humanoid")
-       if not HumanoidRootPart or not Humanoid or Humanoid and Humanoid.Health <= 0 then continue end
+        if (not head) or (not humanoid) then continue end
+        if (humanoid.Health <= 0) then continue end
 
-       local ScreenPosition, OnScreen = getPositionOnScreen(HumanoidRootPart.Position)
-       if not OnScreen then continue end
+        local vector, visible = workspace.CurrentCamera:WorldToViewportPoint(head.Position);
+        if (not visible) then continue end
 
-       local Distance = (getMousePosition() - ScreenPosition).Magnitude
-       if Distance <= (DistanceToMouse or SilentAimSettings.FOVRadius or 2000) then
-           Closest = (Character[SilentAimSettings.TargetPart])
-           DistanceToMouse = Distance
-       end
-   end
-   return Closest
+        local cursorPosition = game:GetService('UserInputService'):GetMouseLocation();
+        local screenPosition = Vector2.new(vector.X, vector.Y);
+
+        local difference = math.floor((screenPosition - cursorPosition).magnitude);
+        if (difference < maxRange) then
+            maxRange = difference
+            final = head;
+        end
+    end
+    return final;
 end
 
-resume(create(function()
-   RenderStepped:Connect(function()
-       fov_circle.Visible = SilentAimSettings.FOVVisible
-       fov_circle.Color = Color3.fromRGB(255, 255, 255)
-       fov_circle.Radius = SilentAimSettings.FOVRadius
-       fov_circle.Position = getMousePosition()
-   end)
-end))
+function weaponSystem.getAmmoInWeapon(self, ...)
+    local arguments = {...}
+    if _G.infiniteAmmo then return 9e9 end
+    return oldGetAmmo(self, unpack(arguments))
+end
 
-local aim_c_1
-aim_c_1 = UserInputService.InputBegan:Connect(function(input)
-   if input.UserInputType == Enum.UserInputType.MouseButton1 then
-       Aiming = true
-   end
-end)
+function weaponSystem.fire(self, ...)
+    local arguments = {...};
 
-local aim_c_2
-aim_c_2 = UserInputService.InputEnded:Connect(function(input)
-   if input.UserInputType == Enum.UserInputType.MouseButton1 then
-       Aiming = false
-   end
-end)
+    if _G.silentAim then
+        local t = getClosestPlayer()
+        if t then
+            arguments[2] = (t.Position - arguments[1]).unit;
+            arguments[3] = 1;
+        end
+    end
 
-local oldNamecall
-oldNamecall = hookmetamethod(game, "__namecall", newcclosure(function(...)
-   local Method = getnamecallmethod()
-   local Arguments = {...}
-   local self = Arguments[1]
-   if Aiming and self == workspace and not checkcaller() then
-       if Method == "FindPartOnRayWithIgnoreList" then
-           if ValidateArguments(Arguments, ExpectedArguments.FindPartOnRayWithIgnoreList) then
-               local A_Ray = Arguments[2]
+    return oldFire(self, unpack(arguments))
+end
 
-               local HitPart = getClosestPlayer()
-               if HitPart then
-                   local Origin = A_Ray.Origin
-                   local Direction = getDirection(Origin, HitPart.Position)
-                   Arguments[2] = Ray.new(Origin, Direction)
+function weaponSystem.getConfigValue(self, ...)
+    local arguments = {...}
 
-                   return oldNamecall(unpack(Arguments))
-               end
-           end
-       end
-   end
-   return oldNamecall(...)
-end))
+    if _G.fastFire and arguments[1] == 'ShotCooldown' then
+        return 0.01
+    elseif _G.autoGuns and arguments[1] == 'FireMode' then
+        return 'Automatic'
+    elseif _G.noRecoil and (arguments[1] == 'RecoilMin' or arguments[1] == 'RecoilMax') then
+        return 0
+    elseif _G.noSpread and (arguments[1] == 'MinSpread' or arguments[1] == 'MaxSpread') then
+        return 0
+    end
+
+    return oldGetConfigValue(self, unpack(arguments))
+end
+
+function weaponSystem.useAmmo(self, ...)
+    local arguments = {...}
+    if _G.infiniteAmmo then
+        if (self.ammoInWeaponValue) then
+            return 1;
+        end
+    end
+    return oldUseAmmo(self, unpack(arguments))
+end
+
+local window = {} do
+    local windowMeta = {} 
+    windowMeta.__index = windowMeta
+
+    function windowMeta:Tab(name)
+        local tab = self.window.New({
+            Title = name;
+        })
+
+        return setmetatable({
+            window = self.window;
+            tab = tab;
+        }, windowMeta) 
+    end
+
+    function windowMeta:Toggle(name, callback)
+        self.tab.Toggle({
+            Text = name;
+            Callback = callback;
+        })
+    end
+
+    function windowMeta:Banner(name, options)
+        local _menu = {}
+
+        for name, str in next, options do
+            _menu[name] = function() self.window.Banner({ Text = str }) end
+        end
+
+        self.tab.Button({
+            Text = name;
+            Menu = _menu
+        })
+    end
+
+    function window.new(name)
+        local main = Material.Load({
+            Title = name;
+            Style = 1;
+
+            Theme = 'Jester';
+            SizeX = 300;
+            SizeY = 320;
+        })
+
+        return setmetatable({ window = main }, windowMeta) 
+    end
+end
+
+local gui = window.new('Arabic Fortnite');
+local tab = gui:Tab('Main');
+
+tab:Toggle('Silent Aim', function(value) _G.silentAim = value end)
+tab:Toggle('Infinite Ammo', function(value) _G.infiniteAmmo = value end)
+tab:Toggle('No Recoil', function(value) _G.noRecoil = value end)
+tab:Toggle('No Spread', function(value) _G.noSpread = value end)
+tab:Toggle('Fast Guns', function(value) _G.fastFire = value end)
+tab:Toggle('Automatic Guns', function(value) _G.autoGuns = value end)
+tab:Banner('Credits', {
+    Scripting = "wally#5423";
+    ["Mental support"] = "swag#5948 & jack#2000",
+})
