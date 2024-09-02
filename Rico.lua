@@ -1,147 +1,183 @@
-local weaponSystem = require(game:service'ReplicatedStorage'.WeaponsSystem.Libraries.BaseWeapon)
-local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/MaterialLua/master/Module.lua"))()
-
-local client = game:GetService('Players').LocalPlayer;
-
-local oldFire = weaponSystem.fire;
-local oldGetConfigValue = weaponSystem.getConfigValue
-local oldUseAmmo = weaponSystem.useAmmo;
-local oldGetAmmo = weaponSystem.getAmmoInWeapon
-
-local function getClosestPlayer()
-    local final = nil
-    local maxRange = math.huge;
-
-    for i, player in next, game:GetService('Players'):GetPlayers() do
-        if player == client then continue end
-        if (not player.Character) then continue end
-
-        local humanoid = player.Character:FindFirstChild('Humanoid');
-        local head = player.Character:FindFirstChild('Head');
-
-        if (not head) or (not humanoid) then continue end
-        if (humanoid.Health <= 0) then continue end
-
-        local vector, visible = workspace.CurrentCamera:WorldToViewportPoint(head.Position);
-        if (not visible) then continue end
-
-        local cursorPosition = game:GetService('UserInputService'):GetMouseLocation();
-        local screenPosition = Vector2.new(vector.X, vector.Y);
-
-        local difference = math.floor((screenPosition - cursorPosition).magnitude);
-        if (difference < maxRange) then
-            maxRange = difference
-            final = head;
-        end
-    end
-    return final;
-end
-
-function weaponSystem.getAmmoInWeapon(self, ...)
-    local arguments = {...}
-    if _G.infiniteAmmo then return 9e9 end
-    return oldGetAmmo(self, unpack(arguments))
-end
-
-function weaponSystem.fire(self, ...)
-    local arguments = {...};
-
-    if _G.silentAim then
-        local t = getClosestPlayer()
-        if t then
-            arguments[2] = (t.Position - arguments[1]).unit;
-            arguments[3] = 1;
-        end
-    end
-
-    return oldFire(self, unpack(arguments))
-end
-
-function weaponSystem.getConfigValue(self, ...)
-    local arguments = {...}
-
-    if _G.fastFire and arguments[1] == 'ShotCooldown' then
-        return 0.01
-    elseif _G.autoGuns and arguments[1] == 'FireMode' then
-        return 'Automatic'
-    elseif _G.noRecoil and (arguments[1] == 'RecoilMin' or arguments[1] == 'RecoilMax') then
-        return 0
-    elseif _G.noSpread and (arguments[1] == 'MinSpread' or arguments[1] == 'MaxSpread') then
-        return 0
-    end
-
-    return oldGetConfigValue(self, unpack(arguments))
-end
-
-function weaponSystem.useAmmo(self, ...)
-    local arguments = {...}
-    if _G.infiniteAmmo then
-        if (self.ammoInWeaponValue) then
-            return 1;
-        end
-    end
-    return oldUseAmmo(self, unpack(arguments))
-end
-
-local window = {} do
-    local windowMeta = {} 
-    windowMeta.__index = windowMeta
-
-    function windowMeta:Tab(name)
-        local tab = self.window.New({
-            Title = name;
-        })
-
-        return setmetatable({
-            window = self.window;
-            tab = tab;
-        }, windowMeta) 
-    end
-
-    function windowMeta:Toggle(name, callback)
-        self.tab.Toggle({
-            Text = name;
-            Callback = callback;
-        })
-    end
-
-    function windowMeta:Banner(name, options)
-        local _menu = {}
-
-        for name, str in next, options do
-            _menu[name] = function() self.window.Banner({ Text = str }) end
-        end
-
-        self.tab.Button({
-            Text = name;
-            Menu = _menu
-        })
-    end
-
-    function window.new(name)
-        local main = Material.Load({
-            Title = name;
-            Style = 1;
-
-            Theme = 'Jester';
-            SizeX = 300;
-            SizeY = 320;
-        })
-
-        return setmetatable({ window = main }, windowMeta) 
-    end
-end
-
-local gui = window.new('Arabic Fortnite');
-local tab = gui:Tab('Main');
-
-tab:Toggle('Silent Aim', function(value) _G.silentAim = value end)
-tab:Toggle('Infinite Ammo', function(value) _G.infiniteAmmo = value end)
-tab:Toggle('No Recoil', function(value) _G.noRecoil = value end)
-tab:Toggle('No Spread', function(value) _G.noSpread = value end)
-tab:Toggle('Fast Guns', function(value) _G.fastFire = value end)
-tab:Toggle('Automatic Guns', function(value) _G.autoGuns = value end)
-tab:Banner('Credits', {
-    Scripting = "wally#5423";
-    ["Mental support"] = "swag#5948 & jack#2000",
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/lxte/lates-lib/main/Main.lua"))()
+local Window = Library:CreateWindow({
+	Title = "???",
+	Theme = "Dark",
+	
+	Size = UDim2.fromOffset(570, 370),
+	Transparency = 0.2,
+	Blurring = true,
+	MinimizeKeybind = Enum.KeyCode.LeftAlt,
 })
+
+local Themes = {
+	Light = {
+		--// Frames:
+		Primary = Color3.fromRGB(232, 232, 232),
+		Secondary = Color3.fromRGB(255, 255, 255),
+		Component = Color3.fromRGB(245, 245, 245),
+		Interactables = Color3.fromRGB(235, 235, 235),
+
+		--// Text:
+		Tab = Color3.fromRGB(50, 50, 50),
+		Title = Color3.fromRGB(0, 0, 0),
+		Description = Color3.fromRGB(100, 100, 100),
+
+		--// Outlines:
+		Shadow = Color3.fromRGB(255, 255, 255),
+		Outline = Color3.fromRGB(210, 210, 210),
+
+		--// Image:
+		Icon = Color3.fromRGB(100, 100, 100),
+	},
+	
+	Dark = {
+		--// Frames:
+		Primary = Color3.fromRGB(30, 30, 30),
+		Secondary = Color3.fromRGB(35, 35, 35),
+		Component = Color3.fromRGB(40, 40, 40),
+		Interactables = Color3.fromRGB(45, 45, 45),
+
+		--// Text:
+		Tab = Color3.fromRGB(200, 200, 200),
+		Title = Color3.fromRGB(240,240,240),
+		Description = Color3.fromRGB(200,200,200),
+
+		--// Outlines:
+		Shadow = Color3.fromRGB(0, 0, 0),
+		Outline = Color3.fromRGB(40, 40, 40),
+
+		--// Image:
+		Icon = Color3.fromRGB(220, 220, 220),
+	},
+	
+	Void = {
+		--// Frames:
+		Primary = Color3.fromRGB(15, 15, 15),
+		Secondary = Color3.fromRGB(20, 20, 20),
+		Component = Color3.fromRGB(25, 25, 25),
+		Interactables = Color3.fromRGB(30, 30, 30),
+
+		--// Text:
+		Tab = Color3.fromRGB(200, 200, 200),
+		Title = Color3.fromRGB(240,240,240),
+		Description = Color3.fromRGB(200,200,200),
+
+		--// Outlines:
+		Shadow = Color3.fromRGB(0, 0, 0),
+		Outline = Color3.fromRGB(40, 40, 40),
+
+		--// Image:
+		Icon = Color3.fromRGB(220, 220, 220),
+	},
+
+}
+
+--// Set the default theme
+Window:SetTheme(Themes.Dark)
+
+--// Sections
+Window:AddTabSection({
+	Name = "Main",
+	Order = 1,
+})
+
+Window:AddTabSection({
+	Name = "Settings",
+	Order = 2,
+})
+
+--// Tab [MAIN]
+
+local Main = Window:AddTab({
+	Title = "كواد باب الاول",
+	Section = "البواب",
+	Icon = "rbxassetid://11963373994"
+})
+
+Window:AddSection({ Name = "سكربت البحث عن الكود ✅", Tab = Main }) 
+
+
+Window:AddParagraph({
+	Title = "معلومة",
+	Description = "اذا كانت اي مشكلة في سكربت رجاء اخباري في قناتي اسمه ريكو_Rico  ",
+	Tab = Main
+}) 
+
+Window:AddSection({ Name = "المراحلا", Tab = Main }) 
+Window:AddButton({
+	Title = "الباب الاول ✅",
+	Description = "الكود يصلك في رسالة فل. سكربت و ذا لم يصل اضغط على ازر مرة ثانية🔥",
+	Tab = Main,
+	Callback = function() 
+	
+		Window:Notify({
+			Title = "الكود المرحلة الاول✅",
+			Description = "250- الكود 🔥", 
+			Duration = 5
+		})
+	end,
+}) 
+
+Window:Notify({
+			Title = "الكود المرحلة الثانية ✅",
+			Description = "143- الكود 🔥", 
+			Duration = 5
+		})
+	end,
+}) 
+
+Window:Notify({
+			Title = "الكود المرحلة الثالثة ✅",
+			Description = "435 - الكود 🔥", 
+			Duration = 5
+		})
+	end,
+}) 
+
+Window:Notify({
+			Title = "الكود المرحلة الرابعة ✅",
+			Description = "798 -  الكود 🔥", 
+			Duration = 5
+		})
+	end,
+}) 
+
+Window:Notify({
+			Title = "الكود المرحلة الخامسة ✅",
+			Description = "930 - الكود 🔥", 
+			Duration = 5
+		})
+	end,
+}) 
+
+Window:Notify({
+			Title = "الكود المرحلة السادسة✅",
+			Description = "284 - الكود 🔥", 
+			Duration = 5
+		})
+	end,
+}) 
+
+Window:Notify({
+			Title = "الكود المرحلة السابعة ✅",
+			Description = "106 - الكود 🔥", 
+			Duration = 5
+		})
+	end,
+})
+
+Window:Notify({
+			Title = "الكود المرحلة الثامنة ✅",
+			Description = "621 - الكود 🔥", 
+			Duration = 5
+		})
+	end,
+}) 
+
+Window:Notify({
+			Title = "الكود المرحلة التاسعة ✅",
+			Description = "856 - الكود 🔥", 
+			Duration = 5
+		})
+	end,
+}) 
