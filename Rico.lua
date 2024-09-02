@@ -248,3 +248,11 @@ local Main = Window:AddTab({
 	Title = "كود باب الثاني",
 	Icon = "rbxassetid://11963373994"
 })
+
+Window:AddParagraph({
+	Title = "معلومة",
+	Description = "ذا صار شي في سكربت رجاء اخباري في قناتي يوتيوب ريكو Rico 🌹",
+	Tab = Main
+}) 
+
+Window:AddSection({ Name = "المراحل 🎀🌹", Tab = Main }) 
