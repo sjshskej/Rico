@@ -90,11 +90,11 @@ Window:AddTabSection({
 
 local Main = Window:AddTab({
 	Title = "كود باب الاول",
-	Section = "كود البواب او المراحل 🤑",
+	Section = "سكربت ماب | البحث عن الكود العرب ☠",
 	Icon = "rbxassetid://11963373994"
 })
 
-Window:AddSection({ Name = "سكربت ماب | البحث عن الكود العرب✅", Tab = Main }) 
+Window:AddSection({ Name = "المرحلة الاولى هنا 🌹✅", Tab = Main }) 
 
 
 Window:AddParagraph({
@@ -254,5 +254,7 @@ Window:AddParagraph({
 	Description = "ذا صار شي في سكربت رجاء اخباري في قناتي يوتيوب ريكو Rico 🌹",
 	Tab = Main
 }) 
+
+Window:AddSection({ Name = "المرحلة الثانية هنا ✅🌹", Tab = Main }) 
 
 Window:AddSection({ Name = "المراحل 🎀🌹", Tab = Main }) 
