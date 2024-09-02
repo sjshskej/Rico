@@ -77,12 +77,12 @@ Window:SetTheme(Themes.Dark)
 
 --// Sections
 Window:AddTabSection({
-	Name = "كود البواب او المراحل 🤑",
+	Name = "سكربت ماب | البحث عن الكود العرب ☠",
 	Order = 1,
 })
 
 Window:AddTabSection({
-	Name = "الكواد او المراحل ثانية🔥",
+	Name = "الاعدادات و صاحب سكربت 🌹🎧",
 	Order = 2,
 })
 
@@ -90,7 +90,7 @@ Window:AddTabSection({
 
 local Main = Window:AddTab({
 	Title = "كود باب الاول",
-	Section = "سكربت ماب | البحث عن الكود العرب ☠",
+	Section = "✅🔥",
 	Icon = "rbxassetid://11963373994"
 })
 
@@ -249,12 +249,12 @@ local Main = Window:AddTab({
 	Icon = "rbxassetid://11963373994"
 })
 
+Window:AddSection({ Name = "المرحلة الثانية هنا ✅🌹", Tab = Main }) 
+
 Window:AddParagraph({
 	Title = "معلومة",
 	Description = "ذا صار شي في سكربت رجاء اخباري في قناتي يوتيوب ريكو Rico 🌹",
 	Tab = Main
 }) 
-
-Window:AddSection({ Name = "المرحلة الثانية هنا ✅🌹", Tab = Main }) 
 
 Window:AddSection({ Name = "المراحل 🎀🌹", Tab = Main }) 
