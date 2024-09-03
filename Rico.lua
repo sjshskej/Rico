@@ -991,19 +991,21 @@ Window:AddSection({ Name = "المتجر كامل هنا 🏪", Tab = Main })
 
 Window:AddSection({ Name = "هنا الاغراض كامل 🤹‍♂️", Tab = Main }) 
 
+
 Window:AddButton({
-	Title = "🌹",
-	Description = "🌹",
+	Title = "الكود مرحلة ",
+	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
 	Tab = Main,
 	Callback = function() 
-		Window:Notify({
-		local args = {
+	local args = {
     [1] = game:GetService("Players").LocalPlayer:WaitForChild("Pizza")
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("ShopFolder"):WaitForChild("EquipTool"):FireServer(unpack(args))
 
-			Title = "🌹",
+		Window:Notify({
+			Title = "الكود ✅",
+			Description = " - الكود 🔥", 
 			Duration = 5
 		})
 	end,
