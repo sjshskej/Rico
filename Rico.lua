@@ -81,11 +81,6 @@ Window:AddTabSection({
 	Order = 1,
 })
 
-Window:AddTabSection({
-	Name = "الاعدادات و صاحب سكربت 🛠",
-	Order = 2,
-})
-
 --// Tab [MAIN]
 
 local Main = Window:AddTab({
@@ -980,6 +975,11 @@ Window:AddParagraph({
 	Tab = Main
 }) 
 
+
+Window:AddTabSection({
+	Name = "الاعدادات و صاحب سكربت 🛠",
+	Order = 2,
+})
 
 local Keybind = nil
 local Settings = Window:AddTab({
