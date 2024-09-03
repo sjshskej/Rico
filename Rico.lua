@@ -980,34 +980,10 @@ Window:AddParagraph({
 	Tab = Main
 }) 
 
+
 local Keybind = nil
-local Main = Window:AddTab({
-	Title = "المتجر 🏪",
-	Icon = "rbxassetid://11963373994"
+local Settings = Window:AddTab({
+	Title = "الاعدادات الكاملة ⚒️",
+	Section = "الاعدادات",
+	Icon = "rbxassetid://11293977610",
 })
-
-Window:AddSection({ Name = "المتجر كامل هنا 🏪", Tab = Main }) 
-
-
-Window:AddSection({ Name = "هنا الاغراض كامل 🤹‍♂️", Tab = Main }) 
-
-
-Window:AddButton({
-	Title = "الكود مرحلة ",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-	local args = {
-    [1] = game:GetService("Players").LocalPlayer:WaitForChild("Pizza")
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("ShopFolder"):WaitForChild("EquipTool"):FireServer(unpack(args))
-
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = " - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
