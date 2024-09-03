@@ -82,7 +82,7 @@ Window:AddTabSection({
 })
 
 Window:AddTabSection({
-	Name = "الاعدادات و صاحب سكربت 🌹🎧",
+	Name = "الاعدادات و صاحب سكربت 🛠",
 	Order = 2,
 })
 
@@ -94,7 +94,7 @@ local Main = Window:AddTab({
 	Icon = "rbxassetid://11963373994"
 })
 
-Window:AddSection({ Name = "المرحلة الاولى هنا 🌹✅", Tab = Main }) 
+Window:AddSection({ Name = "اكواد عالم البحر 🌊 ", Tab = Main }) 
 
 
 Window:AddParagraph({
@@ -103,7 +103,7 @@ Window:AddParagraph({
 	Tab = Main
 }) 
 
-Window:AddSection({ Name = "المراحل 🎀🌹", Tab = Main }) 
+Window:AddSection({ Name = "المراحل 📛", Tab = Main }) 
 
 Window:AddButton({
 	Title = "الكود مرحلة الاول✅",
@@ -241,7 +241,7 @@ local Main = Window:AddTab({
 	Icon = "rbxassetid://11963373994"
 })
 
-Window:AddSection({ Name = "المرحلة الثانية هنا ✅🌹", Tab = Main }) 
+Window:AddSection({ Name = "اكواد عالم الصحراء هنا 🏜", Tab = Main }) 
 
 Window:AddParagraph({
 	Title = "معلومة ❓",
@@ -249,7 +249,7 @@ Window:AddParagraph({
 	Tab = Main
 }) 
 
-Window:AddSection({ Name = "المراحل 🎀🌹", Tab = Main }) 
+Window:AddSection({ Name = "المراحل 📛", Tab = Main }) 
 
 Window:AddButton({
 	Title = "الكود مرحلة الاولى ✔️",
@@ -387,7 +387,7 @@ local Main = Window:AddTab({
 	Icon = "rbxassetid://11963373994"
 })
 
-Window:AddSection({ Name = "المرحلة الثالثه هنا ✅🌹", Tab = Main }) 
+Window:AddSection({ Name = "اكواد عالم البركان هنا 🌋", Tab = Main }) 
 
 Window:AddParagraph({
 	Title = "معلومة ❓",
@@ -395,7 +395,7 @@ Window:AddParagraph({
 	Tab = Main
 }) 
 
-Window:AddSection({ Name = "المراحل ☰🌹", Tab = Main }) 
+Window:AddSection({ Name = "المراحل 📛", Tab = Main }) 
 
 Window:AddButton({
 	Title = "الكود مرحلة الاولى ✔️",
@@ -533,7 +533,7 @@ local Main = Window:AddTab({
 	Icon = "rbxassetid://11963373994"
 })
 
-Window:AddSection({ Name = "المرحلة الرابعة هنا 🏠", Tab = Main }) 
+Window:AddSection({ Name = "اكواد عالم ماين كرافت هنا 🏠", Tab = Main }) 
 
 Window:AddParagraph({
 	Title = "معلومة ❓",
@@ -541,7 +541,7 @@ Window:AddParagraph({
 	Tab = Main
 }) 
 
-Window:AddSection({ Name = "المراحل ☰🌹", Tab = Main }) 
+Window:AddSection({ Name = "المراحل 📛", Tab = Main }) 
 
 Window:AddButton({
 	Title = "الكود مرحلة الاولى ✔️",
@@ -668,6 +668,152 @@ Window:AddButton({
 		Window:Notify({
 			Title = "الكود ✅",
 			Description = "717 - الكود 🔥", 
+			Duration = 5
+		})
+	end,
+}) 
+
+local Keybind = nil
+local Main = Window:AddTab({
+	Title = "كود عالم الثلج ❄",
+	Icon = "rbxassetid://11963373994"
+})
+
+Window:AddSection({ Name = "اكواد عالم الثلج هنا ❄", Tab = Main }) 
+
+Window:AddParagraph({
+	Title = "معلومة ❓",
+	Description = "ذا صار شي في سكربت رجاء اخباري في قناتي يوتيوب ريكو Rico 🌹",
+	Tab = Main
+}) 
+
+Window:AddSection({ Name = "المراحل  📛", Tab = Main }) 
+
+Window:AddButton({
+	Title = "الكود مرحلة الاولى ✔️",
+	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
+	Tab = Main,
+	Callback = function() 
+		Window:Notify({
+			Title = "الكود ✅",
+			Description = "250 - الكود 🔥", 
+			Duration = 5
+		})
+	end,
+}) 
+
+Window:AddButton({
+	Title = "الكود مرحلة الثانية ✔️",
+	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
+	Tab = Main,
+	Callback = function() 
+		Window:Notify({
+			Title = "الكود ✅",
+			Description = "629 - الكود 🔥", 
+			Duration = 5
+		})
+	end,
+}) 
+
+Window:AddButton({
+	Title = "الكود مرحلة الثالثة ✔️",
+	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
+	Tab = Main,
+	Callback = function() 
+		Window:Notify({
+			Title = "الكود ✅",
+			Description = "457 - الكود 🔥", 
+			Duration = 5
+		})
+	end,
+}) 
+
+Window:AddButton({
+	Title = "الكود مرحلة الرابعة ✔️",
+	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
+	Tab = Main,
+	Callback = function() 
+		Window:Notify({
+			Title = "الكود ✅",
+			Description = "528 - الكود 🔥", 
+			Duration = 5
+		})
+	end,
+}) 
+
+Window:AddButton({
+	Title = "الكود مرحلة الخامسة ✔️",
+	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
+	Tab = Main,
+	Callback = function() 
+		Window:Notify({
+			Title = "الكود ✅",
+			Description = "170 - الكود 🔥", 
+			Duration = 5
+		})
+	end,
+}) 
+
+Window:AddButton({
+	Title = "الكود مرحلة السادسة ✔️",
+	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
+	Tab = Main,
+	Callback = function() 
+		Window:Notify({
+			Title = "الكود ✅",
+			Description = "930 - الكود 🔥", 
+			Duration = 5
+		})
+	end,
+}) 
+
+Window:AddButton({
+	Title = "الكود مرحلة السابعة",
+	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
+	Tab = Main,
+	Callback = function() 
+		Window:Notify({
+			Title = "الكود ✅",
+			Description = "274 - الكود 🔥", 
+			Duration = 5
+		})
+	end,
+}) 
+
+Window:AddButton({
+	Title = "الكود مرحلة الثامنه ✔️",
+	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
+	Tab = Main,
+	Callback = function() 
+		Window:Notify({
+			Title = "الكود ✅",
+			Description = "803 - الكود 🔥", 
+			Duration = 5
+		})
+	end,
+}) 
+
+Window:AddButton({
+	Title = "الكود مرحلة التاسعة ✔️",
+	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
+	Tab = Main,
+	Callback = function() 
+		Window:Notify({
+			Title = "الكود ✅",
+			Description = "112 - الكود 🔥", 
+			Duration = 5
+		})
+	end,
+}) 
+
+Window:AddButton({
+	Title = "الكود مرحلة العاشرة ولاخيرة ✔️",
+	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
+	Tab = Main,
+	Callback = function() 
+		Window:Notify({
+			Title = "الكود ✅",
+			Description = "853 - الكود 🔥", 
 			Duration = 5
 		})
 	end,
