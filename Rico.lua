@@ -992,16 +992,15 @@ Window:AddSection({ Name = "المتجر كامل هنا 🏪", Tab = Main })
 Window:AddSection({ Name = "هنا الاغراض كامل 🤹‍♂️", Tab = Main }) 
 
 Window:AddButton({
-	Title = "بيتزا 🍕مجانا ",
-	Description =" ذا لم تضهر اضغط مرة ثانية ✔️",
+	Title = "بيتزا مجانا 🍕",
+	Description = "ذا لم يضهر معك بيتزا اضغط مرة ثانية ✔️",
 	Tab = Main,
-	Callback = function() 
 	local args = {
     [1] = game:GetService("Players").LocalPlayer:WaitForChild("Pizza")
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("ShopFolder"):WaitForChild("EquipTool"):FireServer(unpack(args))
-
+	Callback = function() 
 		Window:Notify({
 			Title = "تم شراء بيتزا مجانا 🍕",
 			Duration = 5
@@ -1011,54 +1010,33 @@ game:GetService("ReplicatedStorage"):WaitForChild("ShopFolder"):WaitForChild("Eq
 
 Window:AddButton({
 	Title = "دب مجانا 🐻",
-	Description = "ذا لم يضهر الدب اضغط مرة ثانية ✔️",
+	Description = "ذا لم يضهر معك الدب اضغط مرة ثانية ✔️",
 	Tab = Main,
-	Callback = function() 
 	local args = {
     [1] = game:GetService("Players").LocalPlayer:WaitForChild("Teddy")
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("ShopFolder"):WaitForChild("EquipTool"):FireServer(unpack(args))
-
+	Callback = function() 
 		Window:Notify({
-			Title = "تم شراء دب مجانا ",
+			Title = "تم شراء دب مجانا 🐻",
 			Duration = 5
 		})
 	end,
 }) 
 
 Window:AddButton({
-	Title = "جلوس مجانا",
+	Title = "الجلوس مجانا",
 	Description = "ذا لم يضهر معك الجلوس اضغط مرة ثانية ✔️",
 	Tab = Main,
-	Callback = function() 
 	local args = {
     [1] = game:GetService("Players").LocalPlayer:WaitForChild("Sit")
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("ShopFolder"):WaitForChild("EquipTool"):FireServer(unpack(args))
-
+	Callback = function() 
 		Window:Notify({
 			Title = "تم شراء الجلوس مجانا",
-			Duration = 5
-		})
-	end,
-}) 
-
-
-Window:AddButton({
-	Title = "قلب ❤ مجانا",
-	Description = "ذا لم يضهر معك القلب اضغك مرة ثانية ✔️",
-	Tab = Main,
-	Callback = function() 
-	local args = {
-    [1] = game:GetService("Players").LocalPlayer:WaitForChild("Heart")
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("ShopFolder"):WaitForChild("EquipTool"):FireServer(unpack(args))
-
-		Window:Notify({
-			Title = "تم شراء قلب 💚",
 			Duration = 5
 		})
 	end,
