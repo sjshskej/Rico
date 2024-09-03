@@ -819,3 +819,248 @@ Window:AddButton({
 	end,
 }) 
 
+local Keybind = nil
+local Main = Window:AddTab({
+	Title = "كود عالم الفضاء 🚀",
+	Icon = "rbxassetid://11963373994"
+})
+
+Window:AddSection({ Name = "اكواد عالم الفضاء هنا 🚀", Tab = Main }) 
+
+Window:AddParagraph({
+	Title = "معلومة ❓",
+	Description = "ذا صار شي في سكربت رجاء اخباري في قناتي يوتيوب ريكو Rico 🌹",
+	Tab = Main
+}) 
+
+Window:AddSection({ Name = "المراحل  📛", Tab = Main }) 
+
+Window:AddButton({
+	Title = "الكود مرحلة الاولى ✔️",
+	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
+	Tab = Main,
+	Callback = function() 
+		Window:Notify({
+			Title = "الكود ✅",
+			Description = "803 - الكود 🔥", 
+			Duration = 5
+		})
+	end,
+}) 
+
+Window:AddButton({
+	Title = "الكود مرحلة الثانية ✔️",
+	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
+	Tab = Main,
+	Callback = function() 
+		Window:Notify({
+			Title = "الكود ✅",
+			Description = "513 - الكود 🔥", 
+			Duration = 5
+		})
+	end,
+}) 
+
+Window:AddButton({
+	Title = "الكود مرحلة الثالثة ✔️",
+	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
+	Tab = Main,
+	Callback = function() 
+		Window:Notify({
+			Title = "الكود ✅",
+			Description = "999 - الكود 🔥", 
+			Duration = 5
+		})
+	end,
+}) 
+
+Window:AddButton({
+	Title = "الكود مرحلة الرابعة ✔️",
+	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
+	Tab = Main,
+	Callback = function() 
+		Window:Notify({
+			Title = "الكود ✅",
+			Description = "473 - الكود 🔥", 
+			Duration = 5
+		})
+	end,
+}) 
+
+Window:AddButton({
+	Title = "الكود مرحلة الخامسة ✔️",
+	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
+	Tab = Main,
+	Callback = function() 
+		Window:Notify({
+			Title = "الكود ✅",
+			Description = "764 - الكود 🔥", 
+			Duration = 5
+		})
+	end,
+}) 
+
+Window:AddButton({
+	Title = "الكود مرحلة السادسة ✔️",
+	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
+	Tab = Main,
+	Callback = function() 
+		Window:Notify({
+			Title = "الكود ✅",
+			Description = "612 - الكود 🔥", 
+			Duration = 5
+		})
+	end,
+}) 
+
+Window:AddButton({
+	Title = "الكود مرحلة السابعة ✔️",
+	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
+	Tab = Main,
+	Callback = function() 
+		Window:Notify({
+			Title = "الكود ✅",
+			Description = "346 - الكود 🔥", 
+			Duration = 5
+		})
+	end,
+}) 
+
+Window:AddButton({
+	Title = "الكود مرحلة الثامنة ✔️",
+	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
+	Tab = Main,
+	Callback = function() 
+		Window:Notify({
+			Title = "الكود ✅",
+			Description = "196 - الكود 🔥", 
+			Duration = 5
+		})
+	end,
+}) 
+
+Window:AddButton({
+	Title = "الكود مرحلة التاسعة ✔️",
+	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
+	Tab = Main,
+	Callback = function() 
+		Window:Notify({
+			Title = "الكود ✅",
+			Description = "712 - الكود 🔥", 
+			Duration = 5
+		})
+	end,
+}) 
+
+Window:AddButton({
+	Title = "الكود مرحلة العاشرة ولاخيرة ",
+	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
+	Tab = Main,
+	Callback = function() 
+		Window:Notify({
+			Title = "الكود ✅",
+			Description = "876 - الكود 🔥", 
+			Duration = 5
+		})
+	end,
+}) 
+
+local Keybind = nil
+local Main = Window:AddTab({
+	Title = "كود عالم الفراعنة قريبا ⚒️",
+	Icon = "rbxassetid://11963373994"
+})
+
+Window:AddSection({ Name = "اكواد عالم الفراعنة هنا ⚒️", Tab = Main }) 
+
+
+Window:AddParagraph({
+	Title = "معلومة ❓",
+	Description = "راح يتم تحديثه بعد ايام قناتي فل يوتيوب ريكو Rico ✔️",
+	Tab = Main
+}) 
+
+local Keybind = nil
+local Main = Window:AddTab({
+	Title = "المتجر 🏪",
+	Icon = "rbxassetid://11963373994"
+})
+
+Window:AddSection({ Name = "المتجر كامل هنا 🏪", Tab = Main }) 
+
+
+Window:AddSection({ Name = "هنا الاغراض كامل 🤹‍♂️", Tab = Main }) 
+
+Window:AddButton({
+	Title = "بيتزا 🍕مجانا ",
+	Description =" ذا لم تضهر اضغط مرة ثانية ✔️",
+	Tab = Main,
+	Callback = function() 
+	local args = {
+    [1] = game:GetService("Players").LocalPlayer:WaitForChild("Pizza")
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("ShopFolder"):WaitForChild("EquipTool"):FireServer(unpack(args))
+
+		Window:Notify({
+			Title = "تم شراء بيتزا مجانا 🍕",
+			Duration = 5
+		})
+	end,
+}) 
+
+Window:AddButton({
+	Title = "دب مجانا 🐻",
+	Description = "ذا لم يضهر الدب اضغط مرة ثانية ✔️",
+	Tab = Main,
+	Callback = function() 
+	local args = {
+    [1] = game:GetService("Players").LocalPlayer:WaitForChild("Teddy")
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("ShopFolder"):WaitForChild("EquipTool"):FireServer(unpack(args))
+
+		Window:Notify({
+			Title = "تم شراء دب مجانا ",
+			Duration = 5
+		})
+	end,
+}) 
+
+Window:AddButton({
+	Title = "جلوس مجانا",
+	Description = "ذا لم يضهر معك الجلوس اضغط مرة ثانية ✔️",
+	Tab = Main,
+	Callback = function() 
+	local args = {
+    [1] = game:GetService("Players").LocalPlayer:WaitForChild("Sit")
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("ShopFolder"):WaitForChild("EquipTool"):FireServer(unpack(args))
+
+		Window:Notify({
+			Title = "تم شراء الجلوس مجانا",
+			Duration = 5
+		})
+	end,
+}) 
+
+
+Window:AddButton({
+	Title = "قلب ❤ مجانا",
+	Description = "ذا لم يضهر معك القلب اضغك مرة ثانية ✔️",
+	Tab = Main,
+	Callback = function() 
+	local args = {
+    [1] = game:GetService("Players").LocalPlayer:WaitForChild("Heart")
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("ShopFolder"):WaitForChild("EquipTool"):FireServer(unpack(args))
+
+		Window:Notify({
+			Title = "تم شراء قلب 💚",
+			Duration = 5
+		})
+	end,
+}) 
+
