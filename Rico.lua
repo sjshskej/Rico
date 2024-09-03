@@ -1000,6 +1000,7 @@ Window:AddButton({
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("ShopFolder"):WaitForChild("EquipTool"):FireServer(unpack(args))
+
 	Callback = function() 
 		Window:Notify({
 			Title = "تم شراء بيتزا مجانا 🍕",
@@ -1017,6 +1018,7 @@ Window:AddButton({
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("ShopFolder"):WaitForChild("EquipTool"):FireServer(unpack(args))
+
 	Callback = function() 
 		Window:Notify({
 			Title = "تم شراء دب مجانا 🐻",
@@ -1034,6 +1036,7 @@ Window:AddButton({
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("ShopFolder"):WaitForChild("EquipTool"):FireServer(unpack(args))
+
 	Callback = function() 
 		Window:Notify({
 			Title = "تم شراء الجلوس مجانا",
