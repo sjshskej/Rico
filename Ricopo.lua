@@ -1,140 +1,100 @@
 --[[
 	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
 ]]
-local Mercury = loadstring(game:HttpGet("https://raw.githubusercontent.com/deeeity/mercury-lib/master/src.lua"))()
+local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/RedzLibV5/main/Source.Lua"))()
 
-local GUI = Mercury:Create{
-    Name = "Mercury",
-    Size = UDim2.fromOffset(600, 400),
-    Theme = Mercury.Themes.Dark,
-    Link = "https://github.com/deeeity/mercury-lib"
-}
+local Window = redzlib:MakeWindow({
+  Title = "redz Hub : Blox Fruits",
+  SubTitle = "by redz9999",
+  SaveFolder = "testando | redz lib v5.lua"
+})
+local Tab1 = Window:MakeTab({"Um", "cherry"})
+local Tab2 = Window:MakeTab({"Dois", "swords"})
+local Tab3 = Window:MakeTab({"Três", "user"})
 
-local Tab = GUI:Tab{
-	Name = "Misc and Testing",
-	Icon = "rbxassetid://8569322835"
-}
+Tab1:AddButton({"Dark Theme", function()
+  redzlib:SetTheme("Dark")
+end})
 
-Tab:Button{
-	Name = "Wave Fix",
-	Description = nil,
-	Callback = function()
-    getgenv().readfile = nil
-     end
-}
+Tab1:AddButton({"Darker Theme", function()
+  redzlib:SetTheme("Darker")
+end})
 
-Tab:Button{
-	Name = "Button",
-	Description = nil,
-	Callback = function()
-    GUI:Prompt{
-	Followup = false,
-	Title = "Prompt",
-	Text = "Prompts are cool",
-	Buttons = {
-		ok = function()
-        print("hello world!")
-			return true
-		end,
-		no = function()
-			return false
-		end
-	}
-} 
+Tab1:AddButton({"Dark Purple", function()
+  redzlib:SetTheme("Purple")
+end})
+
+Window:SelectTab(Tab2)
+local Section = Tab2:AddSection({"Section"})
+local Paragraph = Tab2:AddParagraph({"Paragraph", "This is a Paragraph\nSecond Line"})
+
+local Number = 0
+local Button = Tab2:AddButton({"Button", function()
+  Number = Number + 1
+  Section:Set("Number : " .. tostring(Number))
+  local Dialog = Window:Dialog({
+    Title = "Dialog",
+    Text = "This is a Dialog",
+    Options = {
+      {"Confirm", function()
+        
+      end},
+      {"Maybe", function()
+        
+      end},
+      {"Cancel", function()
+        
+      end}
+    }
+  })
+end})
+
+local Button = Tab2:AddButton({
+  Name = "Invisible Toggle",
+  Description = "Makes the Toggles Invisible"
+})
+
+local Toggle1 = Tab2:AddToggle({
+  Name = "Toggle 1",
+  Description = "This is a <font color='rgb(88, 101, 242)'>Toggle</font> Example",
+  Default = false
+})
+
+local Toggle2 = Tab2:AddToggle({
+  Name = "Toggle 2",
+  Default = true
+})
+
+Button:Callback(Toggle1.Visible)
+Button:Callback(Toggle2.Visible)
+
+Toggle1:Callback(function(Value)
+  Toggle2:Set(false)
+end)
+Toggle2:Callback(function(Value)
+  Toggle1:Set(false)
+end)
+
+Tab2:AddSlider({
+  Name = "Slider",
+  Min = 1,
+  Max = 10,
+  Increase = 1,
+  Default = 5,
+  Callback = function(Value)
     
-    end
-}
+  end
+})
 
+-- local Button = Tab2:AddButton({"Refresh Dropdown"})
 
-
-Tab:Slider{
-	Name = "Walkspeed",
-	Default = 50,
-	Min = 0,
-	Max = 100,
-	Callback = function(v) 
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
-    end
-}
-
-Tab:Slider{
-	Name = "JumpPower",
-	Default = 50,
-	Min = 0,
-	Max = 100,
-	Callback = function(jump) 
-    game.Players.LocalPlayer.Character.Humanoid.JumpPower = jump
-    end
-}
-
-local Tab = GUI:Tab{
-	Name = "Mini Script Hub",
-	Icon = "rbxassetid://8569322835"
-}
-
-Tab:Button{
-	Name = "Infinite Yield",
-	Description = "An amazing admin script!",
-	Callback = function()
-    GUI:Prompt{
-	Followup = false,
-	Title = "Are you sure?",
-	Text = "Are you sure you want to execute Infinite Yield?",
-	Buttons = {
-		Yes = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-			return true
-		end,
-		No = function()
-			return false
-		end
-	}
-} 
+local Dropdown = Tab2:AddDropdown({
+  Name = "Players List",
+  Description = "Select the <font color='rgb(88, 101, 242)'>Number</font>",
+  Options = {"one", "two", "three"},
+  Default = "two",
+  Flag = "dropdown teste",
+  Callback = function(Value)
     
-    end
-}
-
-Tab:Button{
-	Name = "Remote Spy",
-	Description = nil,
-	Callback = function()
-    GUI:Prompt{
-	Followup = false,
-	Title = "Are you sure?",
-	Text = "Are you sure you want to execute Remote Spy?",
-	Buttons = {
-		Yes = function()
-        loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/78n/SimpleSpy/main/SimpleSpyBeta.lua"))()
-			return true
-		end,
-		No = function()
-			return false
-		end
-	}
-} 
-    
-    end
-}
-
-Tab:Button{
-	Name = "FE Backflip",
-	Description = "A silly little script where you can flip! (Z and X to flip!)",
-	Callback = function()
-    GUI:Prompt{
-	Followup = false,
-	Title = "Are you sure?",
-	Text = "Are you sure you want to execute FE Flip?",
-	Buttons = {
-		Yes = function()
-        loadstring(game:HttpGetAsync("https://pastebin.com/raw/DPQzQ6Gi"))()
-			return true
-		end,
-		No = function()
-			return false
-		end
-	}
-} 
-    
-    end
-}
-
+  end
+})
