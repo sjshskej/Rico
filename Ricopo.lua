@@ -1,45 +1,140 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Opboltejshshskidhdbd/Main/main/two_party_gamer-obfuscated%20(1).txt"))()
+--[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+local Mercury = loadstring(game:HttpGet("https://raw.githubusercontent.com/deeeity/mercury-lib/master/src.lua"))()
 
-local Main = _G.Main:New("Main")
-local Tab1 = Main:Tab("Tab1")
+local GUI = Mercury:Create{
+    Name = "Mercury",
+    Size = UDim2.fromOffset(600, 400),
+    Theme = Mercury.Themes.Dark,
+    Link = "https://github.com/deeeity/mercury-lib"
+}
 
-local Button1 = Tab1:Button("Button1", function()
-    print("Button1 clicked!")
-end)
+local Tab = GUI:Tab{
+	Name = "Misc and Testing",
+	Icon = "rbxassetid://8569322835"
+}
 
-local Toggle1 = Tab1:Toggle({
-  Text = "Toggle1 (This prints toggle state)",
-  Callback = function(a)
-    print(a)
-  end
-  })
+Tab:Button{
+	Name = "Wave Fix",
+	Description = nil,
+	Callback = function()
+    getgenv().readfile = nil
+     end
+}
 
-local toggle2 = Tab1:Toggle({
-    Text = "ToggleName (more text = full animation)",
-    Callback = function()
-  print("hi")
+Tab:Button{
+	Name = "Button",
+	Description = nil,
+	Callback = function()
+    GUI:Prompt{
+	Followup = false,
+	Title = "Prompt",
+	Text = "Prompts are cool",
+	Buttons = {
+		ok = function()
+        print("hello world!")
+			return true
+		end,
+		no = function()
+			return false
+		end
+	}
+} 
+    
     end
-})
+}
 
-local Label1 = Tab1:Label("Never gonna give you up")
-local Label2 = Tab1:Label("Never gonna let you down")
-local Label3 = Tab1:Label("Never gonna run around and desert you")
-local Label4 = Tab1:Label("Never gonna make you cry")
-local Label5 = Tab1:Label("Never gonna say goodbye")
-local Label6 = Tab1:Label("Never gonna tell a lie and hurt you")
 
-local Tab2 = Main:Tab("Tab2")
 
-local Button2 = Tab2:Button("Button2", function()
-    print("Button2 clicked!")
-end)
-local Toggle3 = Tab2:Toggle({
-    Text = "Toggle3",
-    Callback = function()
-    print("Boooooom!!!!!!!!!")
-end
-})
+Tab:Slider{
+	Name = "Walkspeed",
+	Default = 50,
+	Min = 0,
+	Max = 100,
+	Callback = function(v) 
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
+    end
+}
 
-local Label7 = Tab2:Label("How you feeling after getting rick rolled?")
+Tab:Slider{
+	Name = "JumpPower",
+	Default = 50,
+	Min = 0,
+	Max = 100,
+	Callback = function(jump) 
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = jump
+    end
+}
 
-return _G.Main
+local Tab = GUI:Tab{
+	Name = "Mini Script Hub",
+	Icon = "rbxassetid://8569322835"
+}
+
+Tab:Button{
+	Name = "Infinite Yield",
+	Description = "An amazing admin script!",
+	Callback = function()
+    GUI:Prompt{
+	Followup = false,
+	Title = "Are you sure?",
+	Text = "Are you sure you want to execute Infinite Yield?",
+	Buttons = {
+		Yes = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+			return true
+		end,
+		No = function()
+			return false
+		end
+	}
+} 
+    
+    end
+}
+
+Tab:Button{
+	Name = "Remote Spy",
+	Description = nil,
+	Callback = function()
+    GUI:Prompt{
+	Followup = false,
+	Title = "Are you sure?",
+	Text = "Are you sure you want to execute Remote Spy?",
+	Buttons = {
+		Yes = function()
+        loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/78n/SimpleSpy/main/SimpleSpyBeta.lua"))()
+			return true
+		end,
+		No = function()
+			return false
+		end
+	}
+} 
+    
+    end
+}
+
+Tab:Button{
+	Name = "FE Backflip",
+	Description = "A silly little script where you can flip! (Z and X to flip!)",
+	Callback = function()
+    GUI:Prompt{
+	Followup = false,
+	Title = "Are you sure?",
+	Text = "Are you sure you want to execute FE Flip?",
+	Buttons = {
+		Yes = function()
+        loadstring(game:HttpGetAsync("https://pastebin.com/raw/DPQzQ6Gi"))()
+			return true
+		end,
+		No = function()
+			return false
+		end
+	}
+} 
+    
+    end
+}
+
