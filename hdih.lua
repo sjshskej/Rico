@@ -116,8 +116,14 @@ local function translateTextAsync(originalText)
         ["Birthday Cake"] = "كعكة عيد ميلاد", 
         ["Bubble Gum"] = "علكة", 
         ["Chocolate"] = "الشوكولاته", 
-        ["Vanilla"] = "الفانيليا",
-        ["Sweetest in Brookhaven"] = "أحلى في بروكهافن"
+        ["Vanilla"] = "الفانيليا", 
+        ["Sweetest in Brookhaven"] = "أحلى في بروكهافن", 
+        ["Club Open"] = "نادي مفتوح", 
+        ["Tuesday: 9 PM to 2AM"] = "الثلاثاء: من الساعة 9 مساءً حتى الساعة 2 صباحًا", 
+        ["Thursday: 9 PM to 2AM"] = "الخميس: من الساعة 9 مساءً حتى الساعة 2 صباحًا", 
+        ["Saturday: 9 PM to 2AM"] = "السبت: 9 مساءً إلى 2 صباحًا", 
+        ["Party Planner"] = "مخطط الحزب", 
+        ["Milkshake"] = "اللبن المخفوق"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
