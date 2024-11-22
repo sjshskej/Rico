@@ -114,7 +114,9 @@ local function translateTextAsync(originalText)
         ["Flavors"] = "النكهات",
         ["Mint Chip"] = "مثل تشيب", 
         ["Birthday Cake"] = "كعكة عيد ميلاد", 
-        ["Bubble Gum"] = "علكة"
+        ["Bubble Gum"] = "علكة", 
+        ["Chocolate"] = "الشوكولاته", 
+        ["Vanilla"] = "الفانيليا"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
