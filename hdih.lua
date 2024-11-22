@@ -233,6 +233,17 @@ local function translateTextAsync(originalText)
         ["Meeting"] = "مقابلة", 
         ["Gymnastics"] = "الجمباز", 
         ["Pool"] = "حمام سباحة"
+        ["GYM"] = "نادي رياضي", 
+        ["Home of the Doge"] = "منزل دوجي", 
+        ["EXIT"] = "مخرج", 
+        ["Boys"] = "الأولاد", 
+        ["Girls"] = "فتيات", 
+        ["Restroom"] = "مرحاض 🚾",
+        ["Lighting Room"] = "غرفة الإضاءة", 
+        ["Cafeteria"] = "كافتيريا", 
+        ["House Lights"] = "أضواء المنزل", 
+        ["Stage Lights"] = "أضواء المسرح", 
+        ["Study Area"] = "منطقة الدراسة"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
