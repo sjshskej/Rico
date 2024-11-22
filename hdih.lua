@@ -203,7 +203,15 @@ local function translateTextAsync(originalText)
         ["New Driver Licence"] = "رخصة قيادة جديدة", 
         ["Driver License Test"] = "اختبار رخصة القيادة", 
         ["Tax Collector"] = "جامع الضرائب", 
-        ["Payments"] = "المدفوعات"
+        ["Payments"] = "المدفوعات", 
+        ["Please pay for:"] = "يرجى الدفع مقابل:", 
+        ["Tickets"] = "التذاكر", 
+        ["Water"] = "الماء", 
+        ["Gas"] = "الغاز", 
+        ["Electricity"] = "الكهرباء", 
+        ["Rent"] = "الإيجار", 
+        ["Mortgage"] = "الرهن العقاري", 
+        ["Taxes"] = "الضرائب"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
