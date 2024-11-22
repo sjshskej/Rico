@@ -167,7 +167,17 @@ local function translateTextAsync(originalText)
         ["POLICE"] = "مركز شرطة", 
         ["BROOKHAVEN FUGITIVES"] = "هاربون من بروكهافن", 
         ["Danis"] = "مطلوب",
-        ["NAME"] = "مطلوب"
+        ["NAME"] = "مطلوب", 
+        ["ST.LUKES"] = "سانت لوك", 
+        ["HOSPITAL"] = "مستشفى", 
+        ["EMERGENCY"] = "طوارئ", 
+        ["Pharmacy"] = "صيدلية", 
+        ["ENTER"] = "يدخل", 
+        ["NEW BORN"] = "مولود جديد", 
+        ["SURGERY"] = "جراحة", 
+        ["Curtain"] = "ستارة", 
+        ["X-RAY"] = "الأشعة السينية", 
+        ["X - RAY MACHINE"] = "جهاز الأشعة السينية"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
