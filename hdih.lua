@@ -198,7 +198,9 @@ local function translateTextAsync(originalText)
         ["Vote new mayor"] = "صوّت لعمدة جديد", 
         ["Courtroom"] = "قاعة المحكمة", 
         ["Witness Protection Program"] = "برنامج حماية الشهود", 
-        ["Mayor Office"] = "مكتب العمدة"
+        ["Mayor Office"] = "مكتب العمدة", 
+        ["Brookhaven Mayor"] = "عمدة بروكهافن", 
+        ["New Driver Licence"] = "رخصة قيادة جديدة"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
