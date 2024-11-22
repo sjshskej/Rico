@@ -163,7 +163,11 @@ local function translateTextAsync(originalText)
         ["Pandan Waffle"] = "وافل الباندان", 
         ["Flemish Waffle"] = "وافل الفلمنكي", 
         ["Hot dog Waffle"] = "وافل الهوت دوغ", 
-        ["Vegan Waffle"] = "وافل نباتي"
+        ["Vegan Waffle"] = "وافل نباتي", 
+        ["POLICE"] = "مركز شرطة", 
+        ["BROOKHAVEN FUGITIVES"] = "هاربون من بروكهافن", 
+        ["Danis"] = "مطلوب",
+        ["NAME"] = "مطلوب"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
