@@ -1,4 +1,3 @@
-
 -- دالة تستخدم لتعديل النصوص ديناميكيًا
 local function translateTextAsync(originalText)
     -- هنا يمكن إضافة خدمة ترجمة (API) للحصول على النص المترجم تلقائيًا
@@ -138,11 +137,9 @@ local function translateTextAsync(originalText)
         ["Penthouse Apartment"] = "شقة بنتهاوش", 
         ["To change Apartment you must wait 10 minutes"] = "لتغيير الشقة يجب عليك الانتظار لمدة 10 دقائق", 
         ["Choose selected apartment?"] = "اختر الشقة المختارة؟", 
-        ["Apartment timer"] = "توقيت الشقة", 
+        ["Apartment timer:"] = "توقيت الشقة: ", 
         ["House Security Cams"] = "كاميرات مراقبة للمنزل", 
-        ["Room#"] = "الغرفة#", 
-        ["Apartment"] = "شقة#", 
-        ["House"] = "البيت#"
+        ["Room# 1"] = "الغرفة# 1"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
