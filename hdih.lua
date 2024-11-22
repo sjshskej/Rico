@@ -215,7 +215,9 @@ local function translateTextAsync(originalText)
         ["DANGER"] = "خطر", 
         ["HIGH VOLTAGE"] = "جهد عالي", 
         ["WATER VALVE"] = "صمام الماء", 
-        ["WARNING"] = "تحذير"
+        ["WARNING"] = "تحذير", 
+        ["FIRE STATION"] = "محطة إطفاء", 
+        ["Rated #1 Fire"] = "شركة مكافحة الحرائق"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
