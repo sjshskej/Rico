@@ -211,7 +211,11 @@ local function translateTextAsync(originalText)
         ["Electricity"] = "الكهرباء", 
         ["Rent"] = "الإيجار", 
         ["Mortgage"] = "الرهن العقاري", 
-        ["Taxes"] = "الضرائب"
+        ["Taxes"] = "الضرائب", 
+        ["DANGER"] = "خطر", 
+        ["HIGH VOLTAGE"] = "جهد عالي", 
+        ["WATER VALVE"] = "صمام الماء", 
+        ["WARNING"] = "تحذير"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
