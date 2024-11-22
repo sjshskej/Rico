@@ -176,8 +176,13 @@ local function translateTextAsync(originalText)
         ["NEW BORN"] = "مولود جديد", 
         ["SURGERY"] = "جراحة", 
         ["Curtain"] = "ستارة", 
-        ["X-RAY"] = "الأشعة السينية", 
-        ["X - RAY MACHINE"] = "جهاز الأشعة السينية"
+        ["X - RAY"] = "الأشعة السينية", 
+        ["X - RAY MACHINE"] = "جهاز الأشعة السينية", 
+        ["Town Hall"] = "مبنى البلدية", 
+        ["Paranormal Activity"] = "نشاط خوارق للطبيعة", 
+        ["Disturbance reported in Janitor room at 6:28.Three eyewitnesses reported."] = "تم الإبلاغ عن اضطرابات في غرفة البواب في الساعة 6:28.وأفاد ثلاثة شهود عيان:", 
+        ["Possible Hacker house at plot #13."] = "من المحتمل وجود منزل للقراصنة في قطعة الأرض رقم 13.", 
+        ["BROOKHAVEN MOST WANTED"] = "قائمة المطلوبين بشدة في بروكهافين"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
