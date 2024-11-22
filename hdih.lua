@@ -238,7 +238,7 @@ local function translateTextAsync(originalText)
         ["EXIT"] = "مخرج", 
         ["Boys"] = "الأولاد", 
         ["Girls"] = "فتيات", 
-        ["Restroom"] = "مرحاض 🚾",
+        ["Restroom"] = "مرحاض",
         ["Lighting Room"] = "غرفة الإضاءة", 
         ["Cafeteria"] = "كافتيريا", 
         ["House Lights"] = "أضواء المنزل", 
