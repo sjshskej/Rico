@@ -217,7 +217,8 @@ local function translateTextAsync(originalText)
         ["WATER VALVE"] = "صمام الماء", 
         ["WARNING"] = "تحذير", 
         ["FIRE STATION"] = "محطة إطفاء", 
-        ["Rated #1 Fire Company in Madison County"] = "شركة مكافحة الحرائق رقم 1 في مقاطعة ماديسون"
+        ["Rated #1 Fire Company in Madison County"] = "شركة مكافحة الحرائق رقم 1 في مقاطعة ماديسون", 
+        ["LAST INCIDENT: Downtown building fire."] = "الحادث الأخير: حريق في مبنى وسط المدينة."
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
