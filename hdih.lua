@@ -125,10 +125,15 @@ local function translateTextAsync(originalText)
         ["Party Planner"] = "مخطط الحزب", 
         ["Milkshake"] = "اللبن المخفوق", 
         ["Open"] = "مفتوح", 
-        ["Accept"] = "✔️ قبول", 
-        ["Decline"] = "رفض 😤", 
+        ["Accept"] = "قبول", 
+        ["Decline"] = "رفض", 
         ["Sent you a friend request!"] = "أرسلت لك طلب صداقة!", 
-        ["Max Speed 45"] = "السرعة القصوى 45"
+        ["Max Speed 45"] = "السرعة القصوى 45", 
+        ["Closed"] = "مغلق", 
+        ["maily"] = "البريد", 
+        ["Brookhaven Apartments"] = "شقق بروكهافن", 
+        ["HAIR &"] = "شعر &", 
+        ["Nails"] = "الأظافر"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
