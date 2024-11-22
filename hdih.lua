@@ -116,7 +116,8 @@ local function translateTextAsync(originalText)
         ["Birthday Cake"] = "كعكة عيد ميلاد", 
         ["Bubble Gum"] = "علكة", 
         ["Chocolate"] = "الشوكولاته", 
-        ["Vanilla"] = "الفانيليا"
+        ["Vanilla"] = "الفانيليا",
+        ["Sweetest in Brookhaven"] = "أحلى في بروكهافن"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
