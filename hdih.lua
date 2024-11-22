@@ -218,7 +218,21 @@ local function translateTextAsync(originalText)
         ["WARNING"] = "تحذير", 
         ["FIRE STATION"] = "محطة إطفاء", 
         ["Rated #1 Fire Company in Madison County"] = "شركة مكافحة الحرائق رقم 1 في مقاطعة ماديسون", 
-        ["LAST INCIDENT: Downtown building fire."] = "الحادث الأخير: حريق في مبنى وسط المدينة."
+        ["LAST INCIDENT: Downtown building fire."] = "الحادث الأخير: حريق في مبنى وسط المدينة.", 
+        ["Brookhaven Cemetery"] = "مقبرة بروكهافن", 
+        ["BROOKHAVEN STABLES"] = "اسطبلات بروكهافن", 
+        ["Math"] = "الرياضيات", 
+        ["SCHOOL"] = "المدرسة", 
+        ["Principal's Office"] = "مكتب المدير", 
+        ["NO STUDENTS ALLOWED"] = "لا يسمح للطلاب", 
+        ["The early bird gets the worm!"] = "الطائر الباكر يحصل على الدودة!", 
+        ["Science"] = "علوم", 
+        ["English"] = "إنجليزي", 
+        ["Basketball"] = "كرة السلة", 
+        ["Dance"] = "الرقص", 
+        ["Meeting"] = "مقابلة", 
+        ["Gymnastics"] = "الجمباز", 
+        ["Pool"] = "حمام سباحة"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
