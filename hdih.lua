@@ -244,7 +244,10 @@ local function translateTextAsync(originalText)
         ["House Lights"] = "أضواء المنزل", 
         ["Stage Lights"] = "أضواء المسرح", 
         ["Study Area"] = "منطقة الدراسة", 
-        ["Art"] = "رسم"
+        ["Art"] = "رسم", 
+        ["NO TALKING"] = "لا حديث", 
+        ["OPEN"] = "مغلق", 
+        ["MOTEL"] = "موتيل"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
