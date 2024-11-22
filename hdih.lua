@@ -200,7 +200,10 @@ local function translateTextAsync(originalText)
         ["Witness Protection Program"] = "برنامج حماية الشهود", 
         ["Mayor Office"] = "مكتب العمدة", 
         ["Brookhaven Mayor"] = "عمدة بروكهافن", 
-        ["New Driver Licence"] = "رخصة قيادة جديدة"
+        ["New Driver Licence"] = "رخصة قيادة جديدة", 
+        ["Driver License Test"] = "اختبار رخصة القيادة", 
+        ["Tax Collector"] = "جامع الضرائب", 
+        ["Payments"] = "المدفوعات"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
