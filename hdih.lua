@@ -132,8 +132,11 @@ local function translateTextAsync(originalText)
         ["Closed"] = "مغلق", 
         ["maily"] = "البريد", 
         ["Brookhaven Apartments"] = "شقق بروكهافن", 
-        ["HAIR &"] = "شعر &", 
-        ["Nails"] = "الأظافر"
+        ["Luxury Apartment"] = "شقة فاخرة", 
+        ["Vacant"] = "فارغ", 
+        ["Penthouse Apartment"] = "شقة بنتهاوش", 
+        ["To change Apartment you must wait 10 minutes"] = "لتغيير الشقة يجب عليك الانتظار لمدة 10 دقائق", 
+        ["Choose selected apartment?"] = "اختر الشقة المختارة؟"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
