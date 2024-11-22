@@ -191,7 +191,7 @@ local function translateTextAsync(originalText)
         ["MOONSTAR"] = "نجم القمر", 
         ["Voting"] = "التصويت", 
         ["Drivers Licence"] = "رخصة الاقيادة", 
-        ["City Water & Power"] = "مياه وكهرباء المدينة"
+        ["City Water & Power"] = "مياه وكهرباء المدينة", 
         ["Student driver program"] = "برنامج سائق الطالب", 
         ["Voting Booth"] = "كشك التصويت", 
         ["Mayor Candidate"] = "مرشح لرئاسة البلدية", 
