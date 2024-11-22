@@ -182,7 +182,13 @@ local function translateTextAsync(originalText)
         ["Paranormal Activity"] = "نشاط خوارق للطبيعة", 
         ["Disturbance reported in Janitor room at 6:28.Three eyewitnesses reported."] = "تم الإبلاغ عن اضطرابات في غرفة البواب في الساعة 6:28.وأفاد ثلاثة شهود عيان:", 
         ["Possible Hacker house at plot #13."] = "من المحتمل وجود منزل للقراصنة في قطعة الأرض رقم 13.", 
-        ["BROOKHAVEN MOST WANTED"] = "قائمة المطلوبين بشدة في بروكهافين"
+        ["BROOKHAVEN MOST WANTED"] = "قائمة المطلوبين بشدة في بروكهافين", 
+        ["CHIEF ROTTEN"] = "الزعيم الفاسد", 
+        ["POISON IVY"] = "اللبلاب السام", 
+        ["HEATWAVE"] = "موجة حر", 
+        ["QUEEN COBRA"] = "الملكة كوبرا", 
+        ["SPARKPLUG"] = "شمعة الإشعال", 
+        ["MOONSTAR"] = "نجم القمر"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
