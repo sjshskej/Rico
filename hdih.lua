@@ -241,9 +241,7 @@ local function translateTextAsync(originalText)
         ["Restroom"] = "مرحاض",
         ["Lighting Room"] = "غرفة الإضاءة", 
         ["Cafeteria"] = "كافتيريا", 
-        ["House Lights"] = "أضواء المنزل", 
-        ["Stage Lights"] = "أضواء المسرح", 
-        ["Study Area"] = "منطقة الدراسة"
+        ["House Lights"] = "أضواء المنزل"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
