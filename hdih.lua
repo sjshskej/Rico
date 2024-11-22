@@ -196,10 +196,7 @@ local function translateTextAsync(originalText)
         ["Voting Booth"] = "كشك التصويت", 
         ["Mayor Candidate"] = "مرشح لرئاسة البلدية", 
         ["Vote new mayor"] = "صوّت لعمدة جديد", 
-        ["Courtroom"] = "قاعة المحكمة", 
-        ["Witness Protection Program"] = "برنامج حماية الشهود", 
-        ["Mayor Office"] = "مكتب العمدة", 
-        ["Brookhaven Mayor"] = "عمدة بروكهافن"
+        ["Courtroom"] = "قاعة المحكمة"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
