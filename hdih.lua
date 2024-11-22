@@ -188,7 +188,10 @@ local function translateTextAsync(originalText)
         ["HEATWAVE"] = "موجة حر", 
         ["QUEEN COBRA"] = "الملكة كوبرا", 
         ["SPARKPLUG"] = "شمعة الإشعال", 
-        ["MOONSTAR"] = "نجم القمر"
+        ["MOONSTAR"] = "نجم القمر", 
+        ["Voting"] = "التصويت", 
+        ["Drivers Licence"] = "رخصة الاقيادة", 
+        ["City Water & Power"] = "مياه وكهرباء المدينة"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
