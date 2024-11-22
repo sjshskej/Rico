@@ -139,7 +139,13 @@ local function translateTextAsync(originalText)
         ["Choose selected apartment?"] = "اختر الشقة المختارة؟", 
         ["Apartment timer:"] = "توقيت الشقة: ", 
         ["House Security Cams"] = "كاميرات مراقبة للمنزل", 
-        ["Room"] = "الغرفة"
+        ["House Color"] = "لون المنزل", 
+        ["House Sign"] = "علامة البيت", 
+        ["BREAKFAST REPUBLIC"] = "جمهورية الإفطار", 
+        ["ARCADE"] = "أركيد", 
+        ["Party"] = "حفلة", 
+        ["Tanning Salon"] = "صالون التسمير", 
+        ["Breakfast"] = "الإفطار"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
