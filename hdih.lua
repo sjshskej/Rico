@@ -145,7 +145,25 @@ local function translateTextAsync(originalText)
         ["ARCADE"] = "أركيد", 
         ["Party"] = "حفلة", 
         ["Tanning Salon"] = "صالون التسمير", 
-        ["Breakfast"] = "الإفطار"
+        ["Breakfast"] = "الإفطار", 
+        ["Temp"] = "درجة الحرارة ", 
+        ["Breakfast all day!"] = "الإفطار طوال اليوم!", 
+        ["Classic"] = "كلاسيكي", 
+        ["Dutch baby"] = "طبق هولندي", 
+        ["Injera"] = "خبز اثيوبي", 
+        ["Crêpes"] = "الكريب", 
+        ["Blini"] = "بليني", 
+        ["Potato pancakes"] = "فطائر البطاطس", 
+        ["Dosa"] = "دوسا", 
+        ["Bing"] = "بينغ", 
+        ["Brussels Waffle"] = "وافل بروكسل", 
+        ["Liege Waffle"] = "وافل لييج", 
+        ["American Waffle"] = "وافل أمريكي", 
+        ["Potato Waffle"] = "وافل البطاطس", 
+        ["Pandan Waffle"] = "وافل الباندان", 
+        ["Flemish Waffle"] = "وافل الفلمنكي", 
+        ["Hot dog Waffle"] = "وافل الهوت دوغ", 
+        ["Vegan Waffle"] = "وافل نباتي"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
