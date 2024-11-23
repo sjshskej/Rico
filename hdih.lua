@@ -268,7 +268,9 @@ local function translateTextAsync(originalText)
         ["3354 South Dakota"] = "3354 داكوتا الجنوبية", 
         ["3025 Nebraska"] = "3025 نبراسكا في", 
         ["8822 Minnesota"] = "8822 مينيسوتا في", 
-        ["On Time"] = "في الوقت المحدد"
+        ["On Time"] = "في الوقت المحدد", 
+        ["Departing Flights"] = "الرحلات المغادرة", 
+        ["< Board Plane"] = "< صعود الطائرة"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
