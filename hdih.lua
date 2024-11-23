@@ -309,8 +309,9 @@ local function translateTextAsync(originalText)
         ["Authorized Personnel Only"] = "الموظفين المعتمدين فقط", 
         ["RockStar"] = "روك ستار", 
         ["GIRLS"] = "فتيات", 
-        ["DENTIST"] = "طبيب إسنان", 
-        ["BROOKHAVEN SHELTER"] = "بروكهافن مأوى"
+        ["DENTIST"] = "طبيب أسنان", 
+        ["BROOKHAVEN SHELTER"] = "ملجأ بروكهافن", 
+        ["Brookhaven Family DENTAL"] = "عائلة بروكهافن طبيب الأسنان"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
