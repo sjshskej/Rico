@@ -290,7 +290,6 @@ local function translateTextAsync(originalText)
         ["OFF AIR"] = "خارج الهواء", 
         ["Orders"] = "طلبات", 
         ["Sport and Luxury Cars"] = "السيارات الرياضية والفاخرة", 
-        ["AUTO MALL"] = "أوتو مول", 
         ["Auto Repair"] = "إصلاح السيارات", 
         ["Rotten Robbie"] = "روبي الفاسد", 
         ["Food Mart"] = "متجر الطعام", 
@@ -300,7 +299,10 @@ local function translateTextAsync(originalText)
         ["COLD"] = "بارد", 
         ["HOT DOGS"] = "النقانق الساخنة", 
         ["Brookios"] = "بروكيوس", 
-        ["Sign"] = "لافتة"
+        ["Sign"] = "لافتة", 
+        ["Welcome"] = "مرحبا", 
+        ["AUTO"] = "إوتو", 
+        ["MALL"] = "مول"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
