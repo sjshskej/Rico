@@ -286,7 +286,12 @@ local function translateTextAsync(originalText)
         ["NOW PLAYING:"] = "جارى التشغيل الان: ", 
         ["FIRST CONTACT"] = "الاتصاب الاول", 
         ["Enter Code"] = "أدخل الرمز", 
-        ["Eat Fresh!"] = "أكل طازجا!"
+        ["Eat Fresh!"] = "أكل طازجا!", 
+        ["OFF AIR"] = "خارج الهواء", 
+        ["Orders"] = "طلبات", 
+        ["Sport and Luxury Cars"] = "السيارات الرياضية والفاخرة", 
+        ["AUTO MALL"] = "أوتو مول", 
+        ["Auto Repair"] = "إصلاح السيارات"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
