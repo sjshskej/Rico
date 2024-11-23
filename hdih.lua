@@ -311,7 +311,12 @@ local function translateTextAsync(originalText)
         ["GIRLS"] = "فتيات", 
         ["DENTIST"] = "طبيب أسنان", 
         ["BROOKHAVEN SHELTER"] = "ملجأ بروكهافن", 
-        ["Brookhaven Family DENTAL"] = "عائلة بروكهافن طبيب الأسنان"
+        ["Brookhaven Family DENTAL"] = "عائلة بروكهافن طبيب الأسنان", 
+        ["BOYS"] = "الأولاد", 
+        ["CONNECT - ADOPT - LOVE"] = "تواصل - تبنى - أحب", 
+        ["Veterinary"] = "بيطري", 
+        ["Hospital"] = "مستشفى", 
+        ["Shelter"] = "مأوى"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
