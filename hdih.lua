@@ -291,7 +291,16 @@ local function translateTextAsync(originalText)
         ["Orders"] = "طلبات", 
         ["Sport and Luxury Cars"] = "السيارات الرياضية والفاخرة", 
         ["AUTO MALL"] = "أوتو مول", 
-        ["Auto Repair"] = "إصلاح السيارات"
+        ["Auto Repair"] = "إصلاح السيارات", 
+        ["Rotten Robbie"] = "روبي الفاسد", 
+        ["Food Mart"] = "متجر الطعام", 
+        ["OPEN 24 HOURS"] = "مفتوح 24 ساعة", 
+        ["CASHIER"] = "أمين الصندوق", 
+        ["SNACKS"] = "وجبات خفيفة", 
+        ["COLD"] = "بارد", 
+        ["HOT DOGS"] = "النقانق الساخنة", 
+        ["Brookios"] = "بروكيوس", 
+        ["Sign"] = "لافتة"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
