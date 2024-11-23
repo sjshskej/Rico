@@ -247,7 +247,11 @@ local function translateTextAsync(originalText)
         ["Art"] = "رسم", 
         ["NO TALKING"] = "لا حديث", 
         ["OPEN"] = "مغلق", 
-        ["MOTEL"] = "موتيل"
+        ["MOTEL"] = "موتيل", 
+        ["Waiting for next customer..."] = "في انتظار العميل القادم...", 
+        ["Drive Thru"] = "الطلب من المركبة", 
+        ["Take-out"] = "اخرج", 
+        ["House furniture for children?"] = "أثاث المنزل للأطفال؟"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
