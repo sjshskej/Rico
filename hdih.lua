@@ -302,7 +302,11 @@ local function translateTextAsync(originalText)
         ["Sign"] = "لافتة", 
         ["Welcome"] = "مرحبا", 
         ["AUTO"] = "إوتو", 
-        ["MALL"] = "مول"
+        ["MALL"] = "مول", 
+        ["BROOKHAVEN BANK"] = "بنك بروكهافن", 
+        ["RESTRICTED AREA"] = "منطقة مقيدة", 
+        ["Enter information"] = "أدخل المعلومات", 
+        ["Authorized Personnel Only"] = "الموظفين المعتمدين فقط"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
