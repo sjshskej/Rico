@@ -255,7 +255,11 @@ local function translateTextAsync(originalText)
         ["Drive-Thru"] = "الطلب من المركبة", 
         ["Click for Service"] = "انقر للحصول على الخدمة", 
         ["Brookhaven Electric Vehicles Only"] = "بروكهافن للسيارات الكهربائية فقط", 
-        ["EV Charging"] = "شحن السيارة الكهربائية"
+        ["EV Charging"] = "شحن السيارة الكهربائية", 
+        ["Make Food/ Give Order"] = "صنع الطعام/ إعطاء الطلب", 
+        ["Customer asked to pull forward"] = "طلب العميل الانسحاب إلى الأمام", 
+        ["Taking Order"] = "أخذ الطلب", 
+        ["Customer waiting in Drive Thru"] = "انتظار العملاء في Drive Thru‏"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
