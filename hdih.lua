@@ -306,7 +306,11 @@ local function translateTextAsync(originalText)
         ["BROOKHAVEN BANK"] = "بنك بروكهافن", 
         ["RESTRICTED AREA"] = "منطقة مقيدة", 
         ["Enter information"] = "أدخل المعلومات", 
-        ["Authorized Personnel Only"] = "الموظفين المعتمدين فقط"
+        ["Authorized Personnel Only"] = "الموظفين المعتمدين فقط", 
+        ["RockStar"] = "روك ستار", 
+        ["GIRLS"] = "فتيات", 
+        ["DENTIST"] = "طبيب إسنان", 
+        ["BROOKHAVEN SHELTER"] = "بروكهافن مأوى"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
