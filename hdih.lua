@@ -285,7 +285,8 @@ local function translateTextAsync(originalText)
         ["MODELING"] = "النمذجة", 
         ["NOW PLAYING:"] = "جارى التشغيل الان: ", 
         ["FIRST CONTACT"] = "الاتصاب الاول", 
-        ["Enter Code"] = "أدخل الرمز"
+        ["Enter Code"] = "أدخل الرمز", 
+        ["Eat Fresh!"] = "أكل طازجا!"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
