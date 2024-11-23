@@ -259,7 +259,16 @@ local function translateTextAsync(originalText)
         ["Make Food/ Give Order"] = "صنع الطعام/ إعطاء الطلب", 
         ["Customer asked to pull forward"] = "طلب العميل الانسحاب إلى الأمام", 
         ["Taking Order"] = "أخذ الطلب", 
-        ["Customer waiting in Drive Thru"] = "انتظار العملاء في Drive Thru‏"
+        ["Customer waiting in Drive Thru"] = "انتظار العملاء في Drive Thru‏", 
+        ["Brookhaven Airport"] = "مطار بروكهافن", 
+        ["Entrance"] = "مدخل", 
+        ["Exit"] = "مخرج", 
+        ["NO WEAPONS"] = "لا أسلحة", 
+        ["1112 Finland"] = "1112 فنلندا", 
+        ["3354 South Dakota"] = "3354 داكوتا الجنوبية", 
+        ["3025 Nebraska"] = "3025 نبراسكا في", 
+        ["8822 Minnesota"] = "8822 مينيسوتا في", 
+        ["On Time"] = "في الوقت المحدد"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
