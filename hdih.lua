@@ -270,7 +270,22 @@ local function translateTextAsync(originalText)
         ["8822 Minnesota"] = "8822 مينيسوتا في", 
         ["On Time"] = "في الوقت المحدد", 
         ["Departing Flights"] = "الرحلات المغادرة", 
-        ["< Board Plane"] = "< صعود الطائرة"
+        ["< Board Plane"] = "< صعود الطائرة", 
+        ["Cockpit"] = "قمرة القيادة", 
+        ["Autopilot"] = "الطيار الآلي", 
+        ["Emergency"] = "طارئ", 
+        ["MOVIES"] = "افلام", 
+        ["TV STATION"] = "محطة تلفزيون", 
+        ["Home of the Big Cheese"] = "موطن الجبن الكبير", 
+        ["DANCE STUDIO"] = "استديو الرقص", 
+        ["ROSIE'S GYM"] = "صالة روزي الرياضية", 
+        ["Delivery"] = "توصيل", 
+        ["MO'S PIZZA"] = "بيتزا موس", 
+        ["STAGE"] = "المنصة", 
+        ["MODELING"] = "النمذجة", 
+        ["NOW PLAYING:"] = "جارى التشغيل الان: ", 
+        ["FIRST CONTACT"] = "الاتصاب الاول", 
+        ["Enter Code"] = "أدخل الرمز"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
