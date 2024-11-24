@@ -319,7 +319,14 @@ local function translateTextAsync(originalText)
         ["Shelter"] = "مأوى", 
         ["STARBROOKS COFFEE"] = "قهوة ستاربروكس", 
         ["Library & Books"] = "المكتبة والكتب", 
-        ["zerizon"] = "جوالات"
+        ["zerizon"] = "جوالات", 
+        ["Phone Store"] = "متجر الهاتف", 
+        ["Gun Store"] = "متجر الأسلحة", 
+        ["Auto Parts"] = "قطع غيار السيارات", 
+        ["Quality at the most competitive pricing"] = "الجودة بأسعار أكثر تنافسية", 
+        ["Next level of technology"] = "المستوى التالي من التكنولوجيا", 
+        ["Repairs"] = "الإصلاحات", 
+        ["Expand your possibilities"] = "قم بتوسيع إمكانياتك"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
