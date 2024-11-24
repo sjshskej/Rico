@@ -316,7 +316,10 @@ local function translateTextAsync(originalText)
         ["CONNECT - ADOPT - LOVE"] = "تواصل - تبنى - أحب", 
         ["Veterinary"] = "بيطري", 
         ["Hospital"] = "مستشفى", 
-        ["Shelter"] = "مأوى"
+        ["Shelter"] = "مأوى", 
+        ["STARBROOKS COFFEE"] = "قهوة ستاربروكس", 
+        ["Library & Books"] = "المكتبة والكتب", 
+        ["zerizon"] = "جوالات"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
