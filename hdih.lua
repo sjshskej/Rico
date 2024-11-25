@@ -326,7 +326,10 @@ local function translateTextAsync(originalText)
         ["Quality at the most competitive pricing"] = "الجودة بأسعار أكثر تنافسية", 
         ["Next level of technology"] = "المستوى التالي من التكنولوجيا", 
         ["Repairs"] = "الإصلاحات", 
-        ["Expand your possibilities"] = "قم بتوسيع إمكانياتك"
+        ["Expand your possibilities"] = "قم بتوسيع إمكانياتك", 
+        ["IRON SIGHTS"] = "مشاهد الحديد", 
+        ["Driver Licence Required"] = "رخصة القيادة مطلوبة", 
+        ["Military & Law Enforcement Discount"] = "خصم العسكريين ورجال إنفاذ القانون"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
