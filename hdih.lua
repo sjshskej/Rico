@@ -329,7 +329,10 @@ local function translateTextAsync(originalText)
         ["Expand your possibilities"] = "قم بتوسيع إمكانياتك", 
         ["IRON SIGHTS"] = "مشاهد الحديد", 
         ["Driver Licence Required"] = "رخصة القيادة مطلوبة", 
-        ["Military & Law Enforcement Discount"] = "خصم العسكريين ورجال إنفاذ القانون"
+        ["Military & Law Enforcement Discount"] = "خصم العسكريين ورجال إنفاذ القانون", 
+        ["GTX"] = "جي تي اكس", 
+        ["AUTO PARTS"] = "قطع غيار السيارت", 
+        ["PERFORMANCE TUNES"] = "نغمات الأداء"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
