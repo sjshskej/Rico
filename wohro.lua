@@ -1,167 +1,166 @@
---========================== LinUI Library Example --==========================--
-local Library = loadstring(game:HttpGet("https://reallinen.github.io/Files/Scripts/Linui.lua"))()
-local Section = Library:Section("Example") -- Creates a section
+local VLib = loadstring(game:HttpGet("https://pastebin.com/raw/Mb49kKTP"))()
 
-local Label = Section:Label({
-	Text = "I am a Label", -- Text/Name of the label
-})
 
-local Button = Section:Button({
-	
-	Text = "Click me", -- Text/Name of the button
+		MAINTTL = "NBT HUB" 
 
-	Callback = function() -- What will be fired when the button is clicked [ optional ] | Default: function() end
-		print("Button was clicked!")
-	end
-})
+local win = VLib:Window("THREE PIECE", Color3.fromRGB(196, 40, 28))
 
-local MagicButton = Section:Button({
-	
-	Text = "Magic Button", -- Text/Name of the button
+local ss1 = win:Tab("HOW TO USE")
+local ss = win:Tab("MAIN")
+local sss = win:Tab("MISC")
+local cred = win:Tab("CREDITS")
 
-	Callback = function() -- What will be fired when the button is clicked [ optional ] | Default: function() end
-		Button:Text("Click Me V"..math.random(10, 50))
-		Label:Text("I am magic label "..math.random(1, 50))
-	end
-})
-
-local Keybind = Section:Keybind({
-
-	Text = "Keybind", -- Text of the keybind
-	Value = "K", -- string/Enum values are allowed
-
-	Callback = function( key: string --[[ The key that was triggerd ]] ) -- Callback that will fire when the keybind is pressed [ optional ] | default: function() end
-		print("Keybind", key)
-	end,
-
-	OnChange = function( key: string --[[ new key]], old_key: string --[[ the old key ]] ) -- This will fire when the keybind was changed to another key [ optional ]
-		print("New Keybind Key:", key, "|", "Old Keybind Key:", old_key)
-	end
-})
-
-local Slider1 = Section:Slider({
-
-	Text = "Walkspeed", -- Text/Name of the button
-
-	Min = 1,  -- Minimum Value of the slider [ optional ]  | Default: math.random
-	Value = 16, -- Value of the slider [ optional ] | Default: math.random(Min, Max)
-	Max = 100, -- Maximum value of the slider [ optional ] | Default: math.random
-
-	Callback = function(value --[[ New value of the slider ]], prevalue --[[ Previous value of the slider ]]) -- Callback is what will be fired when the slider value changes ( WaitForMouse ) or when the slider value is being changed ( Without WaitForMouse ) [ optional ] | Default: function() end
-		if value ~= prevalue then
-			if Humanoid then
-				Humanoid.WalkSpeed = value
-			end
-		end
-	end
-})
-
-local Slider2 = Section:Slider({
-
-	Text = "Walkspeed 2", -- Text/Name of the button
-	WaitForMouse = true, -- Wait for the mouse to be done moving the slider [ optional ] | Default: nil/false
-
-	Min = 1,  -- Minimum Value of the slider [ optional ]  | Default: math.random
-	Value = 16, -- Value of the slider [ optional ] | Default: math.random(Min, Max)
-	Max = 100, -- Maximum value of the slider [ optional ] | Default: math.random
-
-	Callback = function(value --[[ New value of the slider ]], prevalue --[[ Previous value of the slider ]]) -- Callback is what will be fired when the slider value changes ( WaitForMouse ) or when the slider value is being changed ( Without WaitForMouse ) [ optional ] | Default: function() end
-		if value ~= prevalue then
-			if Humanoid then
-				Humanoid.WalkSpeed = value
-			end
-		end
-	end
-})
-
-local Toggle = Section:Toggle({
-
-	Text = "Toggle", -- Text of the slider
-	Value = false, -- value of the slider [ optional ] | default: false
-
-	Callback = function(value: boolean --[[ current value of the slider ]]) -- Callback of the Toggle [optional]
-		print("Toggle #1:", value)
-	end
-})
-
-local Toggle2 = Section:Toggle({
-
-	Text = "Toggle 2", -- Text of the slider
-	Value = true, -- value of the slider [ optional ] | default: false
-
-	Callback = function(value: boolean --[[ current value of the slider ]]) -- Callback of the Toggle [optional]
-		print("Toggle #2:", value)
-	end
-})
-
-local Dropdown = Section:Dropdown({
-
-	Text = "Dropdown",
-	Data = { "This", "Will", "Be", "In", "The", "Dropdown" }, -- The values that will be in the dropdown. Seperated by a ","
-
-	Callback = function(value) -- Callback of the Dropdown, will fire when a new option has been selected in the dropdown [optional] | default: function() end
-		print("Dropdown Option:", value)
-	end
-})
-
-local Dropdown2 = Section:Dropdown({
-
-	Text = "Dropdown 2",
-	Data = { "test", "fee", "fi", "foe" }, -- The values that will be in the dropdown. Seperated by a ","
-	KeepText = true, -- when an element is selected, it will keep the "Dropdown 2" text
-
-	Callback = function(value) -- Callback of the Dropdown, will fire when a new option has been selected in the dropdown [optional] | default: function() end
-		print("Dropdown Option:", value)
-	end
-})
-
--- Slider 2:
-Slider2:Set(80) -- Setting Slider 2 Value to 80
-Slider2:Set(80, true) -- Setting Slider 2 Value to 80, except it will not call the 'Callback' function with the new value
-
-print(Slider2:Get()) -- will print '80'
-Slider2:Text("Speed V2") -- Setting Slider 2 Text to "Speed V2"
-print("----------------------- Toggle:")
-
--- Button:
-Button:Change(function() -- When the button is clicked, it will fire this function instead of the Callback. Basically changing the Callback of/in the button to this function
-	print("New button callback")	
+ss1:Button("Destroy Gui",function()
+game.CoreGui["Library"]:Destroy()
 end)
 
-task.delay(5, function() -- use task.delay to not yeild the current script context
-	Button:Text("Click me V2!") -- Changes the button text to this after 5 seconds
+local Npc_Table = {}     
+for i,v in pairs(game:GetService("Workspace"):GetChildren()) do 
+    if v:IsA("Model") and v:FindFirstChild("NPC") and v:FindFirstChild("AttackScript") and not table.find(Npc_Table,v.Name) then
+        table.insert(Npc_Table,v.Name)
+    end 
+end 
+
+    local tool_table = {}
+    for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+        if v:IsA("Tool") then
+            table.insert(tool_table, v.Name)
+        end
+    end
+    
+    distance = 5 
+    
+    
+     ss1:Label("You need to have a fruit inorder to hit mobs")
+     ss1:Label("Once you have a fruit auto equip it")
+     ss1:Label("then Spam Skills From Misc Tab")
+ 
+ 
+ss:Dropdown("Select Tool",tool_table,function(SelectedOption)
+SelectedWeapon = SelectedOption
+end)
+    
+ss:Toggle("AutoEquip",function(t)
+ Equip = t 
+    while wait() do 
+         if Equip then 
+           pcall(function()
+              for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                 if v.Name == SelectedWeapon then 
+                     game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+                   end 
+                end
+            end)
+        end 
+    end 
+end)  
+    
+ss:Dropdown("Mobs To Farm",Npc_Table,function(t)
+mobs = t     
+end) 
+
+ss:Toggle("Autofarm Start",function(t)
+    autofarm = t 
+    game:GetService("RunService").Stepped:Connect(function()
+    if autofarm then
+                    pcall(function()
+        game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+    end)
+end
+end)
+                while autofarm do wait()
+                    pcall(
+                        function()
+                            for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+                                if v.Name == mobs and v:FindFirstChild("HumanoidRootPart")and v:FindFirstChild("Humanoid") then
+                                   wait(.7)
+                                    repeat
+                                        wait()
+                                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =  CFrame.new(v.HumanoidRootPart.Position + Vector3.new(0,distance,0),v.HumanoidRootPart.Position)
+                                    until v.Humanoid.Health <= 0  or autofarm == false 
+                                end
+                            end
+                        end
+                    )
+                end
+            
+end) 
+
+ ss:Slider("Distance",-9,10,3,function(t)
+ distance = t     
+ end)
+ 
+ ss:Toggle("AutoFarm Fruits",function(t)
+fruits = t 
+ while fruits do wait() 
+     pcall(function()
+for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do
+    if v:IsA("Tool") and v:FindFirstChild("EatScript") then 
+         firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, v.Handle.TouchInterest.Parent, 0)
+            end 
+        end 
+     end)  
+  end 
+end) 
+ 
+
+sss:Toggle("Spam C Skill",function(t)
+skillsC = t 
+while skillsC do wait() 
+    pcall(function()
+            local LP = game:GetService("Players").LocalPlayer
+            local VIM = game:GetService("VirtualInputManager")
+         VIM:SendKeyEvent(true, Enum.KeyCode.C, false, game)
+        end) 
+    end
+end)
+            
+sss:Toggle("Spam X Skill",function(t)
+skillsX = t 
+while skillsX do wait() 
+    pcall(function()
+            local LP = game:GetService("Players").LocalPlayer
+            local VIM = game:GetService("VirtualInputManager")
+         VIM:SendKeyEvent(true, Enum.KeyCode.X, false, game)
+        end)
+    end
+end)
+            
+sss:Toggle("Spam V Skill",function(t)
+skillsV = t 
+    pcall(function()
+while skillsV do wait() 
+            local LP = game:GetService("Players").LocalPlayer
+            local VIM = game:GetService("VirtualInputManager")
+         VIM:SendKeyEvent(true, Enum.KeyCode.V, false, game)
+        end 
+    end)
+end)
+        
+sss:Toggle("Spam E Skill",function(t)
+skills = t 
+while skills do wait() 
+    pcall(function()
+            local LP = game:GetService("Players").LocalPlayer
+            local VIM = game:GetService("VirtualInputManager")
+         VIM:SendKeyEvent(true, Enum.KeyCode.E, false, game)
+       end)
+    end
+end)
+          
+sss:Toggle("Spam Z Skill",function(t)
+skillsZ = t 
+while skillsZ do wait() 
+    pcall(function()
+            local LP = game:GetService("Players").LocalPlayer
+            local VIM = game:GetService("VirtualInputManager")
+         VIM:SendKeyEvent(true, Enum.KeyCode.Z, false, game)
+        end)
+     end
 end)
 
--- Toggle 2:
-print(Toggle2:Get()) -- prints true, this gets the value of Toggle2
-Toggle2:Toggle() -- This switches the value of toggle 2 to the opposit of what it currently is
+cred:Button("Copy Discord Server",function()
+setclipboard("paste your discord link here")
+end) 
 
-print(Toggle2:Get()) -- prints false, since we just switched the value of Toggle 2
-
-Toggle2:Set(true) -- Sets the value of Toggle 2 to true 
-Toggle2:Set(false, true) -- Sets the value of Toggle 2 to false, but doesn't call the 'Callback' 
-
-print("----------------------- Dropdown:")
-
--- Dropdown:
-Dropdown:Add("Extra")
-print(Dropdown:Get("Extra")) -- Object
-
-task.wait(2)
-
-Dropdown:Remove("Extra") -- Removes "Extra" from the dropdown
-print(Dropdown:Get("Extra")) -- nil
-
-Section:Button({
-	Text = "Add to dropdown",
-	Callback = function() 
-		Dropdown:Add("New "..math.random(1, 9)) -- Adding a value to the dropdown
-	end
-})
-
-Section:Button({
-	Text = "Clear dropdown",
-	Callback = function() 
-		Dropdown:Remove() -- Since we didn't specify a value to remove from the dropdown, it removes all the elements inside
-	end
-})
+cred:Label("MADE BY ââ·âNiceBBMB#5242")
