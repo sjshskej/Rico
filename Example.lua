@@ -1,99 +1,87 @@
--- المتغيرات الأساسية
-local showPhone = false
-local phoneAlpha = 0 -- للتحكم في الشفافية (الأنميشن)
-local phoneScale = 0 -- للتحكم في الحجم (الأنميشن)
-local phoneButtons = {}
-local screenWidth, screenHeight = love.graphics.getDimensions()
+-- تعريف اللاعب المحلي
+local player = game.Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
 
--- إعداد الهاتف
-local phone = {
-    x = screenWidth / 2 - 100,
-    y = screenHeight / 2 - 200,
-    width = 200,
-    height = 400,
-    color = {0.9, 0.9, 0.9} -- لون الهاتف (أبيض رمادي)
-}
+-- إنشاء شاشة واجهة (ScreenGui)
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = playerGui
 
--- إعداد زر التشغيل
-local powerButton = {
-    x = screenWidth / 2 - 25,
-    y = screenHeight - 100,
-    radius = 30,
-    color = {0.2, 0.6, 0.8} -- لون الزر
-}
+-- زر دائري
+local toggleButton = Instance.new("TextButton")
+toggleButton.Size = UDim2.new(0, 50, 0, 50)
+toggleButton.Position = UDim2.new(0.5, -25, 0.9, -50)
+toggleButton.AnchorPoint = Vector2.new(0.5, 0.5)
+toggleButton.BackgroundColor3 = Color3.fromRGB(50, 150, 255)
+toggleButton.Text = ""
+toggleButton.TextScaled = true
+toggleButton.Font = Enum.Font.SourceSans
+toggleButton.TextColor3 = Color3.new(1, 1, 1)
+toggleButton.Parent = screenGui
+toggleButton.BorderSizePixel = 0
+toggleButton.ZIndex = 2
+toggleButton.Name = "ToggleButton"
+local uicorner = Instance.new("UICorner", toggleButton)
+uicorner.CornerRadius = UDim.new(1, 0)
 
--- إعداد الأزرار الأربعة
-function setupPhoneButtons()
-    local buttonWidth, buttonHeight = 120, 50
-    for i = 1, 4 do
-        local button = {
-            x = phone.x + 40,
-            y = phone.y + 50 * i + 20 * (i - 1),
-            width = buttonWidth,
-            height = buttonHeight,
-            label = "Button " .. i,
-            onClick = function()
-                print("Button " .. i .. " clicked!")
-            end
-        }
-        table.insert(phoneButtons, button)
-    end
+-- الهاتف (إطار)
+local phoneFrame = Instance.new("Frame")
+phoneFrame.Size = UDim2.new(0, 200, 0, 400)
+phoneFrame.Position = UDim2.new(0.5, -100, 0.5, -200)
+phoneFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+phoneFrame.BackgroundColor3 = Color3.fromRGB(230, 230, 230)
+phoneFrame.BorderSizePixel = 0
+phoneFrame.Visible = false
+phoneFrame.Parent = screenGui
+local phoneCorner = Instance.new("UICorner", phoneFrame)
+phoneCorner.CornerRadius = UDim.new(0.1, 0)
+
+-- أزرار داخل الهاتف
+local function createPhoneButton(index)
+    local button = Instance.new("TextButton")
+    button.Size = UDim2.new(0, 120, 0, 50)
+    button.Position = UDim2.new(0.5, -60, 0, 50 * index + (index - 1) * 10)
+    button.AnchorPoint = Vector2.new(0.5, 0)
+    button.BackgroundColor3 = Color3.fromRGB(80, 200, 120)
+    button.Text = "Button " .. index
+    button.TextScaled = true
+    button.Font = Enum.Font.SourceSans
+    button.TextColor3 = Color3.new(1, 1, 1)
+    button.Parent = phoneFrame
+    local buttonCorner = Instance.new("UICorner", button)
+    buttonCorner.CornerRadius = UDim.new(0.2, 0)
+    button.MouseButton1Click:Connect(function()
+        print("Button " .. index .. " clicked!")
+    end)
 end
 
--- التحقق من النقر داخل دائرة
-function isInsideCircle(x, y, circle)
-    return (x - circle.x)^2 + (y - circle.y)^2 <= circle.radius^2
+-- إنشاء الأزرار الأربعة
+for i = 1, 4 do
+    createPhoneButton(i)
 end
 
--- التحقق من النقر داخل مستطيل
-function isInsideRect(x, y, rect)
-    return x > rect.x and x < rect.x + rect.width and y > rect.y and y < rect.y + rect.height
-end
+-- أنيميشن الهاتف (إظهار/إخفاء)
+local isPhoneVisible = false
+local tweenService = game:GetService("TweenService")
+local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut)
 
--- Love2D: الإعداد الأولي
-function love.load()
-    setupPhoneButtons()
-end
-
--- Love2D: الرسم
-function love.draw()
-    -- رسم الزر الدائري
-    love.graphics.setColor(powerButton.color)
-    love.graphics.circle("fill", powerButton.x, powerButton.y, powerButton.radius)
-
-    -- رسم الهاتف (مع أنميشن الشفافية والحجم)
-    if phoneAlpha > 0 then
-        love.graphics.setColor(phone.color[1], phone.color[2], phone.color[3], phoneAlpha)
-        love.graphics.rectangle("fill", phone.x, phone.y, phone.width * phoneScale, phone.height * phoneScale, 20, 20)
-
-        -- رسم الأزرار داخل الهاتف
-        if phoneScale > 0.9 then -- عند انتهاء الأنميشن
-            for _, button in ipairs(phoneButtons) do
-                love.graphics.setColor(0.3, 0.7, 0.4, phoneAlpha)
-                love.graphics.rectangle("fill", button.x, button.y, button.width, button.height, 10, 10)
-                love.graphics.setColor(1, 1, 1, phoneAlpha)
-                love.graphics.printf(button.label, button.x, button.y + 15, button.width, "center")
-            end
-        end
-    end
-end
-
--- Love2D: التحكم في النقر
-function love.mousepressed(x, y, button)
-    if button == 1 then
-        if isInsideCircle(x, y, powerButton) then
-            showPhone = not showPhone
-        end
-    end
-end
-
--- Love2D: التحديث
-function love.update(dt)
-    if showPhone then
-        phoneAlpha = math.min(phoneAlpha + dt * 2, 1) -- زيادة الشفافية
-        phoneScale = math.min(phoneScale + dt * 2, 1) -- زيادة الحجم
+local function togglePhone()
+    isPhoneVisible = not isPhoneVisible
+    if isPhoneVisible then
+        phoneFrame.Visible = true
+        local goal = {Position = UDim2.new(0.5, -100, 0.5, -200), Transparency = 0}
+        local tween = tweenService:Create(phoneFrame, tweenInfo, goal)
+        tween:Play()
     else
-        phoneAlpha = math.max(phoneAlpha - dt * 2, 0) -- تقليل الشفافية
-        phoneScale = math.max(phoneScale - dt * 2, 0) -- تقليل الحجم
+        local goal = {Position = UDim2.new(0.5, -100, 0.8, 0), Transparency = 1}
+        local tween = tweenService:Create(phoneFrame, tweenInfo, goal)
+        tween:Play()
+        tween.Completed:Connect(function()
+            if not isPhoneVisible then
+                phoneFrame.Visible = false
+            end
+        end)
     end
 end
+
+-- التحكم بالزر الدائري
+toggleButton.MouseButton1Click:Connect(togglePhone)
