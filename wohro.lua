@@ -1,167 +1,167 @@
---[[
-	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
-]]
--- Local Script in StarterGui
-local player = game.Players.LocalPlayer
-local camera = workspace.CurrentCamera
-local originalCameraSubject = camera.CameraSubject
- 
--- Create GUI
-local gui = Instance.new("ScreenGui", player.PlayerGui)
- 
--- Main Frame
-local frame = Instance.new("Frame", gui)
-frame.Size, frame.Position = UDim2.new(0, 300, 0, 250), UDim2.new(0, 10, 0, 10)
-frame.BackgroundColor3, frame.Active, frame.Draggable = Color3.fromRGB(40, 40, 40), true, true
- 
--- Tab Buttons
-local tabContainer = Instance.new("Frame", frame)
-tabContainer.Size, tabContainer.Position = UDim2.new(1, 0, 0.2, 0), UDim2.new(0, 0, 0, 0)
-tabContainer.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
- 
-local function createTabButton(name, position)
-    local button = Instance.new("TextButton", tabContainer)
-    button.Size, button.Position = UDim2.new(0.2, -5, 1, 0), UDim2.new(position, 5, 0, 0)
-    button.Text, button.BackgroundColor3 = name, Color3.fromRGB(60, 60, 60)
-    button.TextScaled, button.Font, button.TextColor3 = true, Enum.Font.SourceSansBold, Color3.new(1, 1, 1)
-    return button
-end
- 
-local speedTab = createTabButton("Speed", 0)
-local flingTab = createTabButton("Fling", 0.2)
-local spectateTab = createTabButton("Spectate", 0.4)
-local sizeTab = createTabButton("Size", 0.6)
-local creditsTab = createTabButton("Credits", 0.8)
- 
--- Content Container
-local contentContainer = Instance.new("Frame", frame)
-contentContainer.Size, contentContainer.Position = UDim2.new(1, 0, 0.8, 0), UDim2.new(0, 0, 0.2)
-contentContainer.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
- 
--- Tab Functions
-local function clearContent()
-    for _, child in ipairs(contentContainer:GetChildren()) do
-        child:Destroy()
-    end
-end
- 
--- Speed Tab
-speedTab.MouseButton1Click:Connect(function()
-    clearContent()
- 
-    local speedTextBox = Instance.new("TextBox", contentContainer)
-    speedTextBox.Size, speedTextBox.Position = UDim2.new(0.9, 0, 0.4, 0), UDim2.new(0.05, 0, 0.1, 0)
-    speedTextBox.PlaceholderText, speedTextBox.BackgroundColor3 = "Enter Speed", Color3.fromRGB(100, 100, 200)
-    speedTextBox.TextScaled, speedTextBox.Font, speedTextBox.TextColor3 = true, Enum.Font.SourceSans, Color3.new(1, 1, 1)
- 
-    local setSpeedButton = Instance.new("TextButton", contentContainer)
-    setSpeedButton.Size, setSpeedButton.Position = UDim2.new(0.9, 0, 0.4, 0), UDim2.new(0.05, 0, 0.55, 0)
-    setSpeedButton.Text, setSpeedButton.BackgroundColor3 = "Set Speed", Color3.fromRGB(50, 200, 50)
-    setSpeedButton.TextScaled, setSpeedButton.Font, setSpeedButton.TextColor3 = true, Enum.Font.SourceSansBold, Color3.new(1, 1, 1)
- 
-    setSpeedButton.MouseButton1Click:Connect(function()
-        local speed = tonumber(speedTextBox.Text)
-        local humanoid = player.Character and player.Character:FindFirstChildOfClass("Humanoid")
-        if humanoid and speed then
-            humanoid.WalkSpeed = speed
-        end
-    end)
-end)
- 
--- Fling Tab
-flingTab.MouseButton1Click:Connect(function()
-    clearContent()
- 
-    local flingButton = Instance.new("TextButton", contentContainer)
-    flingButton.Size, flingButton.Position = UDim2.new(0.9, 0, 0.4, 0), UDim2.new(0.05, 0, 0.3, 0)
-    flingButton.Text, flingButton.BackgroundColor3 = "Fling All", Color3.fromRGB(200, 50, 50)
-    flingButton.TextScaled, flingButton.Font, flingButton.TextColor3 = true, Enum.Font.SourceSansBold, Color3.new(1, 1, 1)
- 
-    flingButton.MouseButton1Click:Connect(function()
-        local root = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
-        if not root then return end
- 
-        for _, target in ipairs(game.Players:GetPlayers()) do
-            if target ~= player and target.Character and target.Character:FindFirstChild("HumanoidRootPart") then
-                root.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(0, 1, 0)
-                local spinConnection
-                spinConnection = game:GetService("RunService").Stepped:Connect(function()
-                    root.CFrame = root.CFrame * CFrame.Angles(0, math.rad(500), 0) -- Spin fast
-                end)
-                task.wait(0.5) -- Fling interaction duration
-                spinConnection:Disconnect()
-                task.wait(5) -- Wait before teleporting to the next player
-            end
-        end
-    end)
-end)
- 
--- Spectate Tab
-spectateTab.MouseButton1Click:Connect(function()
-    clearContent()
- 
-    local playerDropdown = Instance.new("TextLabel", contentContainer)
-    playerDropdown.Size, playerDropdown.Position = UDim2.new(0.9, 0, 0.4, 0), UDim2.new(0.05, 0, 0.1, 0)
-    playerDropdown.Text, playerDropdown.BackgroundColor3 = "Select Player:", Color3.fromRGB(70, 70, 70)
-    playerDropdown.TextScaled, playerDropdown.Font, playerDropdown.TextColor3 = true, Enum.Font.SourceSans, Color3.new(1, 1, 1)
- 
-    local playerList = Instance.new("ScrollingFrame", contentContainer)
-    playerList.Size, playerList.Position = UDim2.new(0.9, 0, 0.4, 0), UDim2.new(0.05, 0, 0.3, 0)
-    playerList.BackgroundColor3, playerList.CanvasSize = Color3.fromRGB(60, 60, 60), UDim2.new(0, 0, 3, 0)
- 
-    for _, target in ipairs(game.Players:GetPlayers()) do
-        local playerButton = Instance.new("TextButton", playerList)
-        playerButton.Size, playerButton.Text = UDim2.new(1, -10, 0, 30), target.Name
-        playerButton.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
-        playerButton.TextScaled, playerButton.Font, playerButton.TextColor3 = true, Enum.Font.SourceSans, Color3.new(1, 1, 1)
- 
-        playerButton.MouseButton1Click:Connect(function()
-            camera.CameraSubject = target.Character
-        end)
-    end
- 
-    local resetCameraButton = Instance.new("TextButton", contentContainer)
-    resetCameraButton.Size, resetCameraButton.Position = UDim2.new(0.9, 0, 0.4, 0), UDim2.new(0.05, 0, 0.75, 0)
-    resetCameraButton.Text, resetCameraButton.BackgroundColor3 = "Restore Camera", Color3.fromRGB(50, 200, 50)
-    resetCameraButton.TextScaled, resetCameraButton.Font, resetCameraButton.TextColor3 = true, Enum.Font.SourceSansBold, Color3.new(1, 1, 1)
- 
-    resetCameraButton.MouseButton1Click:Connect(function()
-        camera.CameraSubject = originalCameraSubject
-    end)
-end)
- 
--- Size Tab
-sizeTab.MouseButton1Click:Connect(function()
-    clearContent()
- 
-    local sizeTextBox = Instance.new("TextBox", contentContainer)
-    sizeTextBox.Size, sizeTextBox.Position = UDim2.new(0.9, 0, 0.4, 0), UDim2.new(0.05, 0, 0.1, 0)
-    sizeTextBox.PlaceholderText, sizeTextBox.BackgroundColor3 = "Enter Size", Color3.fromRGB(100, 150, 200)
-    sizeTextBox.TextScaled, sizeTextBox.Font, sizeTextBox.TextColor3 = true, Enum.Font.SourceSans, Color3.new(1, 1, 1)
- 
-    local setSizeButton = Instance.new("TextButton", contentContainer)
-    setSizeButton.Size, setSizeButton.Position = UDim2.new(0.9, 0, 0.4, 0), UDim2.new(0.05, 0, 0.55, 0)
-    setSizeButton.Text, setSizeButton.BackgroundColor3 = "Set Size", Color3.fromRGB(50, 200, 50)
-    setSizeButton.TextScaled, setSizeButton.Font, setSizeButton.TextColor3 = true, Enum.Font.SourceSansBold, Color3.new(1, 1, 1)
- 
-    setSizeButton.MouseButton1Click:Connect(function()
-        local size = tonumber(sizeTextBox.Text)
-        if size then
-            for _, part in ipairs(player.Character:GetChildren()) do
-                if part:IsA("BasePart") then
-                    part.Size = part.Size * size
-                end
-            end
-        end
-    end)
-end)
- 
--- Credits Tab
-creditsTab.MouseButton1Click:Connect(function()
-    clearContent()
- 
-    local creditsLabel = Instance.new("TextLabel", contentContainer)
-    creditsLabel.Size, creditsLabel.Position = UDim2.new(1, 0, 1, 0), UDim2.new(0, 0, 0, 0)
-    creditsLabel.Text, creditsLabel.BackgroundColor3 = "Created by ChatGPT/Gemesplay", Color3.fromRGB(40, 40, 40)
-    creditsLabel.TextScaled, creditsLabel.Font, creditsLabel.TextColor3 = true, Enum.Font.SourceSansBold, Color3.new(1, 1, 1)
-end)
+LS1bWw==
+CVdBUk5JTkc6IEhlYWRzIHVwISBUaGlzIHNjcmlwdCBoYXMgbm90IGJlZW4gdmVyaWZpZWQgYnkgU2NyaXB0QmxveC4gVXNlIGF0IHlvdXIgb3duIHJpc2sh
+XV0=
+LS0gTG9jYWwgU2NyaXB0IGluIFN0YXJ0ZXJHdWk=
+bG9jYWwgcGxheWVyID0gZ2FtZS5QbGF5ZXJzLkxvY2FsUGxheWVy
+bG9jYWwgY2FtZXJhID0gd29ya3NwYWNlLkN1cnJlbnRDYW1lcmE=
+bG9jYWwgb3JpZ2luYWxDYW1lcmFTdWJqZWN0ID0gY2FtZXJhLkNhbWVyYVN1YmplY3Q=
+IA==
+LS0gQ3JlYXRlIEdVSQ==
+bG9jYWwgZ3VpID0gSW5zdGFuY2UubmV3KCJTY3JlZW5HdWkiLCBwbGF5ZXIuUGxheWVyR3VpKQ==
+IA==
+LS0gTWFpbiBGcmFtZQ==
+bG9jYWwgZnJhbWUgPSBJbnN0YW5jZS5uZXcoIkZyYW1lIiwgZ3VpKQ==
+ZnJhbWUuU2l6ZSwgZnJhbWUuUG9zaXRpb24gPSBVRGltMi5uZXcoMCwgMzAwLCAwLCAyNTApLCBVRGltMi5uZXcoMCwgMTAsIDAsIDEwKQ==
+ZnJhbWUuQmFja2dyb3VuZENvbG9yMywgZnJhbWUuQWN0aXZlLCBmcmFtZS5EcmFnZ2FibGUgPSBDb2xvcjMuZnJvbVJHQig0MCwgNDAsIDQwKSwgdHJ1ZSwgdHJ1ZQ==
+IA==
+LS0gVGFiIEJ1dHRvbnM=
+bG9jYWwgdGFiQ29udGFpbmVyID0gSW5zdGFuY2UubmV3KCJGcmFtZSIsIGZyYW1lKQ==
+dGFiQ29udGFpbmVyLlNpemUsIHRhYkNvbnRhaW5lci5Qb3NpdGlvbiA9IFVEaW0yLm5ldygxLCAwLCAwLjIsIDApLCBVRGltMi5uZXcoMCwgMCwgMCwgMCk=
+dGFiQ29udGFpbmVyLkJhY2tncm91bmRDb2xvcjMgPSBDb2xvcjMuZnJvbVJHQigzMCwgMzAsIDMwKQ==
+IA==
+bG9jYWwgZnVuY3Rpb24gY3JlYXRlVGFiQnV0dG9uKG5hbWUsIHBvc2l0aW9uKQ==
+ICAgIGxvY2FsIGJ1dHRvbiA9IEluc3RhbmNlLm5ldygiVGV4dEJ1dHRvbiIsIHRhYkNvbnRhaW5lcik=
+ICAgIGJ1dHRvbi5TaXplLCBidXR0b24uUG9zaXRpb24gPSBVRGltMi5uZXcoMC4yLCAtNSwgMSwgMCksIFVEaW0yLm5ldyhwb3NpdGlvbiwgNSwgMCwgMCk=
+ICAgIGJ1dHRvbi5UZXh0LCBidXR0b24uQmFja2dyb3VuZENvbG9yMyA9IG5hbWUsIENvbG9yMy5mcm9tUkdCKDYwLCA2MCwgNjAp
+ICAgIGJ1dHRvbi5UZXh0U2NhbGVkLCBidXR0b24uRm9udCwgYnV0dG9uLlRleHRDb2xvcjMgPSB0cnVlLCBFbnVtLkZvbnQuU291cmNlU2Fuc0JvbGQsIENvbG9yMy5uZXcoMSwgMSwgMSk=
+ICAgIHJldHVybiBidXR0b24=
+ZW5k
+IA==
+bG9jYWwgc3BlZWRUYWIgPSBjcmVhdGVUYWJCdXR0b24oIlNwZWVkIiwgMCk=
+bG9jYWwgZmxpbmdUYWIgPSBjcmVhdGVUYWJCdXR0b24oIkZsaW5nIiwgMC4yKQ==
+bG9jYWwgc3BlY3RhdGVUYWIgPSBjcmVhdGVUYWJCdXR0b24oIlNwZWN0YXRlIiwgMC40KQ==
+bG9jYWwgc2l6ZVRhYiA9IGNyZWF0ZVRhYkJ1dHRvbigiU2l6ZSIsIDAuNik=
+bG9jYWwgY3JlZGl0c1RhYiA9IGNyZWF0ZVRhYkJ1dHRvbigiQ3JlZGl0cyIsIDAuOCk=
+IA==
+LS0gQ29udGVudCBDb250YWluZXI=
+bG9jYWwgY29udGVudENvbnRhaW5lciA9IEluc3RhbmNlLm5ldygiRnJhbWUiLCBmcmFtZSk=
+Y29udGVudENvbnRhaW5lci5TaXplLCBjb250ZW50Q29udGFpbmVyLlBvc2l0aW9uID0gVURpbTIubmV3KDEsIDAsIDAuOCwgMCksIFVEaW0yLm5ldygwLCAwLCAwLjIp
+Y29udGVudENvbnRhaW5lci5CYWNrZ3JvdW5kQ29sb3IzID0gQ29sb3IzLmZyb21SR0IoNTAsIDUwLCA1MCk=
+IA==
+LS0gVGFiIEZ1bmN0aW9ucw==
+bG9jYWwgZnVuY3Rpb24gY2xlYXJDb250ZW50KCk=
+ICAgIGZvciBfLCBjaGlsZCBpbiBpcGFpcnMoY29udGVudENvbnRhaW5lcjpHZXRDaGlsZHJlbigpKSBkbw==
+ICAgICAgICBjaGlsZDpEZXN0cm95KCk=
+ICAgIGVuZA==
+ZW5k
+IA==
+LS0gU3BlZWQgVGFi
+c3BlZWRUYWIuTW91c2VCdXR0b24xQ2xpY2s6Q29ubmVjdChmdW5jdGlvbigp
+ICAgIGNsZWFyQ29udGVudCgp
+IA==
+ICAgIGxvY2FsIHNwZWVkVGV4dEJveCA9IEluc3RhbmNlLm5ldygiVGV4dEJveCIsIGNvbnRlbnRDb250YWluZXIp
+ICAgIHNwZWVkVGV4dEJveC5TaXplLCBzcGVlZFRleHRCb3guUG9zaXRpb24gPSBVRGltMi5uZXcoMC45LCAwLCAwLjQsIDApLCBVRGltMi5uZXcoMC4wNSwgMCwgMC4xLCAwKQ==
+ICAgIHNwZWVkVGV4dEJveC5QbGFjZWhvbGRlclRleHQsIHNwZWVkVGV4dEJveC5CYWNrZ3JvdW5kQ29sb3IzID0gIkVudGVyIFNwZWVkIiwgQ29sb3IzLmZyb21SR0IoMTAwLCAxMDAsIDIwMCk=
+ICAgIHNwZWVkVGV4dEJveC5UZXh0U2NhbGVkLCBzcGVlZFRleHRCb3guRm9udCwgc3BlZWRUZXh0Qm94LlRleHRDb2xvcjMgPSB0cnVlLCBFbnVtLkZvbnQuU291cmNlU2FucywgQ29sb3IzLm5ldygxLCAxLCAxKQ==
+IA==
+ICAgIGxvY2FsIHNldFNwZWVkQnV0dG9uID0gSW5zdGFuY2UubmV3KCJUZXh0QnV0dG9uIiwgY29udGVudENvbnRhaW5lcik=
+ICAgIHNldFNwZWVkQnV0dG9uLlNpemUsIHNldFNwZWVkQnV0dG9uLlBvc2l0aW9uID0gVURpbTIubmV3KDAuOSwgMCwgMC40LCAwKSwgVURpbTIubmV3KDAuMDUsIDAsIDAuNTUsIDAp
+ICAgIHNldFNwZWVkQnV0dG9uLlRleHQsIHNldFNwZWVkQnV0dG9uLkJhY2tncm91bmRDb2xvcjMgPSAiU2V0IFNwZWVkIiwgQ29sb3IzLmZyb21SR0IoNTAsIDIwMCwgNTAp
+ICAgIHNldFNwZWVkQnV0dG9uLlRleHRTY2FsZWQsIHNldFNwZWVkQnV0dG9uLkZvbnQsIHNldFNwZWVkQnV0dG9uLlRleHRDb2xvcjMgPSB0cnVlLCBFbnVtLkZvbnQuU291cmNlU2Fuc0JvbGQsIENvbG9yMy5uZXcoMSwgMSwgMSk=
+IA==
+ICAgIHNldFNwZWVkQnV0dG9uLk1vdXNlQnV0dG9uMUNsaWNrOkNvbm5lY3QoZnVuY3Rpb24oKQ==
+ICAgICAgICBsb2NhbCBzcGVlZCA9IHRvbnVtYmVyKHNwZWVkVGV4dEJveC5UZXh0KQ==
+ICAgICAgICBsb2NhbCBodW1hbm9pZCA9IHBsYXllci5DaGFyYWN0ZXIgYW5kIHBsYXllci5DaGFyYWN0ZXI6RmluZEZpcnN0Q2hpbGRPZkNsYXNzKCJIdW1hbm9pZCIp
+ICAgICAgICBpZiBodW1hbm9pZCBhbmQgc3BlZWQgdGhlbg==
+ICAgICAgICAgICAgaHVtYW5vaWQuV2Fsa1NwZWVkID0gc3BlZWQ=
+ICAgICAgICBlbmQ=
+ICAgIGVuZCk=
+ZW5kKQ==
+IA==
+LS0gRmxpbmcgVGFi
+ZmxpbmdUYWIuTW91c2VCdXR0b24xQ2xpY2s6Q29ubmVjdChmdW5jdGlvbigp
+ICAgIGNsZWFyQ29udGVudCgp
+IA==
+ICAgIGxvY2FsIGZsaW5nQnV0dG9uID0gSW5zdGFuY2UubmV3KCJUZXh0QnV0dG9uIiwgY29udGVudENvbnRhaW5lcik=
+ICAgIGZsaW5nQnV0dG9uLlNpemUsIGZsaW5nQnV0dG9uLlBvc2l0aW9uID0gVURpbTIubmV3KDAuOSwgMCwgMC40LCAwKSwgVURpbTIubmV3KDAuMDUsIDAsIDAuMywgMCk=
+ICAgIGZsaW5nQnV0dG9uLlRleHQsIGZsaW5nQnV0dG9uLkJhY2tncm91bmRDb2xvcjMgPSAiRmxpbmcgQWxsIiwgQ29sb3IzLmZyb21SR0IoMjAwLCA1MCwgNTAp
+ICAgIGZsaW5nQnV0dG9uLlRleHRTY2FsZWQsIGZsaW5nQnV0dG9uLkZvbnQsIGZsaW5nQnV0dG9uLlRleHRDb2xvcjMgPSB0cnVlLCBFbnVtLkZvbnQuU291cmNlU2Fuc0JvbGQsIENvbG9yMy5uZXcoMSwgMSwgMSk=
+IA==
+ICAgIGZsaW5nQnV0dG9uLk1vdXNlQnV0dG9uMUNsaWNrOkNvbm5lY3QoZnVuY3Rpb24oKQ==
+ICAgICAgICBsb2NhbCByb290ID0gcGxheWVyLkNoYXJhY3RlciBhbmQgcGxheWVyLkNoYXJhY3RlcjpGaW5kRmlyc3RDaGlsZCgiSHVtYW5vaWRSb290UGFydCIp
+ICAgICAgICBpZiBub3Qgcm9vdCB0aGVuIHJldHVybiBlbmQ=
+IA==
+ICAgICAgICBmb3IgXywgdGFyZ2V0IGluIGlwYWlycyhnYW1lLlBsYXllcnM6R2V0UGxheWVycygpKSBkbw==
+ICAgICAgICAgICAgaWYgdGFyZ2V0IH49IHBsYXllciBhbmQgdGFyZ2V0LkNoYXJhY3RlciBhbmQgdGFyZ2V0LkNoYXJhY3RlcjpGaW5kRmlyc3RDaGlsZCgiSHVtYW5vaWRSb290UGFydCIpIHRoZW4=
+ICAgICAgICAgICAgICAgIHJvb3QuQ0ZyYW1lID0gdGFyZ2V0LkNoYXJhY3Rlci5IdW1hbm9pZFJvb3RQYXJ0LkNGcmFtZSArIFZlY3RvcjMubmV3KDAsIDEsIDAp
+ICAgICAgICAgICAgICAgIGxvY2FsIHNwaW5Db25uZWN0aW9u
+ICAgICAgICAgICAgICAgIHNwaW5Db25uZWN0aW9uID0gZ2FtZTpHZXRTZXJ2aWNlKCJSdW5TZXJ2aWNlIikuU3RlcHBlZDpDb25uZWN0KGZ1bmN0aW9uKCk=
+ICAgICAgICAgICAgICAgICAgICByb290LkNGcmFtZSA9IHJvb3QuQ0ZyYW1lICogQ0ZyYW1lLkFuZ2xlcygwLCBtYXRoLnJhZCg1MDApLCAwKSAtLSBTcGluIGZhc3Q=
+ICAgICAgICAgICAgICAgIGVuZCk=
+ICAgICAgICAgICAgICAgIHRhc2sud2FpdCgwLjUpIC0tIEZsaW5nIGludGVyYWN0aW9uIGR1cmF0aW9u
+ICAgICAgICAgICAgICAgIHNwaW5Db25uZWN0aW9uOkRpc2Nvbm5lY3QoKQ==
+ICAgICAgICAgICAgICAgIHRhc2sud2FpdCg1KSAtLSBXYWl0IGJlZm9yZSB0ZWxlcG9ydGluZyB0byB0aGUgbmV4dCBwbGF5ZXI=
+ICAgICAgICAgICAgZW5k
+ICAgICAgICBlbmQ=
+ICAgIGVuZCk=
+ZW5kKQ==
+IA==
+LS0gU3BlY3RhdGUgVGFi
+c3BlY3RhdGVUYWIuTW91c2VCdXR0b24xQ2xpY2s6Q29ubmVjdChmdW5jdGlvbigp
+ICAgIGNsZWFyQ29udGVudCgp
+IA==
+ICAgIGxvY2FsIHBsYXllckRyb3Bkb3duID0gSW5zdGFuY2UubmV3KCJUZXh0TGFiZWwiLCBjb250ZW50Q29udGFpbmVyKQ==
+ICAgIHBsYXllckRyb3Bkb3duLlNpemUsIHBsYXllckRyb3Bkb3duLlBvc2l0aW9uID0gVURpbTIubmV3KDAuOSwgMCwgMC40LCAwKSwgVURpbTIubmV3KDAuMDUsIDAsIDAuMSwgMCk=
+ICAgIHBsYXllckRyb3Bkb3duLlRleHQsIHBsYXllckRyb3Bkb3duLkJhY2tncm91bmRDb2xvcjMgPSAiU2VsZWN0IFBsYXllcjoiLCBDb2xvcjMuZnJvbVJHQig3MCwgNzAsIDcwKQ==
+ICAgIHBsYXllckRyb3Bkb3duLlRleHRTY2FsZWQsIHBsYXllckRyb3Bkb3duLkZvbnQsIHBsYXllckRyb3Bkb3duLlRleHRDb2xvcjMgPSB0cnVlLCBFbnVtLkZvbnQuU291cmNlU2FucywgQ29sb3IzLm5ldygxLCAxLCAxKQ==
+IA==
+ICAgIGxvY2FsIHBsYXllckxpc3QgPSBJbnN0YW5jZS5uZXcoIlNjcm9sbGluZ0ZyYW1lIiwgY29udGVudENvbnRhaW5lcik=
+ICAgIHBsYXllckxpc3QuU2l6ZSwgcGxheWVyTGlzdC5Qb3NpdGlvbiA9IFVEaW0yLm5ldygwLjksIDAsIDAuNCwgMCksIFVEaW0yLm5ldygwLjA1LCAwLCAwLjMsIDAp
+ICAgIHBsYXllckxpc3QuQmFja2dyb3VuZENvbG9yMywgcGxheWVyTGlzdC5DYW52YXNTaXplID0gQ29sb3IzLmZyb21SR0IoNjAsIDYwLCA2MCksIFVEaW0yLm5ldygwLCAwLCAzLCAwKQ==
+IA==
+ICAgIGZvciBfLCB0YXJnZXQgaW4gaXBhaXJzKGdhbWUuUGxheWVyczpHZXRQbGF5ZXJzKCkpIGRv
+ICAgICAgICBsb2NhbCBwbGF5ZXJCdXR0b24gPSBJbnN0YW5jZS5uZXcoIlRleHRCdXR0b24iLCBwbGF5ZXJMaXN0KQ==
+ICAgICAgICBwbGF5ZXJCdXR0b24uU2l6ZSwgcGxheWVyQnV0dG9uLlRleHQgPSBVRGltMi5uZXcoMSwgLTEwLCAwLCAzMCksIHRhcmdldC5OYW1l
+ICAgICAgICBwbGF5ZXJCdXR0b24uQmFja2dyb3VuZENvbG9yMyA9IENvbG9yMy5mcm9tUkdCKDgwLCA4MCwgODAp
+ICAgICAgICBwbGF5ZXJCdXR0b24uVGV4dFNjYWxlZCwgcGxheWVyQnV0dG9uLkZvbnQsIHBsYXllckJ1dHRvbi5UZXh0Q29sb3IzID0gdHJ1ZSwgRW51bS5Gb250LlNvdXJjZVNhbnMsIENvbG9yMy5uZXcoMSwgMSwgMSk=
+IA==
+ICAgICAgICBwbGF5ZXJCdXR0b24uTW91c2VCdXR0b24xQ2xpY2s6Q29ubmVjdChmdW5jdGlvbigp
+ICAgICAgICAgICAgY2FtZXJhLkNhbWVyYVN1YmplY3QgPSB0YXJnZXQuQ2hhcmFjdGVy
+ICAgICAgICBlbmQp
+ICAgIGVuZA==
+IA==
+ICAgIGxvY2FsIHJlc2V0Q2FtZXJhQnV0dG9uID0gSW5zdGFuY2UubmV3KCJUZXh0QnV0dG9uIiwgY29udGVudENvbnRhaW5lcik=
+ICAgIHJlc2V0Q2FtZXJhQnV0dG9uLlNpemUsIHJlc2V0Q2FtZXJhQnV0dG9uLlBvc2l0aW9uID0gVURpbTIubmV3KDAuOSwgMCwgMC40LCAwKSwgVURpbTIubmV3KDAuMDUsIDAsIDAuNzUsIDAp
+ICAgIHJlc2V0Q2FtZXJhQnV0dG9uLlRleHQsIHJlc2V0Q2FtZXJhQnV0dG9uLkJhY2tncm91bmRDb2xvcjMgPSAiUmVzdG9yZSBDYW1lcmEiLCBDb2xvcjMuZnJvbVJHQig1MCwgMjAwLCA1MCk=
+ICAgIHJlc2V0Q2FtZXJhQnV0dG9uLlRleHRTY2FsZWQsIHJlc2V0Q2FtZXJhQnV0dG9uLkZvbnQsIHJlc2V0Q2FtZXJhQnV0dG9uLlRleHRDb2xvcjMgPSB0cnVlLCBFbnVtLkZvbnQuU291cmNlU2Fuc0JvbGQsIENvbG9yMy5uZXcoMSwgMSwgMSk=
+IA==
+ICAgIHJlc2V0Q2FtZXJhQnV0dG9uLk1vdXNlQnV0dG9uMUNsaWNrOkNvbm5lY3QoZnVuY3Rpb24oKQ==
+ICAgICAgICBjYW1lcmEuQ2FtZXJhU3ViamVjdCA9IG9yaWdpbmFsQ2FtZXJhU3ViamVjdA==
+ICAgIGVuZCk=
+ZW5kKQ==
+IA==
+LS0gU2l6ZSBUYWI=
+c2l6ZVRhYi5Nb3VzZUJ1dHRvbjFDbGljazpDb25uZWN0KGZ1bmN0aW9uKCk=
+ICAgIGNsZWFyQ29udGVudCgp
+IA==
+ICAgIGxvY2FsIHNpemVUZXh0Qm94ID0gSW5zdGFuY2UubmV3KCJUZXh0Qm94IiwgY29udGVudENvbnRhaW5lcik=
+ICAgIHNpemVUZXh0Qm94LlNpemUsIHNpemVUZXh0Qm94LlBvc2l0aW9uID0gVURpbTIubmV3KDAuOSwgMCwgMC40LCAwKSwgVURpbTIubmV3KDAuMDUsIDAsIDAuMSwgMCk=
+ICAgIHNpemVUZXh0Qm94LlBsYWNlaG9sZGVyVGV4dCwgc2l6ZVRleHRCb3guQmFja2dyb3VuZENvbG9yMyA9ICJFbnRlciBTaXplIiwgQ29sb3IzLmZyb21SR0IoMTAwLCAxNTAsIDIwMCk=
+ICAgIHNpemVUZXh0Qm94LlRleHRTY2FsZWQsIHNpemVUZXh0Qm94LkZvbnQsIHNpemVUZXh0Qm94LlRleHRDb2xvcjMgPSB0cnVlLCBFbnVtLkZvbnQuU291cmNlU2FucywgQ29sb3IzLm5ldygxLCAxLCAxKQ==
+IA==
+ICAgIGxvY2FsIHNldFNpemVCdXR0b24gPSBJbnN0YW5jZS5uZXcoIlRleHRCdXR0b24iLCBjb250ZW50Q29udGFpbmVyKQ==
+ICAgIHNldFNpemVCdXR0b24uU2l6ZSwgc2V0U2l6ZUJ1dHRvbi5Qb3NpdGlvbiA9IFVEaW0yLm5ldygwLjksIDAsIDAuNCwgMCksIFVEaW0yLm5ldygwLjA1LCAwLCAwLjU1LCAwKQ==
+ICAgIHNldFNpemVCdXR0b24uVGV4dCwgc2V0U2l6ZUJ1dHRvbi5CYWNrZ3JvdW5kQ29sb3IzID0gIlNldCBTaXplIiwgQ29sb3IzLmZyb21SR0IoNTAsIDIwMCwgNTAp
+ICAgIHNldFNpemVCdXR0b24uVGV4dFNjYWxlZCwgc2V0U2l6ZUJ1dHRvbi5Gb250LCBzZXRTaXplQnV0dG9uLlRleHRDb2xvcjMgPSB0cnVlLCBFbnVtLkZvbnQuU291cmNlU2Fuc0JvbGQsIENvbG9yMy5uZXcoMSwgMSwgMSk=
+IA==
+ICAgIHNldFNpemVCdXR0b24uTW91c2VCdXR0b24xQ2xpY2s6Q29ubmVjdChmdW5jdGlvbigp
+ICAgICAgICBsb2NhbCBzaXplID0gdG9udW1iZXIoc2l6ZVRleHRCb3guVGV4dCk=
+ICAgICAgICBpZiBzaXplIHRoZW4=
+ICAgICAgICAgICAgZm9yIF8sIHBhcnQgaW4gaXBhaXJzKHBsYXllci5DaGFyYWN0ZXI6R2V0Q2hpbGRyZW4oKSkgZG8=
+ICAgICAgICAgICAgICAgIGlmIHBhcnQ6SXNBKCJCYXNlUGFydCIpIHRoZW4=
+ICAgICAgICAgICAgICAgICAgICBwYXJ0LlNpemUgPSBwYXJ0LlNpemUgKiBzaXpl
+ICAgICAgICAgICAgICAgIGVuZA==
+ICAgICAgICAgICAgZW5k
+ICAgICAgICBlbmQ=
+ICAgIGVuZCk=
+ZW5kKQ==
+IA==
+LS0gQ3JlZGl0cyBUYWI=
+Y3JlZGl0c1RhYi5Nb3VzZUJ1dHRvbjFDbGljazpDb25uZWN0KGZ1bmN0aW9uKCk=
+ICAgIGNsZWFyQ29udGVudCgp
+IA==
+ICAgIGxvY2FsIGNyZWRpdHNMYWJlbCA9IEluc3RhbmNlLm5ldygiVGV4dExhYmVsIiwgY29udGVudENvbnRhaW5lcik=
+ICAgIGNyZWRpdHNMYWJlbC5TaXplLCBjcmVkaXRzTGFiZWwuUG9zaXRpb24gPSBVRGltMi5uZXcoMSwgMCwgMSwgMCksIFVEaW0yLm5ldygwLCAwLCAwLCAwKQ==
+ICAgIGNyZWRpdHNMYWJlbC5UZXh0LCBjcmVkaXRzTGFiZWwuQmFja2dyb3VuZENvbG9yMyA9ICJDcmVhdGVkIGJ5IENoYXRHUFQvR2VtZXNwbGF5IiwgQ29sb3IzLmZyb21SR0IoNDAsIDQwLCA0MCk=
+ICAgIGNyZWRpdHNMYWJlbC5UZXh0U2NhbGVkLCBjcmVkaXRzTGFiZWwuRm9udCwgY3JlZGl0c0xhYmVsLlRleHRDb2xvcjMgPSB0cnVlLCBFbnVtLkZvbnQuU291cmNlU2Fuc0JvbGQsIENvbG9yMy5uZXcoMSwgMSwgMSk=
+ZW5kKQ==
