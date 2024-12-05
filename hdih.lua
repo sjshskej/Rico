@@ -333,7 +333,8 @@ local function translateTextAsync(originalText)
         ["GTX"] = "جي تي اكس", 
         ["AUTO PARTS"] = "قطع غيار السيارت", 
         ["PERFORMANCE TUNES"] = "نغمات الأداء", 
-        ["PHARMACY"] = "صيدلية"
+        ["PHARMACY"] = "صيدلية", 
+        ["Mail & Packages"] = "البريد والطرود"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
