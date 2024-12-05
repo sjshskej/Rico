@@ -1,989 +1,178 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/lxte/lates-lib/main/Main.lua"))()
-local Window = Library:CreateWindow({
-	Title = "???",
-	Theme = "Dark",
-	
-	Size = UDim2.fromOffset(570, 370),
-	Transparency = 0.2,
-	Blurring = true,
-	MinimizeKeybind = Enum.KeyCode.LeftAlt,
-})
-
-local Themes = {
-	Light = {
-		--// Frames:
-		Primary = Color3.fromRGB(232, 232, 232),
-		Secondary = Color3.fromRGB(255, 255, 255),
-		Component = Color3.fromRGB(245, 245, 245),
-		Interactables = Color3.fromRGB(235, 235, 235),
-
-		--// Text:
-		Tab = Color3.fromRGB(50, 50, 50),
-		Title = Color3.fromRGB(0, 0, 0),
-		Description = Color3.fromRGB(100, 100, 100),
-
-		--// Outlines:
-		Shadow = Color3.fromRGB(255, 255, 255),
-		Outline = Color3.fromRGB(210, 210, 210),
-
-		--// Image:
-		Icon = Color3.fromRGB(100, 100, 100),
-	},
-	
-	Dark = {
-		--// Frames:
-		Primary = Color3.fromRGB(30, 30, 30),
-		Secondary = Color3.fromRGB(35, 35, 35),
-		Component = Color3.fromRGB(40, 40, 40),
-		Interactables = Color3.fromRGB(45, 45, 45),
-
-		--// Text:
-		Tab = Color3.fromRGB(200, 200, 200),
-		Title = Color3.fromRGB(240,240,240),
-		Description = Color3.fromRGB(200,200,200),
-
-		--// Outlines:
-		Shadow = Color3.fromRGB(0, 0, 0),
-		Outline = Color3.fromRGB(40, 40, 40),
-
-		--// Image:
-		Icon = Color3.fromRGB(220, 220, 220),
-	},
-	
-	Void = {
-		--// Frames:
-		Primary = Color3.fromRGB(15, 15, 15),
-		Secondary = Color3.fromRGB(20, 20, 20),
-		Component = Color3.fromRGB(25, 25, 25),
-		Interactables = Color3.fromRGB(30, 30, 30),
-
-		--// Text:
-		Tab = Color3.fromRGB(200, 200, 200),
-		Title = Color3.fromRGB(240,240,240),
-		Description = Color3.fromRGB(200,200,200),
-
-		--// Outlines:
-		Shadow = Color3.fromRGB(0, 0, 0),
-		Outline = Color3.fromRGB(40, 40, 40),
-
-		--// Image:
-		Icon = Color3.fromRGB(220, 220, 220),
-	},
-
-}
-
---// Set the default theme
-Window:SetTheme(Themes.Dark)
-
---// Sections
-Window:AddTabSection({
-	Name = "سكربت ماب | البحث عن الكود العرب ☠",
-	Order = 1,
-})
-
---// Tab [MAIN]
-
-local Main = Window:AddTab({
-	Title = "كود عالم البحر 🌊",
-	Section = "✅🔥",
-	Icon = "rbxassetid://11963373994"
-})
-
-Window:AddSection({ Name = "اكواد عالم البحر 🌊 ", Tab = Main }) 
-
-
-Window:AddParagraph({
-	Title = "معلومة ❓",
-	Description = "ذا صار شي في سكربت رجاء اخباري في قناتي يوتيوب ريكو Rico 🌹",
-	Tab = Main
-}) 
-
-Window:AddSection({ Name = "المراحل 📛", Tab = Main }) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الاول✅",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "250 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الثانية ✅",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "143 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الثالثه ✅",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "435 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الرابعة ✅",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "798 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الخامسة ✅",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "930 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة السادسة ✅",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "284 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة السابعة ✅",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "106 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الثامنه ✅",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "621 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة التاسعة ☄",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "856 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة العاشرة ولاخيرة 🎀",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "346 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-local Keybind = nil
-local Main = Window:AddTab({
-	Title = "كود عالم الصحراء 🏜",
-	Icon = "rbxassetid://11963373994"
-})
-
-Window:AddSection({ Name = "اكواد عالم الصحراء هنا 🏜", Tab = Main }) 
-
-Window:AddParagraph({
-	Title = "معلومة ❓",
-	Description = "ذا صار شي في سكربت رجاء اخباري في قناتي يوتيوب ريكو Rico 🌹",
-	Tab = Main
-}) 
-
-Window:AddSection({ Name = "المراحل 📛", Tab = Main }) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الاولى ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "871 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الثانية ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "315 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الثالثه ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "983 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الرابعة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "234 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الخامسة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "762 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة السادسة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "124 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة السابعة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "324 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الثامنة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "473 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة التاسعة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "997 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة العاشرة ولاخيرة 👑",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "635 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-local Keybind = nil
-local Main = Window:AddTab({
-	Title = "كود عالم البركان 🌋",
-	Icon = "rbxassetid://11963373994"
-})
-
-Window:AddSection({ Name = "اكواد عالم البركان هنا 🌋", Tab = Main }) 
-
-Window:AddParagraph({
-	Title = "معلومة ❓",
-	Description = "ذا صار شي في سكربت رجاء اخباري في قناتي يوتيوب ريكو Rico 🌹",
-	Tab = Main
-}) 
-
-Window:AddSection({ Name = "المراحل 📛", Tab = Main }) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الاولى ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "127 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الثانية ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "654 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الثالثه ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "569 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الرابعة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "872 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الخامسة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "711 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة السادسة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "854 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة السابعة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "937 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الثامنه ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "226 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة التاسعة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "911 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود العاشرة ولاخيرة 🎧✅",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "692 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-local Keybind = nil
-local Main = Window:AddTab({
-	Title = "كود عالم ماين كرافت 🏠",
-	Icon = "rbxassetid://11963373994"
-})
-
-Window:AddSection({ Name = "اكواد عالم ماين كرافت هنا 🏠", Tab = Main }) 
-
-Window:AddParagraph({
-	Title = "معلومة ❓",
-	Description = "ذا صار شي في سكربت رجاء اخباري في قناتي يوتيوب ريكو Rico 🌹",
-	Tab = Main
-}) 
-
-Window:AddSection({ Name = "المراحل 📛", Tab = Main }) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الاولى ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "438 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الثانية ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "566 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الثالثه ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "820 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الرابعة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "201 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الخامسة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "555 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة السادسة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "612 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة السابعة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "396 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الثامنة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "726 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة التاسعة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "195 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة العاشرة ولاخيرة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "717 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-local Keybind = nil
-local Main = Window:AddTab({
-	Title = "كود عالم الثلج ❄",
-	Icon = "rbxassetid://11963373994"
-})
-
-Window:AddSection({ Name = "اكواد عالم الثلج هنا ❄", Tab = Main }) 
-
-Window:AddParagraph({
-	Title = "معلومة ❓",
-	Description = "ذا صار شي في سكربت رجاء اخباري في قناتي يوتيوب ريكو Rico 🌹",
-	Tab = Main
-}) 
-
-Window:AddSection({ Name = "المراحل  📛", Tab = Main }) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الاولى ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "250 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الثانية ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "629 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الثالثة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "457 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الرابعة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "528 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الخامسة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "170 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة السادسة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "930 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة السابعة",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "274 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الثامنه ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "803 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة التاسعة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "112 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة العاشرة ولاخيرة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "853 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-local Keybind = nil
-local Main = Window:AddTab({
-	Title = "كود عالم الفضاء 🚀",
-	Icon = "rbxassetid://11963373994"
-})
-
-Window:AddSection({ Name = "اكواد عالم الفضاء هنا 🚀", Tab = Main }) 
-
-Window:AddParagraph({
-	Title = "معلومة ❓",
-	Description = "ذا صار شي في سكربت رجاء اخباري في قناتي يوتيوب ريكو Rico 🌹",
-	Tab = Main
-}) 
-
-Window:AddSection({ Name = "المراحل  📛", Tab = Main }) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الاولى ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "803 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الثانية ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "513 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الثالثة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "999 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الرابعة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "473 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الخامسة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "764 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة السادسة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "612 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة السابعة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "346 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة الثامنة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "196 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة التاسعة ✔️",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "712 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-Window:AddButton({
-	Title = "الكود مرحلة العاشرة ولاخيرة ",
-	Description = "الكود يصلك في رساله من سكربت وذا لم يصل اضغط على زر مرة ثانية 🔥",
-	Tab = Main,
-	Callback = function() 
-		Window:Notify({
-			Title = "الكود ✅",
-			Description = "876 - الكود 🔥", 
-			Duration = 5
-		})
-	end,
-}) 
-
-local Keybind = nil
-local Main = Window:AddTab({
-	Title = "كود عالم الفراعنة قريبا ⚒️",
-	Icon = "rbxassetid://11963373994"
-})
-
-Window:AddSection({ Name = "اكواد عالم الفراعنة هنا ⚒️", Tab = Main }) 
-
-
-Window:AddParagraph({
-	Title = "معلومة ❓",
-	Description = "راح يتم تحديثه بعد ايام قناتي فل يوتيوب ريكو Rico ✔️",
-	Tab = Main
-}) 
-
-
-Window:AddTabSection({
-	Name = "الاعدادات و صاحب سكربت 🛠",
-	Order = 2,
-})
-
-local Keybind = nil
-local Settings = Window:AddTab({
-	Title = "الاعدادات الكاملة ⚒️",
-	Section = "الاعدادات",
-	Icon = "rbxassetid://11293977610",
-})
+local script = [[MvbR�	���a��R~����r(�#o�lH�Hʦe�n��˝��*G��b�2B�6�\#��8U�Px�K�wb�I���30@�h\,�aS
+�X���x�b�(uԫ�"_
+-2����)��52�����=Q����hI�`#O�͎����}B�E�j[��e�4���f(�Ul,K�����L
+訂��/ĩQ���a1�9���Ijyl�U����E�D���'�f�`�'%��e��>|�ZL�Ցzi/~��R�_���6�_�F)*�B���'ڑ`��B�0Q��U��WX?v�)p<6��^����\-s`o�03�9|N*���3�	Y��m�'&��YkĚX�fyn�W�C��F�M�)��y��|�S���dn���aZ���V�����4�R�N|�R�_TL{���h��f�q�)��{�sJ	���XP�-��M�B�C��<�@�x�oyg���|��-u>.ر�l���=	�g=��#a�E�d�_O@KE���E2��:`ڕ�,n�y����/�d��v=�f�Ou�6�E!mؗm}�˩s�"�V/�c[��D�my�*)��dju7Sߍ�83��*�X�����l��#ty�m���:AZ���r]�����`���>QFRx�=��7k�/�+�^�N䗌����#(^��ۣX ��#\rM�}غ�TF���o�QѢe�����I�qG5���!����:ם����M6H�H�ծ(�CT��l��fI��n�v�m7����'�\9��ˑ����
+�$�������Cp����U�y6S���ףW<�+�nnl�C��I�������#�f�t[k���O� �%�B�]<Wt�D{(�U$2-�:f���ٰ!�x�L�m7Z�F�@�ք"�`W�(r��v{I1����FHh)~@z�!
+�`/�zc1��'���qib�R��v�G�>E�(��q��ʎ��&�9x*E��'�� ��`:^f-o.B�	I����ܨh��t�W��h�Jwf���§�f̔�����
+�Y��t�;��p>
+�v��i�����j(�Ȭ��3h����-1^tîP��"��|�S�?i�Fiq��J�9ކ�psmd��uzF�lS6��L#b���H~�ä�0�EΡ*v Z%�`l��^RQe�Ӡ�_. ʤ�;a�W�cJ�v[�;��s"��e�I�Q��9�⻤�!V�\��E��M%4� �B��ôb+�r���ǥfj�w���%��}��!��r�< ���2���z��Cz�*[DEZf��\' �r
+�~����6}�r�V�o����g��$E=4X�I�>@�D<٭�gAt���z��U4���z�� $i��X�������)/��.���-g��ڦ
+\��/}d�#�}9�n'(~l�m����mA�i"�0����m1aNZa/�|�
+�@,o|09��B��6J��Y��t�u�nJ����ʭ��I�9U�B�/u���)ȝgv�$?��vZM!�����y���2����V��V��/�� ��촐:��3#f�1�`�����<	~)�����Äbi��q/���Ӹ����}^1gc�Xڟ���B��UI���Gh����0$@s8K��U�P:�v�lq4���B*�
+{�Ms���������oF.�$A=�NHq�AJȼ�!�,;��y֯�0&ҡý����P���dy)�6+�
+3�Y4&��J�߿� ��"v�+��O^�`����F�f\6a�/��`�Š���OG������7@1��}�����YŰ}���6y������}��|B�B�ZF�*�SAږc�D�4�~�&�Ā��u%;D
+�ךVr��
+,�!�6��CI�,�@&v�6M��N]��t/�F����?�غ���g[66���F3��Lw��Z�J*{BҐ.�{;��DeQ��1�T�ى�G��Tᔣg�A���a�,�rU�p
+~�Hp�A�j�>>��Q03w��m�H/��v��8�FQ3�+|N������#�芟�=�#삝�Z�N�-5�b�ͿQ�-yn�-ȉ�ZD�9I�-��G�Prb�<]�7�����2�ލ�Ɯ��=}�l`a�QF�'CXc�]�� *��j�!��#�TR�~�������a�x
+˶N�+bamN~�� �V��tMU��RɌ��0N�K:
+�q/%�Z`��J�&��i�#��<�.$/�z� �����Q��k�X���	I<ҭpY����ou����q���teuEcѶ%���R�>hZ�i%�| r ��u���-J{!Q
+������jY����*^����L\�w;p��.�%�	�U��&��Α46�P#���ҋ�!2�lNam�i����ճRjy�E�?�F#�N�2'�TQ���퉔ƙ[�<����B�}���p_��~��ɺ��)pw����CK�^q�Aӏ�
+�\J"sL3n4���b'<_J�Ȉ-��������C��	�
+���1e+��s�[�)��|�x1@�կo��ӣQ�U~D�%]
+�!=v�LM�gS.2��GEX�>�[��&τ�B���{9t|�����J>_Ӗ�|ٻ6k�?Cy�����`*]L��E�4��BfJ)�|\L$k�op�{��=�1%m�����@���h�����!�E��h��.��A^g�W$�,X�P�|겉N��\6�����7
+����P�Z�����+3�1�]��@����/���T�lxK5"����_�߄��}�O��t����/���ee@u(F���)��:���2��c���P%i�4���wX�g�C��7U-t��"y�!ː�-0Ĺx�7
+Uu&����ش��+�!�h���[�ٍ��t�����\��s�*y���r8���v�U�	�`��;��;�Z��惤�57��Ӿ��U�Ǹ�z$]��@W�$_���ٗ�Si1����^,ޫ��D��6%R��ЍNM|m>�d�?(�yځM�^m5�������=em�H{%ZB���0��|��iić��n�f���նbk�EK�� &�T^��8xNB��ud��JL/C���\}����k~�/�1�d�8�(	5f�|Q%�k�@��=��01�}�`6�O���[3��hIȦs�!��h�gT�6Rm�vC��
+@}�;n$�\v����Wl�Ñ���v��ԎV$,�d�ej)��.&��\r9~�0��J)��ו�G��6�re'���N��C�F��L�Ʈ�̰V�^9��3Q���ր�S�A��ߏja�o�(IԦ����J��7��#}�56:�1و��n1pA^��-	�.�9؛�m�f6�\�OM`?7=Q�ɒ.�d	a��z{vCT� �S�S�(E>.�����|!�uO�vӗu�}󌷻�����*�����ћ�m��Q�s�ݴ��:ؑ�h��Ú�}-�V�1F`β��&���L�$#?m;����#�rr�)Id�Yi��@n(K9��!]DA���3�`&d�P�~7-���1�hܲZn�&��߾-ӽ����<r\XP��?��3��_�	?�iO�#�5��DK0��*���㚷�������ø�`���+�����4:��X�����u���ye���y�v�%l��+�#���c���o���"�NɐbI�?�Gƒ�J�n�1�+����e���D	/�ٶ�[�&'lel|�"�;�0
+�\�����~��2s�t�H��K�u�B�#��ܴ����!������n��ܙ&�#�q/d�,Os N�EH�5c��59�R�(37�*nU�q�	�O$+�����REu=!�B@�z$M�E.7N�L\��QW�Y4�ߴْR�Y���d4wg���C����Q��/�jĭ����\ʟ33�_��J^�
+3Hk�
+2d{=K��4�A����{�!�Y����Zةt?3�LQ�U&��ޛ#OZz� �v�����&k��<��j�H�*:��E�?��;�zj0XQ����PC��ue��{��R�?p8WJL�"�D_�k�S"��O��2��C��1WX�:�潉T!��,>'�@2����9�u��.J���9���Hj�aLzO�V�x@��DWd�l
+<a�
+A������O�����w*Cd��@"�v�����2�PѰJ�8�K�<�w�v���\�]g'qqIǽѝ�ad�����D������%)K?���Mz�M��<�M0���z��Vt�*>���P3�c���e�9.�E��%����8Z�A�Uw������>�[����E����h��\|!
+�	����&M鸡1�u��\��JQVYuJ-���4Et��I	�j����<&<���n��$ՏTp7��Cn�6�uMmTj(�	@��p��LHM�#���'�bE9��I�����L��-�
+�����X5���K��X<a���g!XTZ
+��q��k�߄�^3S�c��Q�o���n�4%������O2XItY��k�LۑV�7m6ܘrB���Y kNFC���KqR������mq\�b-C�,l�R��,��_?fJK��[�7����a���A?�!ҟ`c�T�ElVO�HC97C�5�
+���r����Ehb�
+L���T�q����&=t�\/���k��#���pZ��"��{6p��喢�N�`��D]�F�KT��H����ݴ������_z���V�*澁����K��q�C�4;�k���o,��R{�CHW�͈�����_�Cc�kL�ª���g.2��4N�����21����P�%fA���UD�,�[P�d�P�ל�xF�y[ߘ1]5�~03!�V��\�)��F�4�6/��8I���'�+��Q�&�\<�/�9�H���Yw��M�,j"�m���l82�
+���ZerP��ӡ`���?m��hܽk2"%>پ��ҵِ]bzj%0�b���>%_6X-�;�d���:��V,o7�ڍO�0�$ф�&�̲��Os�"����r�+Z/y*�d�7kW�\�9�ʮ)W��`�,�EGf����di�b����q3ˊK	�ɣ0j���,�<�)�y�o�F4.W�y!F�O���(�5|.^p:��2��+uq��$����ZB�^1T&"��M�!�]�޼�>G�T�=�"��kB���ʠQyA̛L{%�́��c��*F}oc�p,*Y��f!��wj�v0]Y:{���z:+0H����)�_7�s�B�c���*,�HHi��선��� [�^��eP.��_پQ?%�p�9���BH����_�-�߯��ޫ�:>�բ�]n������q��&�#+��p]�� =�y�&R���
+r�l@�������v�2P�h�q+�7�T޵��݊V��}N�ELI.����	o���"���I��+���|{3���*u8)�W�����a#�<�f
++�?e�1A�=@kֈ���Z�נ�Z�^W�]�1PI�s�v(<CRZ�u��|����E�S�沰��ZU.�Ў@e3��R�&��[3���h��c�^6�ڍC���W���dw�ٸa�~6ǯ|���<�2t�a$�Uup!�zW߫[�m���O�����]�
+H�&	��OC����:�t,����A�3�ZT��L�vo�C*`��C�v�o�R�p�R�#��ۨҳ�_mi2M�����W��x���h���"dkT��C���*��>z&
+;��!�7�YbX���)����cWFԲ�NI��O�H��1���箼���`j�O#��bR!�osO��y=��U��l��M�v��w-:��fm���B&ך���U;��_t��^���![�=��p}F(s	�&j��<9�L�!���҈�h �#�A����_o�@g3*ZG3�&��� 9�Σ���/��G���<�~n���V}כ/Sxk�����ΉY�b8؇�ZB��
+A?�ʊ�-�������H������vA���\u�œC�vV�ĻG�s�����*���j�Z����r��k1M����9�ҫ:NAsg�.:AƇ�5��/'�'�g��
+2��iz�+U_�V�.z(��+6����׆o����R�EZ�Tx	=�Jn��^�y�@'�g�a��♜���	`D#��na�
+8�GY�>-O���L�����7x9�	(]�(G9�*Z�>�$-"_ո%|�}�~��G��&|��8�~�^�Ӵ��f1��R�
+�������<���']��SH�����?v��ʌ�$�"�1��q��_}&Q�`�t���C��PFd�z����_��)���d�¾QT�,l^�8`�j�M�ZM��_<<��c��K�A��
+�ʿ��$:�8ob��y	f��M���yH�	��O���7�x��,��s���� ��p#��x�E-
+��G4�4�����6��v��Sk��,\��M�a\a�~噈|)�Vrp�
+l��o�7c[M�9)��lО\:U�"A�d.�}+���ٛqX��h&|�OX�xΘ�S�\�2�3�宵�$�ꐣ��@-E�*K�c\i���N�k0�^&���������	��ZmD6����2�i�����W8�v��!���ʕj�TVp"`O�e��Ŋ��	F�.�w5l_��7��a�8�]���w���p���ARI��>p���3����- ���:.$��/�й+7��뀥���et��zkBş	Mӛ��yZ�)֫W��>��(�xD��(�����v�L��+�ju)p@�"p�т��X�N1��-VV�o���:%����gu~�m��{U���y����	G�!|��i�~]{�;f�&�Dd�@���Xq�V�x�c��T��l;�0;ɕ%UK���'N31VD���3)@ZhB�I(�^�n1ؒ�[�tO���Tea)�gׇ�Z��wGw��z��cq(������?*��n�y_��ξ���_���))��p+o?�j41Vi�f��-1,�f����Hs���5~JCC��^��H���з$&������>?|��4n�|�6H�嗖 �5��-[��M�4��'I��·7�dQU�����Z����0k�=4��^��!I��1��0C<ڝP3���G��t�=��@#w�f���y���7D
+<(%��.�.֤�n��ۛK�t����8�"hVybL���ޠ�ո>3�d�����..�/��TD8�ؘ)ϒ�}��^áG�"PO	ns.���=ș}�$&Ȼ�6�g�*ì������Sz5�3F�q�n
+�NK�k�&螢�힪C'1������B]�\�G��$'��\@�kt�L�Z-+�b�W�������v�uCf�0.q ���VMe)1Ob���vJ�B|�JQ���	
+^#����������ˠ�"=&t���G�1���w)ۧ:�@���)k�H+{7���=��*^���s�9aQ'9���_h����B��C��[DP��W��xi��pe�԰ӰSD��߽��ԢD硫2795Sow;6�y0���֢�_V�A�:��FRf�_�<�s��b�Lr�db�b�ȉ�#���58����KЬ9�sv7��zF�{Hh�������u\��N��C�覾Ӻ��I{u�!���������;G���" ƶ���Dy#h(aBXO�f�����?���8Y.��<�2M�da�E��YuNo�d+4����~Î[�
+|������(�`��u��.�D�A|´QVM��5�H,L���h5��'���a���r�WA�5
+�i���ɳ�>��-�4�xQuL�_��Pf^ʇ�Ui�i8�k}W�RN)���"��H9FI'�^u��^1��q���yP(��+��*x�%�|(;t$bΧ��[j?���8Zn'WlL7EJ�Ą`V��"�K�
+�X`��pkK2��whw~��
+�b�X�*��v{���Ȁ��k ��`��#8�Tg��3�qa��P���PR9����C�B�PS��y�tZ[,�	�Fx	)����L�pAд�hn��H'��紣}���z�ε�&L
+�X3���_���)Eq�ap�I���&oq
+e�<P�$�I�3���U\�v��m��5ׯ�P��@���)�,(�+������#���6!�_,��%�OM��������ک%0�)D�>�	�)�"R/�,?��R�5$؎�T,(����J�
+E)�����auhɮ.��Ll4�QH&M,�4Y���+��M�Bi�5@0Ϩ0cB�ᙛ�N�����9���	�0���-E���0��;L0�����F�ǀx5���f��g����B����_�]�!&�̹i�DJE�'��m�y)>��~4��7K3�3+��J�T�����[R7P��!W����ɍ�'d���޼c�@7���|���jY:����;�j�`�K���;�Ԁ��Ucf���Ȭ8�K�y*]��]��F����n��=EC�퀳C�nv��.�;n#ޤ��I����P������+tV���tvj�A������sb	TI{s-�Ǫj�C��]c�����B4��!n I�A8���G8�"�F]k���4g��0���I(�0s��k���t�8��w|��:���{�/��V;�?�N��M��6=����#���]B)�7������-Q���.C�e<��V8[H^��q�n�s����������C�q:
+�<�Ξ`I�a�\џg�;���hr/y�ŬR`�
+HV�Z{y؞~�7�Ah}�4�}o1��i���>��V�>���и"���k�	jSc�����?�K�\.�dev�V�ż`�S�
+6}�YA���NLrN��`v'��m��4�.�֊r\vm/�m�P�����ј����e��M�kj��D�-w!�Н�}�D��nI
+mW�"���\j��}~��SU��K�h�S��!�t��a�p���׀�����0SB_|*�s^mE�!��X�k.Ⱦ��)-!l�;�LCzX}��Ņ�C��Ѹ��W����:��Xp��z��"�]��S:,���t�{��F�����l�u<(E��
+���_�5i�-pO�r�i��AY������3B�����F ��;wLR3�--r������uO=��R�$��NJ������9]{E|,�cs�n�P�C���Kg!.	�y��p'�BaBW�|��(l�8���%9��C�ԓ�i;��R⁅�);�2�C�tZ��"�R�z�:#"�e W��J��,�G�?��pAFJ,T��������z��B�����9j����'��|�pJb��i��V�I�|29��q�
+i��K���cیT�R'����SU��
+� ����h��k佋��k֬װ>E���}e>,\�(FYix�m����딘C�W'P�m6�m3Zy2ۻO��-�s�u����n��'b��Ȍ��cL�|�v���"��
+-����g�K-G�j:9��1��VS��Z����u�w��Ѯ���qF�ۤ�J��E�NS
+ڋ��bP�Ķ#rwtgح�^�
+�]	�XU�=�S�j�t�:��^�.S�}-��ݓj��n;�d��Tm���D�4�/N\$�@5j&)�;��zt4/"6�m7�΅�jO���_v]b�f���ŏ
+9*)�;w��b�4�j��{>#}E,\S��UL@�iB=#M���`��댳��v����!�������~�j�o8�̾y,p�Mʐ6���@����w>;��;���bѺl�����0�m}���M��Lg���;�9�Ԟ��%i�x�̖��{o�3kRJ�ۓ�6'�S�Gt;}��tw�mī�-�['X���O6�B�^�G�$���CQuǁbV@�,�ع�v:�'��3���9Ɍ_�m���,-�h+�M7.Wu{���	QΡ2�1x����d7�Ԁ�Eh��v�����ff�7�Ɏ
+5�)sھ�0_���Q�g��$ߐp��۴w6���U�<}�eOa��d�q����̎2�-��r%Of�4�kl��3��&D��,��cnV�T�-sAt�fnl|.X_���m6A`|�����:���d��&H��l��C\�q2��Ge
+Y1^�2�Y@|�R����Czqi��1�d@y�[��ϼ4���3��l�ӧX"��7�DB���ˀ�%.@͇�m��Ƶ�D�N'�0Dyݘ*�<6 �j� �ȱ����1�r;�i0�W�"*�΢}+3��Oz�Ҟ���C�jl��e�u�Ӊ�Ψ�x�T��kd�:4�� ��1����=b�����Q�u��e���XG�I���1@A���iն|���!pHo�c���^"d��{̱�w��P���c��J$�t���sv{�B�H�B���ɔE�;"���<��{����6�	㋦ҿ��}�yl%;�rdV>���je"G�/�|�b�8L_�"W����!����L*��qR��h
+l\�d�5�NP�&Qt઼h��"+��
+��YG��9䀱�Q����l3q|��P��[AORirg/T�LO���&�[O�v�w��S�'.�4�R��%B�rh�S4����p�T�	��3@�yU;����YGǐX�c[�h)�D�������x�(��3!B��é��N�X�Y3�a�GC�yQp����@
+�=�ܼ�Q��N������ձH������7���Y���~w����4��¾�Ak�;X��=���&"�a����ش�V�K�EoR,�yJ��j�~]Y7b[�Z��sx����\΋ŬJ>��M	�u�_�vN����x��`��ޣ��qUWsx�j�W\��w:/���C�4,�ګ���B�2@q�KG�7�;�����̰:��Q�S�9�8k������КB:![���ɦ���2�k��!���@�̷����R�R���-����u��\�ij˫���pu��.�Aj[3�D
+��a�R�%���920�<�2zq��}��?t��ӫ���c>)T<��z�Gp��(��"��oC_��U�^]Ө[`,q6"��rkvGP���7fS������Դ�N�#�ɏm��;5
+%q\����Յ��(��*��=��
+��p�ɻO��fbًM���G�$��
+TB����h�F���?&rxaV��]�)�������ɸ����x~U"�;��9E^�U
+d�:f~}'2g��p˴�
+��2:[F��]��̇�>(�1q�Q�3<1��O�9MDk4��
+��8�<
+
+PI@譅W_F��gb�n8������<�0f��=��^��%	���� �Yɓ5V��d®�llBR
+��R�@?@�;��h��ِ��y֙�cd�Y8�P�n��3Q��Y��4��	xN��*(��
+�����������·�u�<-{�4�
+�@J�*e�aƒ܏�#�SN�3�2{dn�M��B�E
+z&�6�nA���EqK{��O/�N�	�����g�}�
+����$�)�9�b!1�&�h|s����l�҂��^��}�*I��2�
+�
+,�Y��MS��	Ɉt�ס�"���̲�ILW]T[(,�����rP�A|)�zl����h�CH���$�CYu�^�ƶ�OCO�敫2��j��$Tp��NX�Sض����&�����V:����(��#t�>=�)�_�o�nC��Pu����savδD�w�3i%1��I�? �5��%jƚ�J������D��-�g��wg�ue,���E�%@mٕa5/d!���F�&�C����e���\��?I���$��=�aU�����X����F�ǒJ�q
+`D�
+�_>t��^?q��m/�ұ���&c�������Υ�Bz����lM�J��+�9�ޠ�0I�ڒG��l�e���~ܮHx��_�$�]��ؚ��Zg�!�e�I5���v�n�����s&�]ӳ�ȬI��d����@�[�xN�1��ʁ�o�/"Mj�,��ֳ��-*�N���p�N�mt����`s�J�1z�`2r�E8�.�E���|\��ܖ&!�\�.L��JX�S)}W�K?����-8?0L|+�9ti�� �(����x�B]�����
+�J��Yϩ"'���A�d\h^�F>���'���UQ���Q�9��jLi�C��EݗB~I���u��`5K�^�!�ї���q���T�TX��9b�iR�@���Q�t
+P��ra��f����$ѳvs~����E7�8����B9MֆE��om�:����=!�#m��� �>���O��DT�m�;���jaہ�qV�*~w�YI� ��.�t�����Ѵ�Q�E:S[~��j�x%BY�Z�a�)�����.=�2h�H�$��<*9MȈd�wX��6?�20�>�E��e����{5��L���R��#��?�
+/��W��N��,�)�{@�����&x����]�GEx�?�0[�ٴ��"�<���6z�{�@����h�b�?@ʇb��e���*fߦ��{}��N��I')9�`yvj��2܏ӷ!\<�@�N��"���JC�P7�jS%�vZd�;.!�������ㆿFY�o�*���l ��������/��RN�0�Վ�{��F]ocJ+
+���!Z`���3��o6\*�^�b|b�d�=PQ`:|�S�Bģ]K��oO��e0FO��1Ż�
+jLE����U����-]�E�YTi�f�7	2>qvF9���
+Կ���P���
+x����;Ή�9ǣ��T�[�ϧ��x��R�uW������W����V݂|��D�7L������D��o�mT���ת��L�4I':�r��W�9[{{o�j*�h��b)6���ջʨP��$�f!���<������s��`��-a�!�@�K<��3Ǩ��y5Ÿ:%�4�[�k���<����@:7Ɍ`���lܹKiS���aQ�Ǿ�GAi�)ᝬbd����/��
+�Ē:�sK��5#{��ʛ�?u�
+	GpU�L{����c���9,~�"�T��t85�!W���v\r��
+�cAr�A��4�e�p�b H\0�[2��%귱�=����޷����%��>@�^���pM�Т��!!�ó+oUM�����j������(\��>ʻm�s��>35t;�ѣ�>�u0
+04������d�@�h����	(�����R�Zx�ZWŖ-����kPӃp��o���[��{d�4�Y>�=�I��;�7;��K1ȿ��f96�B���r�����<+���^L����ǋ�(9���S������~_��#8|Q{w��.
+0�|�Eֺ\�#�ne�DCy���:���|��!�[~I@�a��!�9�7�а���G��`�}�	K�r���,j����l~Q�-�I`�7@�^�J������?��L�{�^�?�JX� y�k	�-�TQD҉��4���ST���c.�����er�`ɖ7��#G��#��n��决�����
+8܅'�������xQ�L��%d�����Q� ������)Dz~!�P��	0�v�f�k�;<!i�fk$6|��p�h�nU3w��������AY���짛5���R�l��G�O�"������J�iD�8P������:��R�'5�+�5~֑L��6��v�L�{zv̝>�O�����:�/�"{����;���ϸ]��w.�!
+a����ױc�'�,�:6� ��1`I'jS��N�a^k�ߗ��h��j1w7�ÿg���ֿxFD#���X�4�����)ꛖ�T���4`@��D�p�j/��)�NY���k�B�&5
+�"Y��9�S|S����%�#ǰ�g�V �D���5����dm�{��+Q�
+B�)�ŠG�k��S�;��Wف��h�˩t�i��D����o؆�Ota8|p�>�^ID���hBS36w�/�'\+�ǓﰆʗĔ�\�{�D�ۅM	�A8��L_F���.矧3{��΅J��u������\h�t�W��ަa'$`
+��PU�@x��Z�*d���
+	�Y�v�u|�j�G�椂�W6��D�$Z�Fcǈr��Ey��		��G����7����nV��[L��r檅:�K�~����LzW����U	����LysnԫO�QD�z�1���RZ(C+��V;������[��Q-}e�>聴	�L��Q�p��f屙ܲc�'@D��]�N�X�\YҗX��y�6��sƹ��v1���5+:���8��:sɈ|���9�+,
+	<gE)���#ݦI	�s�����y��}�Z�(�ؠ`�d;J�����}��1�i�z
+w�)|o`}�zsE�C�_l��p!�k�6�����Q\���IɃ�5f��-�CG)Ba,H��(>S
+8J�,�nWF��gh�B:*0R�R�h~��O�8�.6�[[��onk.��'U��hc���	rq��թ�BE����fu�o��h���O]�8)i�m�1���҆�T�5�!Ӳ�2p��]��]	)�R� �{�s��:U;y��Æ����A%M9�9�P���6�I��E��KwJ�t9'�်X	�M�i��W=>�\���l��ą�3�Cˁ�cj<p�n���q�:+�
+�F�u�g��(y	B+i�T|W���U��:��_��D�Ls[mī��I���n�Z��o!�mqsl҈��Ɥ�� �{��f�Ƥ����s�^�J(cf$=����ix���Y&�"�������C��h������8���CX}���`�u�X�|=�EAb�
+�*�����NN��G�9��5�n�mU*׷m������>�ڕh��s�ه���q?i=ͯrDp�)7��r�b2�a���k�N�=��wc�Ex�@_Am$L�@�w��|�z����dvn'�`*Z�Unt�6� �>Le�d�?�(S�1�nu��<W����Z��A/m`v����
+�4e�(�li�6fZ��ƪ0�J�4�J}�[\����V���������&�O��M�2h�Lף��K$��4��'����}?�L�D��>Y�d�h��^�=�H>�6�����F*=�M�k�9j���(���K��xh���#��e1Lτ�H����Wn��M��������"�J�JJQfl2�I]��}9�9�CB1?�t���K�O'��ם;���h�9��r^�6�B��&G�޳l?�Q�wb@�ݟ
+�m�$���kO�<�Wp"r�Q��;E�٬U ddG%�yru�j����MY�%^ ����fW��~6��q����(����@�Z:�g���w8<�f�Í�C�q��*�2�� ذT�Ɏr1Mʴ&���􈁭q��#��GÙ�� ��:1�{�Q
+��_g�P���ev��9\q�P�<�rU�9i"��y��B�T��x�z������ #��դ�M˖����Z�Wo&N������Ƞ��i�J��¼�<�����Yf�s�j�@�&D�q��b�ğ]��J�!T�3��exws[�W��:.3SO�a��ښ�W�h��'�#���M���̳t��c�T5�֔��n�aa`�]9%%���A/i��SM'K&s�D�~����m�)�B�U쀯GF2&/�V�&�[�E��Y��}��4	�j����9	�m�rZf�v#.z<��hD�רּ�V�ˇ��KT����B���@�gHI��ꇪ�ڠU^g��8��D��x5g�a[���|��;�:��㬔��t���[>R3��Oi�{i��Gt�����Y��
+FHk���]�p	tb��4Cxqidv[�)D�k+]?�btH���Ex�^SL�2;*dlF��YISB��,�8D��w	Mi\[M���ӲJ��&h�_��l&��������#jGR5�q��'�ɿ��|8"E�7ˮ��??1��7�`��/;��c���*//6��wE57�6�; $K� ��h�;�m�m�&�ߞX�A�f"�:
+wW���$#N�%�h��>�#�o��l\}�q0��Ԝ����?���t�t30�Wt��g���.�9��ŷ*�H��E�=?�<ꏯj�.�p
+b�.'T�O�� ���-�1T���}��X^��l�q#�m(5�����(�\���S5Ad�V�[���[�(2η���+8]s��j�j�)�7�pcL� ��������.�VkP�,�oQo�H��P#[�����!��U�[��):�)/�~���z�J�#Y�(���0��`�!{+P	N�}L:ʁ'?��Si~��EǪ*���N����>
+C�>'���""�b>tVh��S\�xl`�_nL���ƿ/\5aj�wO��x�c\��
+q�g7o����M�s[���46:�t���Ƶ�b����=G�O�^�A���T�g��y �Zt���M�(	W���d�v�������x�PSJj����M,a쏢�5Ύ�'mY�*J�a��)cfm��E]��s�]�·7"���cˊ�"��*���Sעy�:�*�fA;M�DI]��ȵE��n���G�qЀw��u�I�
+gS!��Te�^�5�`p�Z�5%����h,��wbi=�^��Y�f��`�Qv�+�?�ν�h�;��l
+��^_�#
+*�Pu�&K��r+����\qH
+ۙ�F��J�ȗ�q��������DHmdK_���1WV�ס�9ީ#�\#��+|oFyx��V��z���=Y������~\����������ބL��J�J�'�Fh/�L4�w���\3N�Yv�e IU��+ȿ�|��i�-=?�f��kN�05���V�L��{���>T&Ŋ�ߨ�(���>h%Z�3��5�J���6"�/���4��Z��E�(5��t�#ގ��,����Yg���[D��B�J��>s�b���&r�qf���[sRB��,�$L��S�ڲ#l�)���;�i�;^K�E�BE`��݆⟃%ɝ�<ѕ�O3ɞ�A;B�q�F~m��/�~�,��4%�z1���uCL[�%�J�ۜ��1QDG$x�����E[��'mb�29j
+�ܨ�K.��*�����r`O�'5�)o�
+�G��~�o�=J��E���rG8hWֆԥ��0u^�}�d��bN�P
+�X��֣k���G�����o&]���e�Q�/�})�RDJ�U�gUK�a�j�折z����ԙ�ߗ��Ey�S��*tr`ױ�:l#m�]�uVg�5��``���"�8V%o(�.A�	�A�ŵ
+쒈����^���p|�[C���/1���ʖ���5�O)��"��чsf��"Z�ڞ��3+�.��&c}�y�0(���$�h;/�{[3��qV@;��+����e'�V.Hu]�����Bk��;�4
+��,����XR�*�_��psR��(F��f��Z�;0�7G$g7li�惈��kZDC{*H��e�����:���L��7,��T.�b�%�����W9l�]�Z���qJ%7�,h|�r[5�m	�.�' y�\�nn��L��I��yݼ(։�"B���%����(W \����<����O{�%�B����c��h�'q�������,�I璟�f��j7
+��t�Qn
+�K��R!��2�#"��Ս�t�zCu���B���@���Gh�À���D6]/�.Ld���9z����b����44���pA5v�6z��E��<��B�C�Ju;D����/L��v�n+P�	ܟ��<��W��H.�:ė/�#Uc��>[��I��.C���a�c0^��	�A(��_���T�z<�ժQX��V��zǚ0�D��L����\ ��U���9A�=d��[]�Wtܟa����u�G�J�0�E�fDP�&�2NW�>F����o?�|/!��$�&�>[�iSj<:�b�gQ�&�	!����ÇA�qĢ@�v|��.�����݉��6Σ�>ż�j�s�1qu0�z4f�=>���\�	�	zQ��%�p�Hn�ȇ���ҡR'�>:�;���Y����m�C��i�3S&�z>a8�)��g'��2?e���S�r����x�9�68go\s��bSe�!�(�C4����Q��%`x)P0��MŘbQ�B�1������}�C8���¯��_V�&���_٦�,��bD /n7�BsA��Z9R�_���ebN����=��}7pq�i%����09�uo1��0�Ȕ�Q3v����IU$�H�)	>K	���e>�u˫!mW��G!�?p=d�Thԗq2�W�ME#ݿiQE�'z$�8R��
+�
+��C��R��P}�r�kQ���(T[�j�AmK��(��(;���7Z��MyK�c�;[7��r�Tq*��5Bb%�ᅇ��i~�*%heB�̃l$����)&�ߏi���0�t�5B�z#=mեh��_Ԅ�@��0�5��p�mTZj*g��lF?T�����ؾ�衛���I����T���=aL\�N�޻|�Aƚ;���M-�;(�\e�C�(hxR6hV
+�{/��s)�̳yz:��y<��W����H+v��b�c�KkH��'�)�/�L@<`�� �8�o���L�O�X�a.Z����Òe�2�n�q���ON/�/��gJ���ʋ@��cI�W�DW��bB�Ȩ�>~�+�CUKE�{��������g$���<�K/sx�4=&��{��T��2���984ot�ʑs�6�y����x+T�>Y������D��ZQ�T� R}ae�ln;��e
+�vZ�J�ϗ3�%�8a6�!5*�Ǝkki�$�����J��$Mr�ª�i����cS��o(��BuRha��@����?خd�wq�3i�-�;kz�ic9�K,�{�o��i��X4~���buT�g"�Ĺ��&q=��b��P����h��"pH�|��tt{hsM��l��)a�}�7����~3g���I��lu�-�����0��9ų&tO�8e�n�JL�5��_	l�bX�Ȗn"dI�k;%��lpaN�A9�$JԷ�E�@�*��/$?��N������d]`��Z*���cq�
+2o~ n��z��D)N̲����c��?l�h
+�E膉�	w��W��~zۦ_ha/ũ��c>Or[IAwV�z2 ��1ǗB|�HBp%�M\.����*�x��<a��:���HOc���J�RА�8����$"N72p�No�{��f_���v!f[4�O��VG�Iow�,KhF��ל����t�Ԋ?~E��5}?��3��/�����O��ԏ��H�8�sww3"w`#�|f6����ĉ�"b��W'�2"�/rX�bY�y~�G@�/*"�mc���lJ�gN	���t,�Z	8d�_�F�#Y$��h���S,��p��L��b�;Y�����a����� 5�@���e���m~Ri��t�|��媫�2"f-v��n�"�	�J�=�6�)�h��a?Ą��������V���i�i����/%]V��n�%�W��Z�3���E�������pȤ^0���ʵ�/(�fڕhqP�=��\�Ѭ��^���D!6��*��<z���x�L?��9�@�"6��љs
+��h
+Ax/�~���"O
+%q����d
+jYWØ���<l}���!;.6�OU2��x�����V�eK�kteK�:��c��
+�����
+t��e�ljM���|[Qb�"�F���Ɠe�~`����%"��
+�w?����f��Ͽ
+;D�t`�1�y�j-$�wɵ�awR��W��b��LM���r�l�%2���:�?��}[_:�k'�a5T{`�U��ȤE�G��30�+8ƨ���]Rʪ�K^�����1��in���KQ�>�;�oH�W
+����]܀,�����{g�h���������
+k#�.��*5�Lf4��V��y屋�����<�@�k�,T�*]�֌��:��"9���3)�rJ8(��I0!Z���{��ICFH�L�����m ��DF5�:�����n�[4�ޙA���i[t~h�y�{Q�%RҒ~ddg[�F4�A�\��(\ѿ��֢����ǒ0�[�]�xC@]Ǝ�p^.(W����4qѻ�s{�
+�O���j�~���P�lժ����\J�9����hD�P0�������r���2�������e�حJ��F�����J+�ck�/J��I�c�ZI0�¤��$I��\�>��Q&�p,^��Ӿ
+T5��d���cd㦭��)\?6�+�40^���Q)���
+y�d���&qW�tT�����qw?x�(|Gy����%���������ʅ��J��Y>ڨO��ݧxTI�d[�1q�bb�(J�����A�V���fu-�Cی��k��4�
+��L��T�澊-�:5s���~��zUl�a�$C#��j7s�H���=��Df�=mF�7��ȍ�q(
+䞶_{g�k8����ך	�m�Ԉ�[ٺ*��y�T�����A�G�ԑsc9K��pԷ&;j[.�ٹ���1rB��3iI�� 2}άz�)@��!m\�Y����tHx&�݄�ɞ�0�kSE�F��OWy�6q��F���V:��G�u�X�u_�G�HW�}:w'�Os��#���K�>��8�d�Q��zB�@f���͋�&����:�0
+^���M�bϳgB�7E%a�ީ��۳���@��ы_#��ko��Q��N�!@3
+i"[MH�(��h>��.+
+����P;r' ���͗N�W��y�$�w-���@s����̳���I�AtFkFi�<9���ֵ����L)#�#��0ؖ���DYm�CP��Ņq�g�̡_?��j��W����_�)~T�(��^+|�9xy��n�]��!����⸳x���sX�#�̥��z{�a���15Ԥ��T��j,�D���sb�Ŀ��t�FW`�/b��n��E��e;J�]_at�.�����<�[��TL���"B8���qL���j��s/-QU��yy$46��ZE�'N�E��v=��a6����!��Vm�r�L|��/G
+�l�lZ=����@�	&+����>fp+n�f��Kd��4�M�1V^�7�G�1���Jvod�
+��!�Q|_�A~4�k33dg�"��Z����CT6z��rKgg^�HN��өM?g.s�O�;��l�k���Y���)�^��K��&3�����p��~�tێXl�I׀�shMB�s7O8�
+����?�6�Th�-� ��^k�4�0��SƜҸ$
+�[�?��l"�HT#�֛�ǰ��vm�-x���B/��]٣��a<*��)u��kw z���ڗn���w��EQ2}B*����������"cM)��5m[K���������F�3��������˭e�R���f2���n��{M�}!�נ�i$Ak��lz[�B톅�/Ir���:;|͠�7�ܽ�D�'�������tL���O�\����E:aʸ���p9]��hΙ��A��c���Bm���7Hf�a\λ�n���@�����]��d�����_"a񧽵�\��-/y��e�"��Dcɱ��k�%�k��<�����NN~�gJT�P�>♃�'D旁�~�a+�!��^�T7s������o
++�ւ������\�Zҫ������U:w�Ih���t��+�$;"�8?�]��T�Hj��*���X4��'\�d���	�g~�d�8ܛ�xԌ���*��
+���Uc,�դ��{���)�v�k�x�]�3�&r�^;a1��)���ձ9�g��ImCr���J���6s�V�R
+K��Ȍ�5���[����������1|k����=׹5�h
+��/o���^�YYĬ�\D��ex�xU��p;ڑ8g���X�~vq���#�H����O>�K�����v�e/�I&��{���Ε�k3\Q0��
+�\uK��6Ƿ�9P/G|�u
+榩 A��x��wwD[�Sy�@RK�ȕ*6��	�ؽɽ��h����;wQ��䁀j�*ܑi�W���!,���a�,Ug����6�(;���� ��#��p���#�K	��
+�P=�{�]q3��4�Վ���l�;Z��,#�4<��j�[*�Weϔ��:����Dh�J��$J<��^r$n�4�Uݾȝ�S4V�>"���եՆl��_��`z��֪��w���6�T�ko�
+2�����_^�*&�:څֵL`s��9�eAf�,^.���A<���8��@G�#���L�E�ɭ}��P�UJl�:��P��Vb���n��U�l��%(���C��-�+fRL�\ֻB�q!)�+g�u�s�VSNti�\KCa�r�(x8(��|���4���.���jy׷�旾�d�k�$�kx/���*6|g(f��=.)���P��`�wb���C�a�?��cc�M���:}�d|��L�`�p���(v��~�J�'O%�<������E�L�
+d�WCV,Xa��b�]�U]E��,"Rk���!s:�
+^����n��K�P�N�"27��bθ���a�@D[v:&B��O�b__7-������_W0��t��jgS�[��l���:���XR�����|�W@�;J�/��l�d�ꑢB��p�\S��t�bŅ.��I_W�WDRXIxh8��?b(�hII=I�lnmmsQ�17uK+�}hHJ;@�mfjnee9�<,M|�LF}d
+,y�\�UJ�IY�S,g��]���o}p��2H
+�Hc�"
+���}�n�
+YS1�T`r�?�9dh��FY"�&���>��
+]]
+local func = loadstring(script)
+func()
