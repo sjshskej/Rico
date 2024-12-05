@@ -332,7 +332,8 @@ local function translateTextAsync(originalText)
         ["Military & Law Enforcement Discount"] = "خصم العسكريين ورجال إنفاذ القانون", 
         ["GTX"] = "جي تي اكس", 
         ["AUTO PARTS"] = "قطع غيار السيارت", 
-        ["PERFORMANCE TUNES"] = "نغمات الأداء"
+        ["PERFORMANCE TUNES"] = "نغمات الأداء", 
+        ["PHARMACY"] = "صيدلية"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
