@@ -334,7 +334,8 @@ local function translateTextAsync(originalText)
         ["AUTO PARTS"] = "قطع غيار السيارت", 
         ["PERFORMANCE TUNES"] = "نغمات الأداء", 
         ["PHARMACY"] = "صيدلية", 
-        ["Mail & Packages"] = "البريد والطرود"
+        ["Mail & Packages"] = "البريد والطرود", 
+        ["Brookhaven Post Office"] = "مكتب بريد بروكهافن"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
