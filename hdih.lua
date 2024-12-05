@@ -335,7 +335,8 @@ local function translateTextAsync(originalText)
         ["PERFORMANCE TUNES"] = "نغمات الأداء", 
         ["PHARMACY"] = "صيدلية", 
         ["Mail & Packages"] = "البريد والطرود", 
-        ["Brookhaven Post Office"] = "مكتب بريد بروكهافن"
+        ["Brookhaven Post Office"] = "مكتب بريد بروكهافن", 
+        ["BOX"] = "صندوق"
     }
 
     return translations[originalText] or originalText -- إذا لم تكن الترجمة موجودة، يبقى النص كما هو
