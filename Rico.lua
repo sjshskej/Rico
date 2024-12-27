@@ -35,13 +35,20 @@ Window:EditOpenButton({
 
 local Tab = Window:Tab({
     Title = "البداية",
-    Icon = "folder", -- lucide or rbxassetid
+    Icon = "house", -- lucide or rbxassetid
 })
 
 Window:SelectTab(1) -- Number of Tab
 
 local Section = Tab:Section({ 
-    Title = "Section",
+    Title = ". 1.0",
     TextXAlignment = "Left",
     TextSize = 17, -- Default Size
+})
+
+Section:SetTitle("المطور ريكو")
+
+local Paragraph = Tab:Paragraph({
+    Title = "Paragraph",
+    Desc = "Paragraph Content \nAnd second line",
 })
