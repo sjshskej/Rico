@@ -1,10 +1,3 @@
-
--- DomainX the most rushed and money making focused script available
--- now open source because we aren't money hungry
-
--- don't take this as a representation for how Sirius' source will look, not that you'll see that source anyway (as it's obfuscated)
--- we don't write code this bad anymore :thumbsup:
-
 local Players = game:GetService("Players")
 while not game:GetService("Players").LocalPlayer do
 	wait(0.1)
@@ -15,9 +8,9 @@ if DebugMode then
 end
 local UserHWID = nil
 ExecutorAutomatic = false
-if not game:IsLoaded() then
+if not game:IsLoaded() then game.Loaded:Wait() end
 	wait(0.5)
-	if game:IsLoaded() then
+if not game:IsLoaded() then game.Loaded:Wait() end
 		if DebugMode then
 			warn("DomainX - AutoExec Detection false")
 		end
@@ -38,7 +31,8 @@ if DebugMode then
 	warn("DomainX - Loaded KeyUI")
 end
 
-if not gethui then
+local parent = game:GetService('CoreGui')
+if gethui then parent = gethui() end
 	if syn and syn.protect_gui then
 		syn.protect_gui(KeySys)
 		protected = true
@@ -69,7 +63,7 @@ if DebugMode then
 end
 
 local http_request = http_request;
-local c = identifyexecutor()
+local executor_name = identifyexecutor and identifyexecutor() or 'Unknown'
 if syn then
 	http_request = syn.request
 elseif c == "ScriptWare" then
@@ -93,7 +87,8 @@ end
 
 local protected = false
 
-if not gethui then
+local parent = game:GetService('CoreGui')
+if gethui then parent = gethui() end
 	if syn and syn.protect_gui then
 		syn.protect_gui(Domain)
 		protected = true
@@ -1441,3 +1436,5 @@ function OpenScripts()
 	tween:Play()
 	local transitionInfo = TweenInfo.new(0.6, Enum.EasingStyle.Quint)
 	local tween = TweenService:Create(Domain.Scripts.Title, transitionInfo, {TextTransparen
+-- Ensure proper script execution across different maps
+if not game:GetService('Players').
