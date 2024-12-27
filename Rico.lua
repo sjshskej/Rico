@@ -89,3 +89,8 @@ local Button = MainTab:Button({
         }):Open()
     end,
 })
+
+local Paragraph = Tab:Paragraph({
+    Title = "Paragraph",
+    Desc = "Paragraph Content \nAnd second line",
+})
