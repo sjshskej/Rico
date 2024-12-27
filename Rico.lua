@@ -41,9 +41,14 @@ local Tab = Window:Tab({
 Window:SelectTab(1) -- Number of Tab
 
 local Section = Tab:Section({ 
-    Title = "1.0",
+    Title = "مطور ريكو",
     TextXAlignment = "Left",
     TextSize = 17, -- Default Size
+})
+
+local Paragraph = Tab:Paragraph({
+    Title = "Paragraph",
+    Desc = "Paragraph Content \nAnd second line",
 })
 
 Paragraph:SetTitle("New Title!")
