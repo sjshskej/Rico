@@ -41,14 +41,7 @@ local Tab = Window:Tab({
 Window:SelectTab(1) -- Number of Tab
 
 local Section = Tab:Section({ 
-    Title = "لتجربة",
+    Title = "kdjdijd",
     TextXAlignment = "Left",
     TextSize = 17, -- Default Size
-})
-
-Section:SetTitle("المطور ريكو")
-
-local Paragraph = Tab:Paragraph({
-    Title = "Paragraph",
-    Desc = "Paragraph Content \nAnd second line",
 })
