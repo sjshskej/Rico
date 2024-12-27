@@ -40,41 +40,19 @@ local MainTab = Window:Tab({
 
 Window:SelectTab(1)
 
-local EmptyTab = Window:Tab({
-    Title = "Empty Tab",
-    Icon = "frown",
+MainTab:Section({ 
+    Title = "Big section!",
+    TextSize = 22,
 })
-
-local EmptyTab2 = Window:Tab({
-    Title = "Tab Without icon",
+MainTab:Section({ 
+    Title = "Section Left",
+    TextXAlignment = "Left"
 })
-
-local NotificationTab = Window:Tab({
-    Title = "Notification Tab",
-    Icon = "bell",
+MainTab:Section({ 
+    Title = "Section Center",
+    TextXAlignment = "Center"
 })
-
-local BlockedElementsTab = Window:Tab({
-    Title = "Blocked Elements",
-    Icon = "rbxassetid://120011858138977",
+MainTab:Section({ 
+    Title = "Section Right",
+    TextXAlignment = "Right"
 })
-
-local Divider = Window:Divider()
-
-local TabWithNewIcon = Window:Tab({
-    Title = "Tab with new Icon",
-    Icon = "book-user",
-})
-
-local Divider = Window:Divider()
-
-local WindowTab = Window:Tab({
-    Title = "Window and File Configuration",
-    Icon = "settings",
-})
-local CreateThemeTab = Window:Tab({
-    Title = "Create theme",
-    Icon = "palette",
-})
-
-local Divider = Window:Divider()
