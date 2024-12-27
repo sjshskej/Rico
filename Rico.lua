@@ -92,3 +92,9 @@ local Tab = Window:Tab({
 })
 
 Window:SelectTab(2) -- Number of Tab
+
+local Section = Tab:Section({ 
+    Title = "المشيات",
+    TextXAlignment = "Left",
+    TextSize = 17, -- Default Size
+})
