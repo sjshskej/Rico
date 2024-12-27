@@ -41,7 +41,7 @@ local Tab = Window:Tab({
 Window:SelectTab(1) -- Number of Tab
 
 local Section = Tab:Section({ 
-    Title = ". 1.0",
+    Title = "لتجربة",
     TextXAlignment = "Left",
     TextSize = 17, -- Default Size
 })
