@@ -47,6 +47,14 @@ local Section = Tab:Section({
 })
 
 local Paragraph = Tab:Paragraph({
-    Title = "Paragraph",
-    Desc = "Paragraph Content \nAnd second line",
+    Title = "متى تم انشاء هاذا سكربت ",
+    Desc = "2024- الجمعة، 26 ديسمبر",
+})
+
+local Code = Tab:Code({
+    Title = "main.lua",
+    Locked = false,
+    Code = [[-- This is a simple Lua script
+print("hello world")
+]],
 })
