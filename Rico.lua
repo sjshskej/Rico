@@ -519,3 +519,43 @@ end
 
 function Notify(Title,Content,Image,Rotation,ImageRectOffset)
 	spawn(function()
+			-- Set Up
+		if not NotificationsEnabled then
+			return
+		end
+		local notificationContainer = Domain.Notifications
+		local Notification = notificationContainer:FindFirstChild('Template') or nil
+		if Notification == nil then
+			warn("\nUnable to notify, error finding template")
+			warn("\nArguments: \nTitle - "..Title.."\nContent - "..Content.."\nImage - "..tostring(Image))
+			return
+		end
+		local notifClone = Notification:Clone()
+		local notifTitle = notifClone:WaitForChild('Title')
+		local notifContent = notifClone:WaitForChild('Content')
+		notifClone.Name = 'Notification'
+		notifClone.Visible = true
+		notifTitle.Text = Title
+		if Image then
+			notifClone.Image.Image = "rbxassetid://"..Image
+		else
+			notifClone.Image.Image = "rbxassetid://6404488837"
+		end
+
+		if ImageRectOffset then
+			notifClone.Image.ImageRectOffset = ImageRectOffset
+			notifClone.Image.ImageRectSize = Vector2.new(36,36)
+		else
+			notifClone.Image.ImageRectOffset = Vector2.new(0,0)
+			notifClone.Image.ImageRectSize = Vector2.new(0,0)
+		end
+
+		if Content then
+			notifContent.Text = Content
+		else
+			notifContent.Text = "No more details"
+		end
+
+		notifClone.Parent = notificationContainer
+		notifClone.Position = UDim2.new(-1,0,0,0)
+		wait(0.5)
