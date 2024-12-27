@@ -414,3 +414,108 @@ local DetectionScripts = {
 
 
 
+function figureNotifs(Stack,Container)
+	local stacksize = 1
+
+	local i = #Stack
+	while i > 0 do
+		local gui = Stack[i]
+		if gui then
+			if stacksize == 1 then
+				stacksize = 0
+			else
+				stacksize = stacksize + 0.135
+			end
+			local desiredpos = UDim2.new(0,0,stacksize,0)
+			if gui.Position ~= desiredpos then
+				gui:TweenPosition(desiredpos,"Out","Quint",0.5,true)
+			end
+		end
+		i = i-1
+	end
+end
+
+function figureToasts(Stack,Container)
+
+	local stacksize = 0
+
+	local i = #Stack
+	while i > 0 do
+		local gui = Stack[i]
+		if gui then
+			if stacksize == 0 then
+				stacksize = 1
+			else
+				stacksize = stacksize - 0.13
+			end
+			local desiredpos = UDim2.new(0.5,0,stacksize,0)
+			if gui.Position ~= desiredpos then
+				gui:TweenPosition(desiredpos,"Out","Quint",0.6,true)
+			end
+		end
+		i = i-1
+	end
+end
+
+function Toast(Content,Font)
+	if DMNReady then
+		Domain.Toasts.Visible = true
+		Domain.Toasts.ClipsDescendants = false
+		Domain.Toasts.Template.Visible = false
+		spawn(function()
+			if not Font then
+				Font = "GothamSemibold"
+			end
+			local notificationContainer = Domain.Toasts
+			local Notification = notificationContainer:WaitForChild('Template')	
+			local notifClone = Notification:Clone()
+			local notifContent = notifClone:WaitForChild('Content')
+			if Font == "GothamSemiBold" then
+				Font = "GothamSemibold"
+			end
+			notifClone.BackgroundTransparency = 1
+			notifContent.Font = Font
+			notifContent.TextWrapped = false
+			notifContent.TextTransparency = 1
+			notifContent.BackgroundTransparency = 1
+			notifClone.Name = 'Toast'
+			notifClone.Visible = true
+			notifContent.Text = Content
+			notifClone.Parent = notificationContainer
+			notifContent.TextYAlignment = Enum.TextYAlignment.Center
+			notifClone.Position = UDim2.new(0.5,1,0)
+			wait(0.5)
+			notifClone:TweenPosition(UDim2.new(0.5,0.87,0),'Out','Quint',0.3,true)
+			local transitionInfo = TweenInfo.new(0.35, Enum.EasingStyle.Quint)
+			local tween = game:GetService("TweenService"):Create(notifContent, transitionInfo, {TextTransparency = 0})
+			tween:Play()
+			local transitionInfo = TweenInfo.new(0.35, Enum.EasingStyle.Quint)
+			local tween = game:GetService("TweenService"):Create(notifContent, transitionInfo, {TextStrokeTransparency = 0.9})
+			tween:Play()
+			table.insert(ToastStack,notifClone)
+			figureToasts(ToastStack,notificationContainer)
+
+
+			wait(7)
+			for a,b in pairs(ToastStack) do
+				if b == notifClone then
+					table.remove(ToastStack,a)
+				end
+			end
+			wait(0.05)
+			notifClone:TweenPosition(UDim2.new(0.5,0,notifClone.Position.Y.Scale-0.3,0),'Out','Quint',1,true)
+			local transitionInfo = TweenInfo.new(0.3, Enum.EasingStyle.Quint)
+			local tween = game:GetService("TweenService"):Create(notifContent, transitionInfo, {TextTransparency = 1})
+			tween:Play()
+			local transitionInfo = TweenInfo.new(0.3, Enum.EasingStyle.Quint)
+			local tween = game:GetService("TweenService"):Create(notifContent, transitionInfo, {TextStrokeTransparency = 1})
+			tween:Play()
+			wait(0.305)
+			notifClone:Destroy()
+			figureToasts(ToastStack,notificationContainer)
+		end)
+	end
+end
+
+function Notify(Title,Content,Image,Rotation,ImageRectOffset)
+	spawn(function()
