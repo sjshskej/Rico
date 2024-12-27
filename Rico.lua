@@ -98,3 +98,27 @@ local Section = Tab:Section({
     TextXAlignment = "Left",
     TextSize = 17, -- Default Size
 })
+
+local Paragraph = Tab:Paragraph({
+    Title = "اخر تحديثات",
+    Desc = "2024 - الجمعة، 27 ديسمبر",
+})
+
+local Button = Tab:Button({
+    Title = "المشية الاولة",
+    Desc = "رائد الفضاء",
+    Callback = function()
+        print("local Animate = game.Players.LocalPlayer.Character:WaitForChild("Animate")
+
+Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=891621366"
+Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=891633237"
+Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=891667138"
+Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=891636393"
+Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=891627522"
+Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=891609353"
+Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=891617961"
+
+-- إضافة حركة قفز لتفعيل التغييرات فوراً
+game.Players.LocalPlayer.Character.Humanoid.Jump = true")
+    end,
+})
