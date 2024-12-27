@@ -46,26 +46,7 @@ local Section = Tab:Section({
     TextSize = 17, -- Default Size
 })
 
-MainTab:Section({ 
-    Title = "الاصدار 1.0",
-    TextXAlignment = "Left"
-})
-MainTab:Section({ 
-    Title = "تم صنعة من العراق",
-    TextXAlignment = "Center"
-})
-MainTab:Section({ 
-    Title = "🇮🇶",
-    TextXAlignment = "Right"
-})
-
-MainTab:Section({ Title = "التعليمات" })
-
-local Paragraph1 = Tab:Paragraph({
-    Title = "متى تم انشاء هاذا القائمة",
-    Desc = "الجمعة، 27 ديسمبر",
-})
-
-local Paragraph = MainTab:Paragraph({
-    Title = "لتكبير و تصغير اضغط على يمين 👉شاشة",
+local Paragraph = Tab:Paragraph({
+    Title = "Paragraph",
+    Desc = "Paragraph Content \nAnd second line",
 })
