@@ -74,5 +74,5 @@ local Paragraph2 = MainTab:Paragraph({
 local Paragraph3 = MainTab:Paragraph({
     Title = "Paragraph with URL image.",
     --Desc = "Paragraph With Lucide icon.",
-    Image = "https://i.imgur.com/RuRUjGW.jpeg"
+    Image = "https://images.opencollective.com/lucide-icons/9fe79a6/logo/256.png"
 })
