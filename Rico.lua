@@ -1,14 +1,14 @@
 local WindUI = loadstring(game:HttpGet("https://tree-hub.vercel.app/api/UI/WindUI"))()
 
 local Window = WindUI:CreateWindow({
-    Title = "WindUI Library", -- UI Title
+    Title = "قائمة العرب", -- UI Title
     Icon = "door-open", -- Url or rbxassetid or lucide
     Author = ".ftgs", -- Author & Creator
     Folder = "CloudHub", -- Folder name for saving data (And key)
     Size = UDim2.fromOffset(580, 460), -- UI Size
     KeySystem = { -- Creates key system
-        Key = "1234", -- key
-        Note = "The Key is 1234", -- Note
+        Key = "mkl", -- key
+        Note = "رمز mkl", -- Note
         URL = "https://github.com/Footagesus/WindUI", -- URL To get key (example: Discord)
         SaveKey = true, -- Saves the key in the folder specified above
     }, 
@@ -34,7 +34,7 @@ Window:EditOpenButton({
 --- Section for Tabs
 
 local MainTab = Window:Tab({
-    Title = "Main",
+    Title = "البداية",
     Icon = "house",
 })
 
@@ -74,5 +74,5 @@ local Paragraph2 = MainTab:Paragraph({
 local Paragraph3 = MainTab:Paragraph({
     Title = "Paragraph with URL image.",
     --Desc = "Paragraph With Lucide icon.",
-    Image = "https://i.imgur.com/RuRUjGW.jpeg"
+    Image = "https://images.opencollective.com/lucide-icons/9fe79a6/logo/256.png"
 })
