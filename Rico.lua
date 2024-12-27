@@ -63,3 +63,16 @@ local Paragraph1 = MainTab:Paragraph({
     Title = "Paragraph",
     Desc = "Paragraph Content \nAnd second line",
 })
+local Paragraph = MainTab:Paragraph({
+    Title = "Paragraph without content",
+})
+local Paragraph2 = MainTab:Paragraph({
+    Title = "Paragraph with Lucide icon.",
+    --Desc = "Paragraph With Lucide icon.",
+    Image = "frown"
+})
+local Paragraph3 = MainTab:Paragraph({
+    Title = "Paragraph with URL image.",
+    --Desc = "Paragraph With Lucide icon.",
+    Image = "https://i.imgur.com/RuRUjGW.jpeg"
+})
