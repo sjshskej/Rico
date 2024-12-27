@@ -86,9 +86,6 @@ local Code = Tab:Code({
 ]]
 })
 
-Paragraph1:SetTitle("New Title!")
-Paragraph1:SetDesc("New Description!")
-
 MainTab:Section({ Title = "مهم❓" })
 
 local Dialog = Window:Dialog({
