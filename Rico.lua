@@ -40,54 +40,6 @@ local MainTab = Window:Tab({
 
 Window:SelectTab(1)
 
-local EmptyTab = Window:Tab({
-    Title = "Empty Tab",
-    Icon = "frown",
-})
-
-local EmptyTab2 = Window:Tab({
-    Title = "Tab Without icon",
-})
-
-local NotificationTab = Window:Tab({
-    Title = "Notification Tab",
-    Icon = "bell",
-})
-
-local BlockedElementsTab = Window:Tab({
-    Title = "Blocked Elements",
-    Icon = "rbxassetid://120011858138977",
-})
-
-local Divider = Window:Divider()
-
-local TabWithNewIcon = Window:Tab({
-    Title = "Tab with new Icon",
-    Icon = "book-user",
-})
-
-local Divider = Window:Divider()
-
-local WindowTab = Window:Tab({
-    Title = "Window and File Configuration",
-    Icon = "settings",
-})
-local CreateThemeTab = Window:Tab({
-    Title = "Create theme",
-    Icon = "palette",
-})
-
-local Divider = Window:Divider()
-
-for i=1, 20 do
-    Window:Tab({
-        Title = "Just An Empty Tab",
-        Image = "grid"
-    })
-end
-
--- Main Tab
-
 MainTab:Section({ 
     Title = "Big section!",
     TextSize = 22,
@@ -122,5 +74,5 @@ local Paragraph2 = MainTab:Paragraph({
 local Paragraph3 = MainTab:Paragraph({
     Title = "Paragraph with URL image.",
     --Desc = "Paragraph With Lucide icon.",
-    Image = "https://images.opencollective.com/lucide-icons/9fe79a6/logo/256.png"
+    Image = "https://i.imgur.com/RuRUjGW.jpeg"
 })
