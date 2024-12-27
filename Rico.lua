@@ -33,46 +33,15 @@ Window:EditOpenButton({
 
 --- Section for Tabs
 
-local MainTab = Window:Tab({
+local Tab = Window:Tab({
     Title = "البداية",
-    Icon = "house",
+    Icon = "folder", -- lucide or rbxassetid
 })
 
-Window:SelectTab(1)
+Window:SelectTab(1) -- Number of Tab
 
-MainTab:Section({ 
-    Title = "Big section!",
-    TextSize = 22,
-})
-MainTab:Section({ 
-    Title = "Section Left",
-    TextXAlignment = "Left"
-})
-MainTab:Section({ 
-    Title = "Section Center",
-    TextXAlignment = "Center"
-})
-MainTab:Section({ 
-    Title = "Section Right",
-    TextXAlignment = "Right"
-})
-
-MainTab:Section({ Title = "Paragraphs" })
-
-local Paragraph1 = MainTab:Paragraph({
-    Title = "Paragraph",
-    Desc = "Paragraph Content \nAnd second line",
-})
-local Paragraph = MainTab:Paragraph({
-    Title = "Paragraph without content",
-})
-local Paragraph2 = MainTab:Paragraph({
-    Title = "Paragraph with Lucide icon.",
-    --Desc = "Paragraph With Lucide icon.",
-    Image = "frown"
-})
-local Paragraph3 = MainTab:Paragraph({
-    Title = "Paragraph with URL image.",
-    --Desc = "Paragraph With Lucide icon.",
-    Image = "https://images.opencollective.com/lucide-icons/9fe79a6/logo/256.png"
+local Section = Tab:Section({ 
+    Title = "Section",
+    TextXAlignment = "Left",
+    TextSize = 17, -- Default Size
 })
