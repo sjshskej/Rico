@@ -86,6 +86,9 @@ local Code = Tab:Code({
 ]]
 })
 
-local NotificationTab = Window:Tab({
+local Tab = Window:Tab({
     Title = "المشيات",
-    Icon = "bell",
+    Icon = "folder", -- lucide or rbxassetid
+})
+
+Window:SelectTab(2) -- Number of Tab
