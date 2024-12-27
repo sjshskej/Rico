@@ -50,7 +50,3 @@ local Paragraph = Tab:Paragraph({
     Title = "Paragraph",
     Desc = "Paragraph Content \nAnd second line",
 })
-
-Paragraph:SetTitle("New Title!")
-
-Paragraph:SetDesc("New Description!")
