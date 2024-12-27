@@ -56,3 +56,10 @@ MainTab:Section({
     Title = "Section Right",
     TextXAlignment = "Right"
 })
+
+MainTab:Section({ Title = "Paragraphs" })
+
+local Paragraph1 = MainTab:Paragraph({
+    Title = "Paragraph",
+    Desc = "Paragraph Content \nAnd second line",
+})
