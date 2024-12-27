@@ -19,7 +19,7 @@ local Window = WindUI:CreateWindow({
 })
 
 Window:EditOpenButton({
-    Title = "Open UI Button",
+    Title = "اضغط لفتح",
     Icon = "image-upscale",  -- New icon
     CornerRadius = UDim.new(0,10),
     StrokeThickness = 3,
@@ -41,7 +41,11 @@ local Tab = Window:Tab({
 Window:SelectTab(1) -- Number of Tab
 
 local Section = Tab:Section({ 
-    Title = "kdjdijd",
+    Title = "1.0",
     TextXAlignment = "Left",
     TextSize = 17, -- Default Size
 })
+
+Paragraph:SetTitle("New Title!")
+
+Paragraph:SetDesc("New Description!")
