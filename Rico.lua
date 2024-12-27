@@ -85,3 +85,41 @@ local Code = Tab:Code({
 -- مما يجعله أداة قوية وفعالة داخل عالم روبلوكس.
 ]]
 })
+
+Paragraph1:SetTitle("New Title!")
+Paragraph1:SetDesc("New Description!")
+
+MainTab:Section({ Title = "مهم❓" })
+
+local Dialog = Window:Dialog({
+    Title = "الحوار",
+    Content = "تواصل معاي فل تليجرام @F_HPB",
+    Buttons = {
+        {
+            Title = "نعم",
+            Callback = function()
+                print("confirm")
+            end
+        },
+        {
+            Title = "لا",
+            Callback = function()
+                print("cancel")
+            end
+        },
+        {
+            Title = "الغاء",
+            Callback = function()
+                print("idk")
+            end
+        }
+    }
+})
+
+local Button = MainTab:Button({
+    Title = "حوار",
+    Desc = "ذا كانت عندك مشاكل فا اضغط هنا",
+    Callback = function()
+        Dialog:Open()
+    end,
+})
