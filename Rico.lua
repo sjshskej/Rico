@@ -223,3 +223,63 @@ Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=707829716"
 game.Players.LocalPlayer.Character.Humanoid.Jump = true
     end,
 })
+
+Tab2:Button({
+    Title = "المشية الثامنة",
+    Desc = "النينجا",
+    Callback = function()
+        local Animate = game.Players.LocalPlayer.Character:WaitForChild("Animate")
+
+-- إعدادات حركة Ninja
+Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=656117400"
+Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=656118341"
+Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=656121766"
+Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=656118852"
+Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=656117878"
+Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=656114359"
+Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=656115606"
+
+-- تحديث الحركة فوراً
+game.Players.LocalPlayer.Character.Humanoid.Jump = true
+    end,
+})
+
+Tab2:Button({
+    Title = "المشية التاسعة",
+    Desc = "القراصنة",
+    Callback = function()
+        local Animate = game.Players.LocalPlayer.Character:WaitForChild("Animate")
+
+-- إعدادات حركة Pirate
+Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=750781874"
+Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=750782770"
+Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=750785693"
+Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=750783738"
+Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=750782230"
+Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=750779899"
+Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=750780242"
+
+-- تحديث الحركة فوراً
+game.Players.LocalPlayer.Character.Humanoid.Jump = true
+    end,
+})
+
+Tab2:Button({
+    Title = "المشية العاشرة",
+    Desc = "القراصنة",
+    Callback = function()
+        local Animate = game.Players.LocalPlayer.Character:WaitForChild("Animate")
+
+-- إعدادات حركة Robot
+Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616088211"
+Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616089559"
+Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=616095330"
+Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=616091570"
+Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616090535"
+Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616086039"
+Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616087089"
+
+-- تحديث الحركة فوراً
+game.Players.LocalPlayer.Character.Humanoid.Jump = true
+    end,
+})
