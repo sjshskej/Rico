@@ -70,6 +70,8 @@ local Tab2 = Window:Tab({
     Icon = "folder",
 })
 
+Window:SelectTab(2)
+
 local Section2 = Tab2:Section({
     Title = "المشيات",
     TextXAlignment = "Left",
@@ -100,6 +102,3 @@ Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=891617961"
 game.Players.LocalPlayer.Character.Humanoid.Jump = true
     end,
 })
-
--- تحديد التبويب الافتراضي
-Window:SelectTab(1)
