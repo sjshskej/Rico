@@ -403,3 +403,8 @@ Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616157476"
 game.Players.LocalPlayer.Character.Humanoid.Jump = true
     end,
 })
+
+local Tab3 = Window:Tab({
+    Title = "سكربتات بلوكس فورت",
+    Icon = "folder",
+})
