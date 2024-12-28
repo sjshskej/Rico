@@ -123,3 +123,43 @@ Animate.swim.Swim.AnimationId = "http://www.roblox.com/asset/?id=910028158"
 game.Players.LocalPlayer.Character.Humanoid.Jump = true
     end,
 })
+
+Tab2:Button({
+    Title = "المشية الثالثة",
+    Desc = "كارتوني",
+    Callback = function()
+        local Animate = game.Players.LocalPlayer.Character:WaitForChild("Animate")
+
+-- إعدادات حركة Cartoony
+Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=742637544"
+Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=742638445"
+Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=742640026"
+Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=742638842"
+Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=742637942"
+Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=742636889"
+Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=742637151"
+
+-- تحديث الحركة فوراً
+game.Players.LocalPlayer.Character.Humanoid.Jump = true
+    end,
+})
+
+Tab2:Button({
+    Title = "المشية الرابعة",
+    Desc = "الشيخ",
+    Callback = function()
+        local Animate = game.Players.LocalPlayer.Character:WaitForChild("Animate")
+
+-- إعدادات حركة Elder
+Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=845397899"
+Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=845400520"
+Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=845403856"
+Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=845386501"
+Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=845398858"
+Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=845392038"
+Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=845396048"
+
+-- تحديث الحركة فوراً
+game.Players.LocalPlayer.Character.Humanoid.Jump = true
+    end,
+})
