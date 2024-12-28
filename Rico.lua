@@ -84,7 +84,7 @@ Tab2:Paragraph({
 })
 
 Tab2:Button({
-    Title = "المشية الاولة",
+    Title = "المشية 1",
     Desc = "رائد الفضاء",
     Callback = function()
     local Animate = game.Players.LocalPlayer.Character:WaitForChild("Animate")
@@ -104,7 +104,7 @@ game.Players.LocalPlayer.Character.Humanoid.Jump = true
 })
 
 Tab2:Button({
-    Title = "المشية الثانية",
+    Title = "المشية 2",
     Desc = "الفوارة",
     Callback = function()
         local Animate = game.Players.LocalPlayer.Character:WaitForChild("Animate")
@@ -125,7 +125,7 @@ game.Players.LocalPlayer.Character.Humanoid.Jump = true
 })
 
 Tab2:Button({
-    Title = "المشية الثالثة",
+    Title = "المشية 3",
     Desc = "كارتوني",
     Callback = function()
         local Animate = game.Players.LocalPlayer.Character:WaitForChild("Animate")
@@ -145,7 +145,7 @@ game.Players.LocalPlayer.Character.Humanoid.Jump = true
 })
 
 Tab2:Button({
-    Title = "المشية الرابعة",
+    Title = "المشية 4",
     Desc = "الشيخ",
     Callback = function()
         local Animate = game.Players.LocalPlayer.Character:WaitForChild("Animate")
@@ -165,7 +165,7 @@ game.Players.LocalPlayer.Character.Humanoid.Jump = true
 })
 
 Tab2:Button({
-    Title = "المشية الخامسة",
+    Title = "المشية 5",
     Desc = "الفارس",
     Callback = function()
         local Animate = game.Players.LocalPlayer.Character:WaitForChild("Animate")
@@ -185,7 +185,7 @@ game.Players.LocalPlayer.Character.Humanoid.Jump = true
 })
 
 Tab2:Button({
-    Title = "المشية السادسة",
+    Title = "المشية 6",
     Desc = "الارتفاع",
     Callback = function()
         local Animate = game.Players.LocalPlayer.Character:WaitForChild("Animate")
@@ -205,7 +205,7 @@ game.Players.LocalPlayer.Character.Humanoid.Jump = true
 })
 
 Tab2:Button({
-    Title = "المشية السابعة",
+    Title = "المشية 7",
     Desc = "مانجى",
     Callback = function()
         local Animate = game.Players.LocalPlayer.Character:WaitForChild("Animate")
@@ -225,7 +225,7 @@ game.Players.LocalPlayer.Character.Humanoid.Jump = true
 })
 
 Tab2:Button({
-    Title = "المشية الثامنة",
+    Title = "المشية 8",
     Desc = "النينجا",
     Callback = function()
         local Animate = game.Players.LocalPlayer.Character:WaitForChild("Animate")
@@ -245,7 +245,7 @@ game.Players.LocalPlayer.Character.Humanoid.Jump = true
 })
 
 Tab2:Button({
-    Title = "المشية التاسعة",
+    Title = "المشية 9",
     Desc = "القراصنة",
     Callback = function()
         local Animate = game.Players.LocalPlayer.Character:WaitForChild("Animate")
@@ -265,7 +265,7 @@ game.Players.LocalPlayer.Character.Humanoid.Jump = true
 })
 
 Tab2:Button({
-    Title = "المشية العاشرة",
+    Title = "المشية 10",
     Desc = "القراصنة",
     Callback = function()
         local Animate = game.Players.LocalPlayer.Character:WaitForChild("Animate")
@@ -278,6 +278,126 @@ Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=616091570"
 Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616090535"
 Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616086039"
 Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616087089"
+
+-- تحديث الحركة فوراً
+game.Players.LocalPlayer.Character.Humanoid.Jump = true
+    end,
+})
+
+Tab2:Button({
+    Title = "المشية 11",
+    Desc = "أنيق",
+    Callback = function()
+        local Animate = game.Players.LocalPlayer.Character:WaitForChild("Animate")
+
+-- إعدادات حركة Stylish
+Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616136790"
+Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616138447"
+Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=616146177"
+Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=616140816"
+Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616139451"
+Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616133594"
+Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616134815"
+
+-- تحديث الحركة فوراً
+game.Players.LocalPlayer.Character.Humanoid.Jump = true
+    end,
+})
+
+Tab2:Button({
+    Title = "المشية 12",
+    Desc = "البطل الخارق",
+    Callback = function()
+        local Animate = game.Players.LocalPlayer.Character:WaitForChild("Animate")
+
+-- إعدادات حركة SuperHero
+Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616111295"
+Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616113536"
+Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=616122287"
+Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=616117076"
+Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616115533"
+Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616104706"
+Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616108001"
+
+-- تحديث الحركة فوراً
+game.Players.LocalPlayer.Character.Humanoid.Jump = true
+    end,
+})
+
+Tab2:Button({
+    Title = "المشية 13",
+    Desc = "اللعبة",
+    Callback = function()
+        local Animate = game.Players.LocalPlayer.Character:WaitForChild("Animate")
+
+-- إعدادات حركة Toy
+Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=782841498"
+Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=782845736"
+Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=782843345"
+Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=782842708"
+Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=782847020"
+Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=782843869"
+Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=782846423"
+
+-- تحديث الحركة فوراً
+game.Players.LocalPlayer.Character.Humanoid.Jump = true
+    end,
+})
+
+Tab2:Button({
+    Title = "المشية 14",
+    Desc = "مصاص دماء",
+    Callback = function()
+        local Animate = game.Players.LocalPlayer.Character:WaitForChild("Animate")
+
+-- إعدادات حركة Vampire
+Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=1083445855"
+Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=1083450166"
+Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=1083473930"
+Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=1083462077"
+Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=1083455352"
+Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=1083439238"
+Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=1083443587"
+
+-- تحديث الحركة فوراً
+game.Players.LocalPlayer.Character.Humanoid.Jump = true
+    end,
+})
+
+Tab2:Button({
+    Title = "المشية 15",
+    Desc = "المستئذب",
+    Callback = function()
+        local Animate = game.Players.LocalPlayer.Character:WaitForChild("Animate")
+
+-- إعدادات حركة Werewolf
+Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=1083195517"
+Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=1083214717"
+Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=1083178339"
+Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=1083216690"
+Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=1083218792"
+Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=1083182000"
+Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=1083189019"
+
+-- تحديث الحركة فوراً
+game.Players.LocalPlayer.Character.Humanoid.Jump = true
+    end,
+})
+
+Tab2:Button({
+    Title = "المشية 16",
+    Desc = "زومبي",
+    Callback = function()
+        local Animate = game.Players.LocalPlayer.Character:WaitForChild("Animate")
+
+-- إعدادات حركة Zombie
+Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616158929"
+Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616160636"
+Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=616168032"
+Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=616163682"
+Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616161997"
+Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616156119"
+Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616157476"
 
 -- تحديث الحركة فوراً
 game.Players.LocalPlayer.Character.Humanoid.Jump = true
