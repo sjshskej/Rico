@@ -408,3 +408,11 @@ local Tab3 = Window:Tab({
     Title = "سكربتات بلوكس فورت",
     Icon = "folder",
 })
+
+Window:SelectTab(3)
+
+local Section3 = Tab3:Section({
+    Title = "جميع سكربتات المشهورة هنا",
+    TextXAlignment = "Left",
+    TextSize = 17,
+})
