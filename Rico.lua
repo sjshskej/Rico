@@ -412,7 +412,12 @@ local Tab3 = Window:Tab({
 Window:SelectTab(3)
 
 local Section3 = Tab3:Section({
-    Title = "جميع سكربتات المشهورة هنا",
+    Title = "جميع سكربتات بلوكس فورت المشهورة هنا",
     TextXAlignment = "Left",
     TextSize = 17,
+})
+
+Tab3:Paragraph({
+    Title = "آخر تحديثات",
+    Desc = "2024 - الأحد، 29 ديسمبر",
 })
