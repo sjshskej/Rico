@@ -82,10 +82,10 @@ Tab2:Paragraph({
 })
 
 Tab2:Button({
-    Title = "تحميل سكربت",
+    Title = "سكربت اغاني",
     Desc = "اضغط لتحميل السكربت",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/sjshskej/Rico/refs/heads/main/ksokw.lua", true))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/harisprofanny/d/main/Music%20Gui.txt"))()
     end,
 })
 
