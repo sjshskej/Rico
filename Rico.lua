@@ -485,7 +485,7 @@ Tab4:Paragraph({
     Desc = "2024 - الأحد، 29 ديسمبر",
 })
 
-Tab4:Paragraph({
+Tab5:Paragraph({
     Title = "نصيحه❓",
     Desc = "نص سكربتات تشتغل ونص لا لانه تتحدث بشكل يومي",
 })
