@@ -421,3 +421,66 @@ Tab3:Paragraph({
     Title = "آخر تحديثات",
     Desc = "2024 - الأحد، 29 ديسمبر",
 })
+
+Tab3:Button({
+    Title = "سكربت الاول",
+    Desc = "شغال✅",
+    Callback = function()
+        loadstring(game:HttpGet("https://scripts.alchemyhub.xyz"))()
+    end,
+})
+
+Tab3:Button({
+    Title = "سكربت الثاني",
+    Desc = "شغال✅",
+    Callback = function()
+        getgenv().Team = "Marines"
+getgenv().Hide_Menu = false
+loadstring(game:HttpGet("https://apixerohub.x10.mx/main.lua"))()
+    end,
+})
+
+Tab3:Button({
+    Title = "سكربت ثالث",
+    Desc = "",
+    Callback = function()
+        repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
+getgenv().Key = "PASTE_KEY_HERE"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/obiiyeuem/vthangsitink/main/BananaHub.lua"))()
+-- Get Key : https://ads.luarmor.net/get_key?for=VHFslhWdrPey
+    end,
+})
+
+Tab3:Button({
+    Title = "سكربت الرابع",
+    Desc = "شغال✅",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/ThundarZ/Welcome/refs/heads/main/Main/Loader/AllGame.lua'))()
+    end,
+})
+
+Tab3:Button({
+    Title = "سكربت الخامس",
+    Desc = "شغال✅",
+    Callback = function()
+        loadstring(game:HttpGet("https://scripts.alchemyhub.xyz"))()
+    end,
+})
+
+local Tab4 = Window:Tab({
+    Title = "سكربتات ماب البيوت ",
+    Icon = "folder",
+})
+
+Window:SelectTab(4)
+
+local Section4 = Tab4:Section({
+    Title = "جميع سكربتات ماب البيوت هنا",
+    TextXAlignment = "Left",
+    TextSize = 17,
+})
+
+Tab4:Paragraph({
+    Title = "آخر تحديثات",
+    Desc = "2024 - الأحد، 29 ديسمبر",
+})
