@@ -477,7 +477,7 @@ Window:SelectTab(4)
 local Section4 = Tab4:Section({
     Title = "جميع سكربتات ماب البيوت هنا",
     TextXAlignment = "Left",
-    TextSize = 17,
+    TextSize = 18,
 })
 
 Tab4:Paragraph({
@@ -485,7 +485,26 @@ Tab4:Paragraph({
     Desc = "2024 - الأحد، 29 ديسمبر",
 })
 
-Tab4:Paragraph1({
-    Title = "نصيحه❓",
-    Desc = "نص سكربتات تشتغل ونص لا لانه تتحدث بشكل يومي",
+Tab4:Button({
+    Title = "سكربت الاول",
+    Desc = "ريدز✅",
+    Callback = function()
+        loadstring(game:HttpGet(('https://pastebin.com/raw/jf7iaXpH')))()
+    end,
+})
+
+Tab4:Button({
+    Title = "سكربت الثاني",
+    Desc = "نسخ سكنات✅",
+    Callback = function()
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Brookhaven-RP-Rochips-Universal-21865"))()
+    end,
+})
+
+Tab4:Button({
+    Title = "سكربت الثالث",
+    Desc = "بديل ايس هوب",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/M1ZZ001/BrookhavenR4D/main/Brookhaven%20R4D%20Script'))()
+    end,
 })
