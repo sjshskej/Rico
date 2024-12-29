@@ -508,3 +508,21 @@ Tab4:Button({
         loadstring(game:HttpGet('https://raw.githubusercontent.com/M1ZZ001/BrookhavenR4D/main/Brookhaven%20R4D%20Script'))()
     end,
 })
+
+local Tab5 = Window:Tab({
+    Title = "سكربتات Fisch",
+    Icon = "folder",
+})
+
+Window:SelectTab(5)
+
+local Section5 = Tab5:Section({
+    Title = "جميع سكربتات صيد السمك هنا",
+    TextXAlignment = "Left",
+    TextSize = 18,
+})
+
+Tab5:Paragraph({
+    Title = "آخر تحديثات",
+    Desc = "2024 - الأحد، 29 ديسمبر",
+})
