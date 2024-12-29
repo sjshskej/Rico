@@ -484,3 +484,7 @@ Tab4:Paragraph({
     Title = "آخر تحديثات",
     Desc = "2024 - الأحد، 29 ديسمبر",
 })
+
+local Paragraph = MainTab:Paragraph({
+    Title = "نصيحه نص سكربتات تشتغل و ماتشتغل لانه فيه تحديثات❓",
+})
